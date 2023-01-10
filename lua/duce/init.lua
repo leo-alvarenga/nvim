@@ -1,0 +1,8 @@
+require('duce.remap')
+require('duce.packer')
+require('duce.telescope')
+require('duce.harpoon')
+require('duce.undotree')
+require('duce.fugitive')
+require('duce.lsp')
+require('duce.setup')
