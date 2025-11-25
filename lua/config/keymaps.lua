@@ -5,13 +5,14 @@ local _shared = require("config.utils.constants.shared")
 local _workspaces = require("config.utils.workspaces")
 
 local map = _keymap.map
+local to_cmd = _keymap.to_cmd
 
-local keymaps = {}
+local M = {}
 -------------------------------------------------
 
 ---------------------
 --  _buffer management
-function keymaps.buffer_management()
+function M.buffer_management()
 	map("", "<leader>h", ":bprevious<cr>", "Go to previous _buffer")
 	map("", "<leader>l", ":bnext<cr>", "Go to next _buffer")
 
@@ -23,7 +24,7 @@ function keymaps.buffer_management()
 end
 ---------------------
 
-function keymaps.tab_management()
+function M.tab_management()
 	local tab_prefix = "<C-t>"
 
 	map("", tab_prefix .. "h", ":tabprevious<cr>", "Go to previous Tab")
@@ -37,15 +38,15 @@ function keymaps.tab_management()
 end
 
 -- Basics and Helix related keymappings
-function keymaps.setup_basics()
+function M.setup_basics()
 	---------------------
 	--  Undo/Redo
 	map("", "u", ":undo<CR>", "Undo")
 	map("", "U", ":redo<CR>", "Redo")
 	---------------------
 
-	keymaps.buffer_management()
-	keymaps.tab_management()
+	M.buffer_management()
+	M.tab_management()
 
 	---------------------
 	-- Motions inspired by Helix :D
@@ -78,30 +79,38 @@ end
 
 -------------------------------------------------
 -- Formatting and Diagnostics
-function keymaps.setup_fmt()
+function M.setup_fmt()
 	map({ "", "i" }, "<C-s>", _format.format_current, "Format file (if possible)")
 end
 -------------------------------------------------
 
 -------------------------------------------------
 -- Oil keymaps
-function keymaps.setup_oil()
+function M.setup_oil()
 	map("", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
 end
 -------------------------------------------------
 
 -------------------------------------------------
 -- Twilight keymaps
-function keymaps.setup_twilight()
+function M.setup_twilight()
 	map("", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
 end
+-------------------------------------------------
+
+-------------------------------------------------
+-- Git related keymaps
+function M.setup_git()
+	map("", "<C-g>", to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
+end
+
 -------------------------------------------------
 
 -----------------
 -- Grapple
 -----------------
 
-function keymaps.setup_grapple()
+function M.setup_grapple()
 	map("", "<leader>m", ":Grapple toggle<cr>", "Grapple - Toggle tag")
 	map("", "<leader>n", ":Grapple cycle_tags next<cr>", "Grapple - Cycle next tag")
 	map("", "<leader>p", ":Grapple cycle_tags prev<cr>", "Grapple - Cycle previous tag")
@@ -112,7 +121,7 @@ end
 -----------------
 -- Telescope
 -----------------
-function keymaps.setup_telescope()
+function M.setup_telescope()
 	local telescope = require("telescope")
 
 	local telescope_picker_opts = {
@@ -155,12 +164,13 @@ end
 
 -------------------------------------------------
 -- Main setup
-function keymaps.setup_keymaps()
-	keymaps.setup_basics()
-	keymaps.setup_fmt()
-	keymaps.setup_oil()
-	keymaps.setup_twilight()
+function M.setup_keymaps()
+	M.setup_basics()
+	M.setup_fmt()
+	M.setup_oil()
+	M.setup_git()
+	M.setup_twilight()
 end
 -------------------------------------------------
 
-return keymaps
+return M

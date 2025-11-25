@@ -1,6 +1,7 @@
 return {
 	require("plugins.usability.autopairs"),
 	require("plugins.usability.comments"),
+	require("plugins.usability.git-blame"),
 	require("plugins.usability.grapple"),
 	require("plugins.usability.move"),
 	require("plugins.usability.surround"),

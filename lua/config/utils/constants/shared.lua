@@ -2,6 +2,11 @@ return {
 	dashboard = {
 		cmd = "Dashboard",
 	},
+	git = {
+		blame = {
+			cmd = "GitBlameToggle",
+		},
+	},
 	oil = {
 		cmd = "Oil",
 	},
@@ -15,5 +20,8 @@ return {
 		workspaces = {
 			cmd = "Telescope workspaces",
 		},
+	},
+	twilight = {
+		cmd = "Twilight",
 	},
 }
