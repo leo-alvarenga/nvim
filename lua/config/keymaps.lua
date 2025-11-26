@@ -94,7 +94,9 @@ end
 -------------------------------------------------
 -- Twilight keymaps
 function M.setup_twilight()
-	map("", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
+	local twilight = require("config.utils.twilight")
+
+	map("", "<C-e>", twilight.toggle_twilight, "Toggle Twilight dim")
 end
 -------------------------------------------------
 
