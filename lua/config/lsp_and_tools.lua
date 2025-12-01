@@ -12,13 +12,47 @@ local function setup_mason()
 	mason.setup()
 end
 
-local function setup_lspconfig()
-	local lspconfig = require("mason-lspconfig")
+local function setup_lsp()
+	local mason_lspconfig = require("mason-lspconfig")
 
-	lspconfig.setup({
-		ensure_installed = _langs.lang_server_list,
+	mason_lspconfig.setup({
 		automatic_enable = automatic_enable.language_servers,
 	})
+
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+	local on_attach = function(_, bufnr)
+		local opts = { buffer = bufnr, silent = true, desc = "Go to definition" }
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	end
+
+	for _i, server in ipairs(_langs.lang_server_list) do
+		local config = vim.lsp.config[server]
+
+		if server == "lua_ls" then
+			config.settings = {
+				Lua = {
+					diagnostics = { globals = { "vim" } },
+					workspace = {
+						library = {
+							vim.env.VIMRUNTIME,
+						},
+
+						checkThirdParty = false,
+					},
+					telemetry = { enable = false },
+				},
+			}
+		end
+
+		local final_config = vim.tbl_deep_extend("force", config, {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		vim.lsp.config[server] = final_config
+		vim.lsp.enable(server)
+	end
 end
 
 local function setup_linters()
@@ -63,6 +97,8 @@ local function setup_tools()
 		auto_update = true,
 
 		ensure_installed = _table.merge_arrays({
+			_langs.lang_server_list,
+
 			_langs.formatters.basics,
 			_langs.formatters.devops_and_infra,
 			_langs.formatters.web_dev,
@@ -79,17 +115,6 @@ local function setup_tools()
 		run_on_start = true,
 		start_delay = 5000,
 	})
-end
-
-local function setup_blink()
-	local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-	for i, server in ipairs(_langs.lang_server_list) do
-		local config = vim.lsp.config[server]
-		vim.lsp.config[server] = _table.merge_arrays({ config, { capabilities = capabilities } })
-
-		vim.lsp.enable(server)
-	end
 end
 
 local function setup_conform()
@@ -130,9 +155,8 @@ end
 
 local function config()
 	setup_mason()
-	setup_lspconfig()
 	setup_linters()
-	setup_blink()
+	setup_lsp()
 	setup_tools()
 
 	setup_conform()
