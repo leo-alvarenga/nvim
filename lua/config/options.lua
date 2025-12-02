@@ -7,7 +7,7 @@ vim.g.maplocalleader = "\\"
 
 local tabwidth = 4
 
-local tabchar = "» "
+local tabchar = "| "
 local trailingspacechar = "·"
 local nbspchar = "␣"
 
@@ -23,8 +23,8 @@ vim.opt.softtabstop = tabwidth -- How many spaces are applied when pressing Tab
 vim.opt.wrap = false
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.list = true
-vim.opt.listchars = { tab = tabchar, trail = trailingspacechar, nbsp = nbspchar }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = tabchar, trail = trailingspacechar, nbsp = nbspchar }
 vim.opt.scrolloff = scroll_off
 vim.opt.sidescrolloff = scroll_off
 vim.opt.number = true

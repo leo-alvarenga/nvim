@@ -7,6 +7,17 @@ return {
 			cmd = "GitBlameToggle",
 		},
 	},
+	ibl = {
+		toggle = {
+			cmd = "IBLToogle",
+		},
+		disable = {
+			cmd = "IBLDisable",
+		},
+		enable = {
+			cmd = "IBLEnable",
+		},
+	},
 	oil = {
 		cmd = "Oil",
 	},
