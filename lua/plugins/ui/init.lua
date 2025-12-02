@@ -1,9 +1,9 @@
 return {
+	require("plugins.ui.blink-indent"),
 	require("plugins.ui.highlights"),
 	require("plugins.ui.bufferline"),
 	require("plugins.ui.dashboard"),
 	require("plugins.ui.icons"),
-	require("plugins.ui.indent-blankline"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.pick"),
 	require("plugins.ui.oil"),
