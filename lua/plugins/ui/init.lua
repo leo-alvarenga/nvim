@@ -3,6 +3,7 @@ return {
 	require("plugins.ui.bufferline"),
 	require("plugins.ui.dashboard"),
 	require("plugins.ui.icons"),
+	require("plugins.ui.mini-animate"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.pick"),
 	require("plugins.ui.oil"),

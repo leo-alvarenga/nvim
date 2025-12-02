@@ -1,11 +1,8 @@
-local _buffer = require("config.utils.buffer")
-local _format = require("config.utils.format")
-local _keymap = require("config.utils.keymap")
-local _shared = require("config.utils.constants.shared")
-local _workspaces = require("config.utils.workspaces")
+local _buffer = require("utils.buffer")
+local _format = require("utils.format")
+local _keymap = require("utils.keymap")
 
 local map = _keymap.map
-local to_cmd = _keymap.to_cmd
 
 local M = {}
 -------------------------------------------------
@@ -84,30 +81,6 @@ function M.setup_fmt()
 end
 -------------------------------------------------
 
--------------------------------------------------
--- Oil keymaps
-function M.setup_oil()
-	map("", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
-end
--------------------------------------------------
-
--------------------------------------------------
--- Twilight keymaps
-function M.setup_twilight()
-	local twilight = require("config.utils.twilight")
-
-	map("", "<C-e>", twilight.toggle_twilight, "Toggle Twilight dim")
-end
--------------------------------------------------
-
--------------------------------------------------
--- Git related keymaps
-function M.setup_git()
-	map("", "<C-g>", to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
-end
-
--------------------------------------------------
-
 -----------------
 -- Grapple
 -----------------
@@ -120,58 +93,11 @@ end
 
 -------------------------------------------------
 
------------------
--- Telescope
------------------
-function M.setup_telescope()
-	local telescope = require("telescope")
-
-	local telescope_picker_opts = {
-		theme = "dropdown",
-	}
-
-	telescope.setup({
-		buffers = telescope_picker_opts,
-		fd = telescope_picker_opts,
-		grapple = telescope_picker_opts,
-		help_tags = telescope_picker_opts,
-		live_grep = telescope_picker_opts,
-		workspaces = telescope_picker_opts,
-	})
-
-	local builtin = require("telescope.builtin")
-
-	map("n", "<leader>f", function()
-		builtin.fd({ hidden = true })
-	end, "Telescope - Find files")
-
-	map("", "<leader>g", builtin.git_files, "Telescope - Git files")
-
-	map("", "<leader>F", function()
-		builtin.live_grep({ hidden = true })
-	end, "Telescope - Live grep")
-
-	map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
-
-	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
-	map("", "<leader>w", ":" .. _shared.telescope.workspaces.cmd .. "<CR>", "Telescope - Workspaces")
-
-	map("", "<leader>M", ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
-	map("", "<leader>W", _workspaces.manage_workspaces, "Telescope - Manage workspaces")
-
-	telescope.load_extension("grapple")
-	telescope.load_extension("workspaces")
-end
--------------------------------------------------
-
 -------------------------------------------------
 -- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
 	M.setup_fmt()
-	M.setup_oil()
-	M.setup_git()
-	M.setup_twilight()
 end
 -------------------------------------------------
 

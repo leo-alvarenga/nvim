@@ -1,4 +1,4 @@
-local _langs = require("config.utils.constants.languages")
+local _langs = require("utils.constants.languages")
 
 local M = {
 	"nvim-treesitter/nvim-treesitter",

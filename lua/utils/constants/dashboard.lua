@@ -1,7 +1,7 @@
-local _lazy = require("config.utils.lazy")
-local _quote = require("config.utils.quote")
-local _shared = require("config.utils.constants.shared")
-local _table = require("config.utils.table")
+local _lazy = require("utils.lazy")
+local _quote = require("utils.quote")
+local _shared = require("utils.constants.shared")
+local _table = require("utils.table")
 
 ---Normalize as an actual prompt command
 ---@param cmd string
@@ -37,18 +37,11 @@ local M = {}
 
 M.theme = "doom"
 
-M.icon = {
-	" ",
-	"⣴⣾⣿⣿⣿⣿⣷⣦",
-	"⣿⣿⣿⣿⣿⣿⣿⣿",
-	"⡟⠛⠽⣿⣿⠯⠛⢻",
-	"⣧⣀⣀⡾⢷⣀⣀⣼",
-	" ⡏⢽⢴⡦⡯⢹",
-	" ⠙⢮⣙⣋⡵⠋",
-	"⠉⠉", -- Yes, this line has to stay crooked
-}
-
 M.banner = {
+	" ",
+	" ",
+	" ",
+	" ",
 	" ",
 	"███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
 	"████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
@@ -62,7 +55,7 @@ M.banner = {
 M.quote = _quote.get_random()
 
 M.header = _table.merge_arrays({
-	M.icon,
+	M.icon or {},
 	M.banner,
 	M.quote,
 	{

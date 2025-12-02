@@ -7,7 +7,7 @@ local M = {
 }
 
 function M.config()
-	local values = require("config.utils.constants.dashboard")
+	local values = require("utils.constants.dashboard")
 
 	require("dashboard").setup({
 

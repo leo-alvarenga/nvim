@@ -1,4 +1,4 @@
-local _table = require("config.utils.table")
+local _table = require("utils.table")
 
 local M = {}
 
