@@ -27,6 +27,22 @@ return {
 						telemetry = { enable = false },
 					},
 				}
+			elseif server == "tsserver" then
+				config.settings = {
+					typescript = {
+						preferences = {
+							importModuleSpecifier = "auto",
+							includeCompletionsForModuleExports = true,
+							includeInlayParameterNameHints = "all",
+						},
+					},
+					javascript = {
+						preferences = {
+							importModuleSpecifier = "auto",
+							includeCompletionsForModuleExports = true,
+						},
+					},
+				}
 			end
 
 			local final_config = vim.tbl_deep_extend("force", config, {

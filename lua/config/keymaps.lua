@@ -1,5 +1,4 @@
 local _buffer = require("utils.buffer")
-local _format = require("utils.format")
 local _keymap = require("utils.keymap")
 
 local map = _keymap.map
@@ -85,8 +84,10 @@ end
 -------------------------------------------------
 
 -------------------------------------------------
--- Formatting and Diagnostics
-function M.setup_fmt()
+-- Plugin related
+function M.setup_plugin()
+	local _format = require("utils.format")
+
 	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
 	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_auto_format, "Toggle format on save")
 
@@ -110,7 +111,7 @@ end
 -- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
-	M.setup_fmt()
+	M.setup_plugin()
 end
 -------------------------------------------------
 
