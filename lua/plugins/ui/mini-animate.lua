@@ -1,1 +1,9 @@
-return { "nvim-mini/mini.animate", opts = {}, version = "*" }
+return {
+	"nvim-mini/mini.animate",
+	version = "*",
+	opts = {
+		cursor = {
+			enabled = false,
+		},
+	},
+}

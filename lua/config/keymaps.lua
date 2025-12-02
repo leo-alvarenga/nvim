@@ -71,6 +71,15 @@ function M.setup_basics()
 	map("n", "X", "0v$k")
 	map("x", "X", "0$k")
 	---------------------
+
+	-- Oil
+	require("utils.keymap").map("", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
+
+	-- Git blame
+	local _shared = require("utils.constants.shared")
+	local to_cmd = _keymap.to_cmd
+
+	map("", "<C-g>", to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
 end
 -------------------------------------------------
 

@@ -82,7 +82,7 @@ vim.opt.backspace = "indent,eol,start" -- Better backspace behavior
 vim.opt.autochdir = false -- Don't auto change directory
 vim.opt.iskeyword:append("-") -- Treat dash as part of word
 vim.opt.path:append("**") -- include subdirectories in search
-vim.opt.selection = "exclusive" -- Selection behavior
+vim.opt.selection = "inclusive" -- Selection behavior - incluse include the starting char
 vim.opt.mouse = "a" -- Enable mouse support
 vim.opt.modifiable = true -- Allow buffer modifications
 vim.opt.encoding = "UTF-8" -- Set encoding
