@@ -5,9 +5,12 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
 	version = false,
 	config = function()
-		local map = require("utils.keymap").map
+		local _keymap = require("utils.keymap")
 		local _shared = require("utils.constants.shared")
 		local _workspaces = require("utils.workspaces")
+
+		local map = _keymap.map
+		local with_prefix = _keymap.with_prefix
 
 		local telescope = require("telescope")
 
@@ -26,23 +29,28 @@ return {
 
 		local builtin = require("telescope.builtin")
 
-		map("n", "<leader>f", function()
+		map("n", with_prefix("f", "pickers"), function()
 			builtin.fd({ hidden = true })
 		end, "Telescope - Find files")
 
-		map("", "<leader>g", builtin.git_files, "Telescope - Git files")
+		map("", with_prefix("g", "pickers"), builtin.git_files, "Telescope - Git files")
 
-		map("", "<leader>F", function()
+		map("", with_prefix("F", "pickers"), function()
 			builtin.live_grep({ hidden = true })
 		end, "Telescope - Live grep")
 
-		map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
+		map("", with_prefix("c", "pickers"), builtin.buffers, "Telescope - Buffers")
 
-		map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
-		map("", "<leader>w", ":" .. _shared.telescope.workspaces.cmd .. "<CR>", "Telescope - Workspaces")
+		map("", with_prefix("C", "pickers"), builtin.help_tags, "Telescope - help tags")
+		map(
+			"",
+			with_prefix("w", "pickers"),
+			":" .. _shared.telescope.workspaces.cmd .. "<CR>",
+			"Telescope - Workspaces"
+		)
 
-		map("", "<leader>M", ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
-		map("", "<leader>W", _workspaces.manage_workspaces, "Telescope - Manage workspaces")
+		map("", with_prefix("M", "pickers"), ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
+		map("", with_prefix("W", "pickers"), _workspaces.manage_workspaces, "Telescope - Manage workspaces")
 
 		telescope.load_extension("grapple")
 		telescope.load_extension("workspaces")
