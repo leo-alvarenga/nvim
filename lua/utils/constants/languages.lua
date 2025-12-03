@@ -76,7 +76,7 @@ M.language_servers = {
 	},
 
 	web_dev = {
-		"ts_ls",
+		"tsgo",
 
 		-- Backend
 		"jqls",
@@ -100,7 +100,6 @@ M.lang_server_list = _table.merge_arrays({
 	M.language_servers.devops_and_infra,
 	M.language_servers.web_dev,
 })
-
 
 M.formatters = {
 	basics = {
