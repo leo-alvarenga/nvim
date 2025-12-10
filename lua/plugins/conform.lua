@@ -10,6 +10,7 @@ return {
 			bash = { "shellharden", "shfmt", stop_after_first = true },
 			json = { "prettier" },
 			lua = { "stylua" },
+			markdown = { "prettier" },
 
 			-- DevOps and Infra
 			terraform = { "terraform" },
