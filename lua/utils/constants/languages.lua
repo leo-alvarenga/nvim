@@ -60,6 +60,7 @@ M.language_servers = {
 		"hyprls",
 		"jsonls",
 		"lua_ls",
+		"marksman",
 	},
 
 	devops_and_infra = {

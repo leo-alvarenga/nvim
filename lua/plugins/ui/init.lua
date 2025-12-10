@@ -5,6 +5,7 @@ return {
 	require("plugins.ui.dashboard"),
 	require("plugins.ui.icons"),
 	require("plugins.ui.notify"),
+	require("plugins.ui.markdown-preview"),
 	require("plugins.ui.pick"),
 	require("plugins.ui.oil"),
 	require("plugins.ui.show-key"),
