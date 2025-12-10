@@ -10,13 +10,13 @@ return {
 	keys = {
 		{
 			with_prefix("dd", "pickers"),
-			"<cmd>Trouble diagnostics toggle<cr>",
-			desc = "Diagnostics (Trouble)",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
 		},
 		{
 			with_prefix("dD", "pickers"),
-			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-			desc = "Buffer Diagnostics (Trouble)",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
 		},
 		{
 			with_prefix("cs", "pickers"),

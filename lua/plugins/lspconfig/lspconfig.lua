@@ -1,3 +1,54 @@
+local specific_settings = {
+	lua_ls = {
+		Lua = {
+			diagnostics = { globals = { "vim" } },
+			workspace = {
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+
+				checkThirdParty = false,
+			},
+			telemetry = { enable = false },
+		},
+	},
+	tsserver = {
+		typescript = {
+			preferences = {
+				importModuleSpecifier = "auto",
+				includeCompletionsForModuleExports = true,
+				includeInlayParameterNameHints = "all",
+			},
+		},
+		javascript = {
+			preferences = {
+				importModuleSpecifier = "auto",
+				includeCompletionsForModuleExports = true,
+			},
+		},
+	},
+}
+
+local function on_attach(_, bufnr)
+	local opts = { buffer = bufnr, silent = true, desc = "Go to definition" }
+
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+end
+
+local function get_config(capabilities, server)
+	local config = vim.lsp.config[server]
+	local extras = specific_settings[server]
+
+	if extras then
+		config.settings = extras
+	end
+
+	return vim.tbl_deep_extend("force", config, {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+end
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = { "saghen/blink.cmp" },
@@ -5,52 +56,8 @@ return {
 		local _langs = require("utils.constants.languages")
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		local on_attach = function(_, bufnr)
-			local opts = { buffer = bufnr, silent = true, desc = "Go to definition" }
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		end
-
 		for _i, server in ipairs(_langs.lang_server_list) do
-			local config = vim.lsp.config[server]
-
-			if server == "lua_ls" then
-				config.settings = {
-					Lua = {
-						diagnostics = { globals = { "vim" } },
-						workspace = {
-							library = {
-								vim.env.VIMRUNTIME,
-							},
-
-							checkThirdParty = false,
-						},
-						telemetry = { enable = false },
-					},
-				}
-			elseif server == "tsserver" then
-				config.settings = {
-					typescript = {
-						preferences = {
-							importModuleSpecifier = "auto",
-							includeCompletionsForModuleExports = true,
-							includeInlayParameterNameHints = "all",
-						},
-					},
-					javascript = {
-						preferences = {
-							importModuleSpecifier = "auto",
-							includeCompletionsForModuleExports = true,
-						},
-					},
-				}
-			end
-
-			local final_config = vim.tbl_deep_extend("force", config, {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			vim.lsp.config[server] = final_config
+			vim.lsp.config[server] = get_config(capabilities, server)
 			vim.lsp.enable(server)
 		end
 	end,
