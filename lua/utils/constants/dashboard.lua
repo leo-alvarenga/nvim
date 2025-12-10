@@ -1,5 +1,4 @@
 local _lazy = require("utils.lazy")
-local _quote = require("utils.quote")
 local _shared = require("utils.constants.shared")
 local _table = require("utils.table")
 
@@ -56,12 +55,16 @@ M.banner = {
 	" ",
 }
 
-M.quote = _quote.get_random()
+M.quote = require("quoth-nvim").get_random_quote()
 
 M.header = _table.merge_arrays({
 	M.icon or {},
 	M.banner,
-	M.quote,
+	{
+		M.quote.text,
+		"",
+		M.quote.author,
+	},
 	{
 		" ",
 		" ",
