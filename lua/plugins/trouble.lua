@@ -24,11 +24,6 @@ return {
 			desc = "Symbols (Trouble)",
 		},
 		{
-			with_prefix("cl", "pickers"),
-			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-			desc = "LSP Definitions / references / ... (Trouble)",
-		},
-		{
 			with_prefix("dL", "pickers"),
 			"<cmd>Trouble loclist toggle<cr>",
 			desc = "Location List (Trouble)",

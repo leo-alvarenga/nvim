@@ -57,7 +57,7 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true -- Show search results incremently as you type
 
 -- Diagnostics
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = false })
 
 -- Visual settings
 vim.opt.termguicolors = true -- Enable 24-bit colors
