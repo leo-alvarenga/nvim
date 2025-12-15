@@ -4,7 +4,19 @@ return {
 	priority = 1000,
 	config = function()
 		local diag = require("tiny-inline-diagnostic")
-		diag.setup()
+		diag.setup({
+			preset = "simple",
+
+			options = {
+				enable_on_selecte = true,
+				show_all_diags_on_cursorline = true,
+
+				show_source = {
+					enabled = true,
+					if_many = true,
+				},
+			},
+		})
 
 		local _keymap = require("utils.keymap")
 		local map = _keymap.map
