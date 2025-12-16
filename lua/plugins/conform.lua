@@ -8,7 +8,7 @@ return {
 		formatters_by_ft = {
 			-- Basics
 			bash = { "shellharden", "shfmt", stop_after_first = true },
-			json = { "prettier" },
+			json = { "prettier", "jq", stop_after_first = true },
 			lua = { "stylua" },
 			markdown = { "prettier" },
 
