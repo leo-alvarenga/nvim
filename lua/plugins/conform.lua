@@ -14,7 +14,7 @@ return {
 
 			-- DevOps and Infra
 			terraform = { "terraform" },
-			yaml = { "prettier", "helm_ls" },
+			yaml = { "yamlfmt", "prettier", "helm_ls" },
 
 			-- Web dev
 			css = static_web_fmt_combo,

@@ -114,6 +114,7 @@ M.formatters = {
 	devops_and_infra = {
 		"nginx-config-formatter",
 		"terraform",
+		"yamlfmt",
 	},
 
 	web_dev = {
