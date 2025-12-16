@@ -12,7 +12,8 @@ return {
 
 			-- DevOps and Infra
 			terraform = { "terraform" },
-			smarty = { "sonarlint-language-server" }, -- Some helm files are described as smarty
+			helm = { "kube-linter" },
+			smarty = { "kube-linter" }, -- Some helm files are described as smarty
 			yaml = { "sonarlint-language-server" },
 
 			-- Web dev

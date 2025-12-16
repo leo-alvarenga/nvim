@@ -129,6 +129,7 @@ M.linters = {
 
 	devops_and_infra = {
 		"sonarlint-language-server",
+		"kube-linter",
 	},
 
 	web_dev = {
