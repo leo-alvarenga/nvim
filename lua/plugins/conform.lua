@@ -1,5 +1,5 @@
 local static_web_fmt_combo = { "prettier", "ast-grep", stop_after_first = true }
-local web_fmt_combo = { "prettierd", "prettier", stop_after_first = true }
+local web_fmt_combo = { "prettier", stop_after_first = true }
 
 return {
 	-- Apply formatters
