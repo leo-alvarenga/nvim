@@ -55,22 +55,26 @@ M.banner = {
 	" ",
 }
 
-M.quote = require("quoth-nvim").get_random_quote()
+M.header = {}
 
-M.header = _table.merge_arrays({
-	M.icon or {},
-	M.banner,
-	{
-		M.quote.text,
-		"",
-		M.quote.author,
-	},
-	{
-		" ",
-		" ",
-		" ",
-	},
-})
+function M.update_header()
+	local quote = require("quoth-nvim").get_random_quote()
+
+	M.header = _table.merge_arrays({
+		M.icon or {},
+		M.banner,
+		{
+			quote.text,
+			"",
+			quote.author,
+		},
+		{
+			" ",
+			" ",
+			" ",
+		},
+	})
+end
 
 M.footer = {
 	" " .. _lazy.get_pkg_count() .. " plugins installed with Lazy.nvim",

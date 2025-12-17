@@ -11,6 +11,7 @@ function M.close_current()
 		return
 	end
 
+	require("plugins.ui.dashboard").config()
 	vim.cmd("bd | " .. _shared.dashboard.cmd)
 end
 

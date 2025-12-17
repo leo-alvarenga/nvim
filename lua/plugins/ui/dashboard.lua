@@ -9,6 +9,8 @@ local M = {
 function M.config()
 	local values = require("utils.constants.dashboard")
 
+	values.update_header()
+
 	require("dashboard").setup({
 
 		theme = values.theme,
