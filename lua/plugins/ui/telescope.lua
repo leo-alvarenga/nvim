@@ -33,7 +33,7 @@ return {
 			builtin.fd({ hidden = true })
 		end, "Telescope - Find files")
 
-		map("", with_prefix("g", "pickers"), builtin.git_files, "Telescope - Git files")
+		map("", with_prefix("G", "pickers"), builtin.git_files, "Telescope - Git files")
 
 		map("", with_prefix("F", "pickers"), function()
 			builtin.live_grep({ hidden = true })
@@ -42,16 +42,19 @@ return {
 		map("", with_prefix("c", "pickers"), builtin.buffers, "Telescope - Buffers")
 
 		map("", with_prefix("C", "pickers"), builtin.help_tags, "Telescope - help tags")
+
+		map("", with_prefix("g", "pickers"), ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
+
+		-- Workspaces
 		map(
 			"",
 			with_prefix("w", "pickers"),
 			":" .. _shared.telescope.workspaces.cmd .. "<CR>",
 			"Telescope - Workspaces"
 		)
-
-		map("", with_prefix("M", "pickers"), ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
 		map("", with_prefix("W", "pickers"), _workspaces.manage_workspaces, "Telescope - Manage workspaces")
 
+		-- Loading extensions
 		telescope.load_extension("grapple")
 		telescope.load_extension("workspaces")
 	end,

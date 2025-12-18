@@ -4,6 +4,6 @@ return {
 		{ "nvim-tree/nvim-web-devicons", lazy = true },
 	},
 	opts = {
-		scope = "git_branch",
+		scope = "lsp",
 	},
 }

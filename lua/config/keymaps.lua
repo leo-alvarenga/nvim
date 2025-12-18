@@ -79,7 +79,8 @@ function M.setup_basics()
 	local _shared = require("utils.constants.shared")
 	local to_cmd = _keymap.to_cmd
 
-	map("", with_prefix("g", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
+	map("", with_prefix("G", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
+	map("", with_prefix("g", "actions"), require("utils.grapple").toggle, "Toggle Grapple tag")
 end
 -------------------------------------------------
 
