@@ -1,4 +1,4 @@
-local _shared = require("config.utils.constants.shared")
+local _shared = require("utils.constants.shared")
 
 local M = {}
 
@@ -11,6 +11,7 @@ function M.close_current()
 		return
 	end
 
+	require("plugins.ui.dashboard").config()
 	vim.cmd("bd | " .. _shared.dashboard.cmd)
 end
 

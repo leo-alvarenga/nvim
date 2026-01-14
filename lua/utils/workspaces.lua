@@ -1,4 +1,4 @@
-local _shared = require("config.utils.constants.shared")
+local _shared = require("utils.constants.shared")
 
 local M = {}
 

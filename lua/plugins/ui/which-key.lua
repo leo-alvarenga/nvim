@@ -5,7 +5,7 @@ return {
 	opts = {},
 	keys = {
 		{
-			"<leader>?",
+			require("utils.keymap").with_prefix("?", "general"),
 			function()
 				require("which-key").show({ global = false })
 			end,

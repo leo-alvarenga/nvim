@@ -1,4 +1,4 @@
-local _table = require("config.utils.table")
+local _table = require("utils.table")
 
 local M = {}
 
@@ -60,6 +60,7 @@ M.language_servers = {
 		"hyprls",
 		"jsonls",
 		"lua_ls",
+		"marksman",
 	},
 
 	devops_and_infra = {
@@ -76,7 +77,7 @@ M.language_servers = {
 	},
 
 	web_dev = {
-		"ts_ls",
+		"tsgo",
 
 		-- Backend
 		"jqls",
@@ -101,7 +102,6 @@ M.lang_server_list = _table.merge_arrays({
 	M.language_servers.web_dev,
 })
 
-
 M.formatters = {
 	basics = {
 		"ast-grep",
@@ -114,6 +114,7 @@ M.formatters = {
 	devops_and_infra = {
 		"nginx-config-formatter",
 		"terraform",
+		"yamlfmt",
 	},
 
 	web_dev = {
@@ -129,6 +130,7 @@ M.linters = {
 
 	devops_and_infra = {
 		"sonarlint-language-server",
+		"kube-linter",
 	},
 
 	web_dev = {

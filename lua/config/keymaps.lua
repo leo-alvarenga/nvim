@@ -1,11 +1,8 @@
-local _buffer = require("config.utils.buffer")
-local _format = require("config.utils.format")
-local _keymap = require("config.utils.keymap")
-local _shared = require("config.utils.constants.shared")
-local _workspaces = require("config.utils.workspaces")
+local _buffer = require("utils.buffer")
+local _keymap = require("utils.keymap")
 
 local map = _keymap.map
-local to_cmd = _keymap.to_cmd
+local with_prefix = _keymap.with_prefix
 
 local M = {}
 -------------------------------------------------
@@ -13,28 +10,28 @@ local M = {}
 ---------------------
 --  _buffer management
 function M.buffer_management()
-	map("", "<leader>h", ":bprevious<cr>", "Go to previous _buffer")
-	map("", "<leader>l", ":bnext<cr>", "Go to next _buffer")
+	map("", with_prefix("h", "buffers"), ":bprevious<cr>", "Go to previous _buffer")
+	map("", with_prefix("l", "buffers"), ":bnext<cr>", "Go to next _buffer")
 
 	-- Open new _buffer
-	map("", "<leader>n", ":enew<CR>", "Open new empty _buffer")
+	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty _buffer")
 
 	-- Close current _buffer
-	map("", "<leader>q", _buffer.close_current, "Close current Buffer (go to Dashboard if it's the last one)")
+	map(
+		"",
+		with_prefix("q", "buffers"),
+		_buffer.close_current,
+		"Close current Buffer (go to Dashboard if it's the last one)"
+	)
 end
 ---------------------
 
 function M.tab_management()
-	local tab_prefix = "<C-t>"
-
-	map("", tab_prefix .. "h", ":tabprevious<cr>", "Go to previous Tab")
-	map("", tab_prefix .. "l", ":tabnext<cr>", "Go to next Tab")
-
-	map("", tab_prefix .. "n", ":tabnew<CR>", "Open new empty Tab")
-
-	map("", tab_prefix .. "q", ":tabclose<CR>", "Close current Tab")
-
-	map("", tab_prefix .. "o", ":tabonly<CR>", "Close all tabs (except for the current one)")
+	map("", with_prefix("h", "tabs"), ":tabprevious<cr>", "Go to previous Tab")
+	map("", with_prefix("l", "tabs"), ":tabnext<cr>", "Go to next Tab")
+	map("", with_prefix("n", "tabs"), ":tabnew<CR>", "Open new empty Tab")
+	map("", with_prefix("q", "tabs"), ":tabclose<CR>", "Close current Tab")
+	map("", with_prefix("o", "tabs"), ":tabonly<CR>", "Close all tabs (except for the current one)")
 end
 
 -- Basics and Helix related keymappings
@@ -74,38 +71,29 @@ function M.setup_basics()
 	map("n", "X", "0v$k")
 	map("x", "X", "0$k")
 	---------------------
+
+	-- Oil
+	require("utils.keymap").map("", with_prefix("e", "pickers"), ":Oil<CR>", "Explore current directory using Oil")
+
+	-- Git blame
+	local _shared = require("utils.constants.shared")
+	local to_cmd = _keymap.to_cmd
+
+	map("", with_prefix("G", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
+	map("", with_prefix("g", "actions"), require("utils.grapple").toggle, "Toggle Grapple tag")
 end
 -------------------------------------------------
 
 -------------------------------------------------
--- Formatting and Diagnostics
-function M.setup_fmt()
-	map({ "", "i" }, "<C-s>", _format.format_current, "Format file (if possible)")
+-- Plugin related
+function M.setup_plugin()
+	local _format = require("utils.format")
+
+	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
+	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_auto_format, "Toggle format on save")
+
+	_format.setup_autocmd()
 end
--------------------------------------------------
-
--------------------------------------------------
--- Oil keymaps
-function M.setup_oil()
-	map("", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
-end
--------------------------------------------------
-
--------------------------------------------------
--- Twilight keymaps
-function M.setup_twilight()
-	local twilight = require("config.utils.twilight")
-
-	map("", "<C-e>", twilight.toggle_twilight, "Toggle Twilight dim")
-end
--------------------------------------------------
-
--------------------------------------------------
--- Git related keymaps
-function M.setup_git()
-	map("", "<C-g>", to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
-end
-
 -------------------------------------------------
 
 -----------------
@@ -113,65 +101,18 @@ end
 -----------------
 
 function M.setup_grapple()
-	map("", "<leader>m", ":Grapple toggle<cr>", "Grapple - Toggle tag")
-	map("", "<leader>n", ":Grapple cycle_tags next<cr>", "Grapple - Cycle next tag")
-	map("", "<leader>p", ":Grapple cycle_tags prev<cr>", "Grapple - Cycle previous tag")
+	map("", with_prefix("m", "pickers"), ":Grapple toggle<cr>", "Grapple - Toggle tag")
+	map("", with_prefix("n", "pickers"), ":Grapple cycle_tags next<cr>", "Grapple - Cycle next tag")
+	map("", with_prefix("p", "pickers"), ":Grapple cycle_tags prev<cr>", "Grapple - Cycle previous tag")
 end
 
--------------------------------------------------
-
------------------
--- Telescope
------------------
-function M.setup_telescope()
-	local telescope = require("telescope")
-
-	local telescope_picker_opts = {
-		theme = "dropdown",
-	}
-
-	telescope.setup({
-		buffers = telescope_picker_opts,
-		fd = telescope_picker_opts,
-		grapple = telescope_picker_opts,
-		help_tags = telescope_picker_opts,
-		live_grep = telescope_picker_opts,
-		workspaces = telescope_picker_opts,
-	})
-
-	local builtin = require("telescope.builtin")
-
-	map("n", "<leader>f", function()
-		builtin.fd({ hidden = true })
-	end, "Telescope - Find files")
-
-	map("", "<leader>g", builtin.git_files, "Telescope - Git files")
-
-	map("", "<leader>F", function()
-		builtin.live_grep({ hidden = true })
-	end, "Telescope - Live grep")
-
-	map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
-
-	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
-	map("", "<leader>w", ":" .. _shared.telescope.workspaces.cmd .. "<CR>", "Telescope - Workspaces")
-
-	map("", "<leader>M", ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
-	map("", "<leader>W", _workspaces.manage_workspaces, "Telescope - Manage workspaces")
-
-	telescope.load_extension("grapple")
-	telescope.load_extension("workspaces")
-end
 -------------------------------------------------
 
 -------------------------------------------------
 -- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
-	M.setup_fmt()
-	M.setup_oil()
-	M.setup_git()
-	M.setup_twilight()
+	M.setup_plugin()
 end
 -------------------------------------------------
 

@@ -1,10 +1,16 @@
+local with_prefix = require("utils.keymap").with_prefix
+
 return {
 	-- Completions
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets" },
 	version = "1.*",
 	opts = {
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "default",
+			["<C-space>"] = false,
+			["<C-r>"] = { "show", "show_documentation", "hide_documentation" },
+		},
 
 		appearance = {
 			nerd_font_variant = "mono",
