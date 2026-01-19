@@ -1,6 +1,6 @@
 local M = {}
 
-M.format_on_save = require("utils.config"):get("development").format_on_save or false
+M.format_on_save = require("utils.config"):get("toggles").format_on_save or false
 
 function M.get_formatters()
 	local formatters_by_ft = require("utils.config"):get("development").formatters_by_ft or {}
