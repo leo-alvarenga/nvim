@@ -1,29 +1,28 @@
-local _langs = require("utils.constants.languages")
 local _table = require("utils.table")
 
-return {
-	-- Manage all LSP and other tools
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	opts = {
-		auto_update = true,
+local function get_mason_tool_installer()
+	local _langs = require("utils.config"):get("development").languages or {}
 
-		ensure_installed = _table.merge_arrays({
-			_langs.lang_server_list,
+	return {
+		-- Manage all LSP and other tools
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			auto_update = true,
 
-			_langs.formatters.basics,
-			_langs.formatters.devops_and_infra,
-			_langs.formatters.web_dev,
+			ensure_installed = _table.merge_arrays({
+				_langs.lsps or nil,
+				_langs.formatters or nil,
+				_langs.linters or nil,
+			}),
 
-			_langs.linters.basics,
-			_langs.linters.devops_and_infra,
-			_langs.linters.web_dev,
-		}),
+			integrations = {
+				["mason-lspconfig"] = true,
+			},
 
-		integrations = {
-			["mason-lspconfig"] = true,
+			run_on_start = true,
+			start_delay = 5000,
 		},
+	}
+end
 
-		run_on_start = true,
-		start_delay = 5000,
-	},
-}
+return get_mason_tool_installer()

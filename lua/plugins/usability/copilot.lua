@@ -1,5 +1,5 @@
 local function get_copilot()
-	local copilot_enabled = require("utils.constants.toggles").copilot
+	local copilot_enabled = require("utils.config"):get("toggles").copilot or false
 
 	if not copilot_enabled then
 		return {}

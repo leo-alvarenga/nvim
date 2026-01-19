@@ -90,7 +90,7 @@ function M.setup_plugin()
 	local _format = require("utils.format")
 
 	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
-	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_auto_format, "Toggle format on save")
+	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_format_on_save, "Toggle format on save")
 
 	_format.setup_autocmd()
 end

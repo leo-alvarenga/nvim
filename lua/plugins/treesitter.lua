@@ -1,5 +1,3 @@
-local _langs = require("utils.constants.languages")
-
 local M = {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "master",
@@ -9,6 +7,7 @@ local M = {
 
 function M.config()
 	local configs = require("nvim-treesitter.configs")
+	local _langs = require("utils.config"):get("development")
 
 	configs.setup({
 		ensure_installed = _langs.languages,
