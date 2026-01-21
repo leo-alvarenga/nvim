@@ -8,15 +8,15 @@ local M = {}
 -------------------------------------------------
 
 ---------------------
---  _buffer management
+-- Buffer management
 function M.buffer_management()
-	map("", with_prefix("h", "buffers"), ":bprevious<cr>", "Go to previous _buffer")
-	map("", with_prefix("l", "buffers"), ":bnext<cr>", "Go to next _buffer")
+	map("", with_prefix("h", "buffers"), ":bprevious<cr>", "Go to previous Buffer")
+	map("", with_prefix("l", "buffers"), ":bnext<cr>", "Go to next Buffer")
 
-	-- Open new _buffer
-	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty _buffer")
+	-- Open new Buffer
+	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty Buffer")
 
-	-- Close current _buffer
+	-- Close current Buffer
 	map(
 		"",
 		with_prefix("q", "buffers"),
@@ -34,7 +34,7 @@ function M.tab_management()
 	map("", with_prefix("o", "tabs"), ":tabonly<CR>", "Close all tabs (except for the current one)")
 end
 
--- Basics and Helix related keymappings
+-- Basic and Helix related keymappings
 function M.setup_basics()
 	---------------------
 	--  Undo/Redo
