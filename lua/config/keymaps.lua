@@ -72,6 +72,14 @@ function M.setup_basics()
 	map("x", "X", "0$k")
 	---------------------
 
+	map("n", "K", vim.lsp.buf.hover, "LSP: Show signature help")
+	map("x", "<C-k>", vim.lsp.buf.hover, "LSP: Show signature help")
+end
+-------------------------------------------------
+
+-------------------------------------------------
+-- Plugin related
+function M.setup_plugin()
 	-- Oil
 	require("utils.keymap").map("", with_prefix("e", "pickers"), ":Oil<CR>", "Explore current directory using Oil")
 
@@ -81,12 +89,7 @@ function M.setup_basics()
 
 	map("", with_prefix("G", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
 	map("", with_prefix("g", "actions"), require("utils.grapple").toggle, "Toggle Grapple tag")
-end
--------------------------------------------------
 
--------------------------------------------------
--- Plugin related
-function M.setup_plugin()
 	local _format = require("utils.format")
 
 	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")

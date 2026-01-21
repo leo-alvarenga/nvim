@@ -2,7 +2,7 @@ return {
 	general = "<leader>",
 	actions = "<C-a>",
 	buffers = "<leader>",
-	formatters = "<C-s>",
+	formatters = "<C-a>",
 	pickers = "<leader>",
 	tabs = "<C-t>",
 }
