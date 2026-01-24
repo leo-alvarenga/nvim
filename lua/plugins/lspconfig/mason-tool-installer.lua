@@ -1,7 +1,7 @@
 local _table = require("utils.table")
 
 local function get_mason_tool_installer()
-	local _langs = require("utils.config"):get("development").languages or {}
+	local _langs = require("utils.config"):get("development") or {}
 
 	return {
 		-- Manage all LSP and other tools
