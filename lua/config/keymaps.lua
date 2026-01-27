@@ -80,12 +80,16 @@ end
 -------------------------------------------------
 -- Plugin related
 function M.setup_plugin()
-	-- Oil
-	require("utils.keymap").map("", with_prefix("e", "pickers"), ":Oil<CR>", "Explore current directory using Oil")
-
-	-- Git blame
 	local _shared = require("utils.constants.shared")
 	local to_cmd = _keymap.to_cmd
+
+	-- Oil
+	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Explore current directory using Oil")
+
+	-- Neo-tree
+	map("", with_prefix("E", "pickers"), to_cmd(_shared.neo_tree.cmd), "Explore current directory using Oil")
+
+	-- Git blame
 
 	map("", with_prefix("G", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
 	map("", with_prefix("g", "actions"), require("utils.grapple").toggle, "Toggle Grapple tag")

@@ -18,6 +18,9 @@ return {
 			cmd = "IBLEnable",
 		},
 	},
+	neo_tree = {
+		cmd = "Neotree toggle position=float",
+	},
 	oil = {
 		cmd = "Oil",
 	},

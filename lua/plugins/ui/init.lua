@@ -4,6 +4,7 @@ return {
 	require("plugins.ui.bufferline"),
 	require("plugins.ui.dashboard"),
 	require("plugins.ui.icons"),
+	require("plugins.ui.neo-tree"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.markdown-preview"),
 	require("plugins.ui.pick"),

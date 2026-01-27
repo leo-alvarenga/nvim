@@ -1,3 +1,19 @@
+local ts_specific_settings = {
+	typescript = {
+		preferences = {
+			importModuleSpecifier = "auto",
+			includeCompletionsForModuleExports = true,
+			includeInlayParameterNameHints = "all",
+		},
+	},
+	javascript = {
+		preferences = {
+			importModuleSpecifier = "auto",
+			includeCompletionsForModuleExports = true,
+		},
+	},
+}
+
 local specific_settings = {
 	lua_ls = {
 		Lua = {
@@ -12,21 +28,8 @@ local specific_settings = {
 			telemetry = { enable = false },
 		},
 	},
-	tsserver = {
-		typescript = {
-			preferences = {
-				importModuleSpecifier = "auto",
-				includeCompletionsForModuleExports = true,
-				includeInlayParameterNameHints = "all",
-			},
-		},
-		javascript = {
-			preferences = {
-				importModuleSpecifier = "auto",
-				includeCompletionsForModuleExports = true,
-			},
-		},
-	},
+	tsserver = ts_specific_settings,
+	tsgo = ts_specific_settings,
 }
 
 local function on_attach(_, bufnr)
