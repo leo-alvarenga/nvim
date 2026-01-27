@@ -22,4 +22,19 @@ function M.read_and_decode(file_path)
 	return contents
 end
 
+--- Writes to a JSON file (upsert)
+---@param file_path string
+---@param content table
+function M.write(file_path, content)
+	if type(file_path) ~= "string" or type(content) ~= "table" then
+		return
+	end
+
+	local file = io.open(file_path, "w+")
+
+	if file then
+		file:write(vim.json.encode(content))
+	end
+end
+
 return M
