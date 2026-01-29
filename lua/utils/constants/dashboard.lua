@@ -93,7 +93,7 @@ M.actions.options = {
 		icon = "  ",
 		desc = "Explore current directory",
 		key = "e",
-		action = to_action(_shared.oil.cmd),
+		action = to_action(_shared.neo_tree.cmd),
 	},
 	{
 		icon = "  ",

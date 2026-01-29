@@ -84,10 +84,10 @@ function M.setup_plugin()
 	local to_cmd = _keymap.to_cmd
 
 	-- Oil
-	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Explore current directory using Oil")
+	map("", with_prefix("o", "pickers"), to_cmd(_shared.oil.cmd), "Explore current directory using Oil")
 
 	-- Neo-tree
-	map("", with_prefix("E", "pickers"), to_cmd(_shared.neo_tree.cmd), "Explore current directory using Neotree")
+	map("", with_prefix("e", "pickers"), to_cmd(_shared.neo_tree.cmd), "Explore current directory using Neotree")
 
 	-- Git blame
 

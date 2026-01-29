@@ -9,5 +9,9 @@ return {
 	lazy = false,
 	---@module 'neo-tree'
 	---@type neotree.Config
-	opts = {},
+	opts = {
+		window = {
+			position = "float",
+		},
+	},
 }

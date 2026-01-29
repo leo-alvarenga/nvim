@@ -19,7 +19,7 @@ return {
 		},
 	},
 	neo_tree = {
-		cmd = "Neotree toggle position=float",
+		cmd = "Neotree toggle position=float reveal",
 	},
 	oil = {
 		cmd = "Oil",
