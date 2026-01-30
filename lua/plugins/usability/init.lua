@@ -6,6 +6,7 @@ return {
 	require("plugins.usability.git-blame"),
 	require("plugins.usability.grapple"),
 	require("plugins.usability.move"),
+	require("plugins.usability.supermaven"),
 	require("plugins.usability.surround"),
 	require("plugins.usability.ts-autotag"),
 	require("plugins.usability.vim-tmux"),

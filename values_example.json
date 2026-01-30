@@ -86,6 +86,7 @@
   },
   "toggles": {
     "copilot": true,
+    "supermaven": false,
     "format_on_save": true
   }
 }
