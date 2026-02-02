@@ -5,6 +5,8 @@
     "formatters": ["ast-grep", "prettier", "prettierd", "shfmt", "stylua"],
     "linters": ["jsonlint", "shellharden"]
   },
+
+  "theme": "catppuccin",
   "toggles": {
     "copilot": false,
     "format_on_save": true,

@@ -28,7 +28,7 @@ end
 
 --- Gets a configuration value by key
 --- @param key string The configuration key
---- @return any|nil The configuration value
+--- @return string|nil|number|boolean value
 function Config:get(key)
 	if type(self.values) ~= "table" then
 		self:read()

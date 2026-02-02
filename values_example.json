@@ -84,6 +84,7 @@
       "stylelint"
     ]
   },
+  "theme": "catppuccin",
   "toggles": {
     "copilot": true,
     "supermaven": false,
