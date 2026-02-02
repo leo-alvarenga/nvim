@@ -1,25 +1,26 @@
 return {
 	dashboard = {
 		cmd = "Dashboard",
+		notifications = {
+			empty_action = "[Dashboard] Empty option... Doing nothing",
+		},
+	},
+	format = {
+		notifications = {
+			disabled = "[Conform] Format on save is now disabled",
+			enabled = "[Conform] Format on save is now enabled",
+		},
 	},
 	git = {
 		blame = {
 			cmd = "GitBlameToggle",
 		},
 	},
-	ibl = {
-		toggle = {
-			cmd = "IBLToogle",
-		},
-		disable = {
-			cmd = "IBLDisable",
-		},
-		enable = {
-			cmd = "IBLEnable",
-		},
-	},
 	neo_tree = {
 		cmd = "Neotree toggle position=float reveal",
+		notifications = {
+			oil_warning = "[Neo-tree] Cannot open Neo-tree from Oil buffer",
+		},
 	},
 	oil = {
 		cmd = "Oil",
@@ -37,5 +38,9 @@ return {
 	},
 	twilight = {
 		cmd = "Twilight",
+		notifications = {
+			enabled = "[Twilight] Code block highlighting enabled",
+			disabled = "[Twilight] Code block highlighting disabled",
+		},
 	},
 }

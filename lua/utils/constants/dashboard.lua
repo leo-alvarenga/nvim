@@ -22,7 +22,9 @@ local function to_option(opt)
 		key = "?",
 		key_hl = "group",
 		key_format = "SPC %s",
-		action = to_action('lua vim.notify("Empty option... Doing nothing")'),
+		action = to_action(
+			"lua vim.notify(" .. _shared.dashboard.notifications.empty_action .. ", vim.log.levels.WARN)"
+		),
 	}
 
 	if not opt or type(opt) ~= "table" then

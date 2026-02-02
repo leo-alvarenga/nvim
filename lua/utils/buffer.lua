@@ -15,4 +15,25 @@ function M.close_current()
 	vim.cmd("bd | " .. _shared.dashboard.cmd)
 end
 
+function M.is_actual_file()
+	local buf_name = vim.api.nvim_buf_get_name(0)
+
+	if buf_name == "" then
+		return false
+	end
+
+	local pseudo_buff_matchers = {
+		"/neo-tree filesystem",
+		"oil://",
+	}
+
+	for _, ft in ipairs(pseudo_buff_matchers) do
+		if buf_name:match(ft) then
+			return false
+		end
+	end
+
+	return true
+end
+
 return M

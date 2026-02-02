@@ -7,8 +7,6 @@ Config = { values = {} }
 function Config:read_or_create_values(child_call)
 	local json = require("utils.json")
 	local values = json.read_and_decode(values_file_dir)
-	vim.notify("Is emptu:")
-	vim.notify(tostring(vim.fn.empty(values) > 0))
 
 	if vim.fn.empty(values) > 0 and child_call ~= true then
 		os.execute("cp " .. example_file_dir .. " " .. values_file_dir)

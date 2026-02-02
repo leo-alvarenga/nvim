@@ -26,13 +26,15 @@ end
 function M.toggle_format_on_save()
 	M.format_on_save = not M.format_on_save
 
+	local _shared = require("utils.constants.shared")
+
 	local status = "enabled"
 
 	if not M.format_on_save then
 		status = "disabled"
 	end
 
-	vim.notify("Format on save is now " .. status, vim.log.levels.INFO)
+	vim.notify(_shared.format.notifications[status], vim.log.levels.INFO)
 end
 
 function M.format_if_enabled(args)
