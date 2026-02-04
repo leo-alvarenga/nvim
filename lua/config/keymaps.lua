@@ -27,6 +27,8 @@ end
 ---------------------
 
 function M.tab_management()
+	map("", with_prefix("", "tabs"), "", " 󰓩  Tabs")
+
 	map("", with_prefix("h", "tabs"), ":tabprevious<cr>", "Go to previous Tab")
 	map("", with_prefix("l", "tabs"), ":tabnext<cr>", "Go to next Tab")
 	map("", with_prefix("n", "tabs"), ":tabnew<CR>", "Open new empty Tab")
@@ -36,6 +38,8 @@ end
 
 -- Basic and Helix related keymappings
 function M.setup_basics()
+	map("", with_prefix("", "general"), "", "   General")
+
 	---------------------
 	--  Undo/Redo
 	map("", "u", ":undo<CR>", "Undo")
@@ -90,13 +94,18 @@ function M.setup_plugin()
 	-- Oil
 	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Manage the current directory using Oil")
 
-	-- Git blame
+	-- Actions
+	map("", with_prefix("", "actions"), "", "   Misc actions")
+	map("", with_prefix("g", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
 
-	map("", with_prefix("G", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
-	map("", with_prefix("g", "actions"), require("utils.grapple").toggle, "Toggle Grapple tag")
+	-- Grapple
+	map("", with_prefix("", "grapple"), "", "   Grapple actions")
+	map("", with_prefix("g", "grapple"), require("utils.grapple").toggle, "Toggle Grapple tag")
 
 	local _format = require("utils.format")
 
+	-- Formatters
+	map({ "", "i" }, with_prefix("", "formatters"), "", "   Formatter actions")
 	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
 	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_format_on_save, "Toggle format on save")
 
