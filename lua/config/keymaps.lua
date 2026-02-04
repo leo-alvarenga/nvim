@@ -100,7 +100,10 @@ function M.setup_plugin()
 
 	-- Grapple
 	map("", with_prefix("", "grapple"), "", "   Grapple actions")
-	map("", with_prefix("g", "grapple"), require("utils.grapple").toggle, "Toggle Grapple tag")
+	map("", with_prefix("g", "grapple"), to_cmd(_shared.grapple.toggle.cmd), "Toggle Grapple tag")
+	map("", with_prefix("f", "grapple"), to_cmd(_shared.grapple.open.cmd), "See all Grapple tags")
+	map("", with_prefix("l", "grapple"), to_cmd(_shared.grapple.next.cmd), "Cycle to next Grapple tag")
+	map("", with_prefix("h", "grapple"), to_cmd(_shared.grapple.prev.cmd), "Cycle to previous Grapple tag")
 
 	local _format = require("utils.format")
 
