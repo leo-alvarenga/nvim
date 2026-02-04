@@ -1,14 +1,12 @@
 return {
-	dashboard = {
-		cmd = "Dashboard",
-		notifications = {
-			empty_action = "[Dashboard] Empty option... Doing nothing",
-		},
+	starter = {
+		cmd = "MiniStarterOpen",
 	},
 	format = {
 		notifications = {
 			disabled = "[Conform] Format on save is now disabled",
 			enabled = "[Conform] Format on save is now enabled",
+			manual = "[Conform] Formatting current buffer",
 		},
 	},
 	git = {

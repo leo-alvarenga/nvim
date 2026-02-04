@@ -19,7 +19,11 @@ function M.get_formatters()
 	return formatters
 end
 
-function M.format_current(args)
+function M.format_current(args, auto)
+	if not auto then
+		vim.notify(require("utils.constants.shared").format.notifications.manual, vim.log.levels.INFO)
+	end
+
 	require("conform").format(args)
 end
 
@@ -42,7 +46,7 @@ function M.format_if_enabled(args)
 		return
 	end
 
-	M.format_current(args)
+	M.format_current(args, true)
 end
 
 function M.setup_autocmd()

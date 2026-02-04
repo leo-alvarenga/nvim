@@ -83,9 +83,6 @@ function M.setup_plugin()
 	local _shared = require("utils.constants.shared")
 	local to_cmd = _keymap.to_cmd
 
-	-- Oil
-	map("", with_prefix("o", "pickers"), to_cmd(_shared.oil.cmd), "Explore current directory using Oil")
-
 	-- Neo-tree
 	local _neo_tree = require("utils.neo-tree")
 	map("", with_prefix("e", "pickers"), _neo_tree.toggle, "Explore current directory using Neotree")

@@ -5,9 +5,9 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 ## Configurations
 
 More specific configurations, such as pluggin toggles and language support, can be found in the easily change by following the steps bellow:
+
 1. Create a copy of the `values_example.json` file in the root of the Neovim config (`~/.config/nvim/` by default) directory called `values.json`
 2. Edit the `values.json` file to override the default settings (found in the `defaults.json` file in the same directory)
-
 
 ```json
 // defaults.json
@@ -21,6 +21,7 @@ More specific configurations, such as pluggin toggles and language support, can 
   },
   "toggles": {
     "copilot": false,
+    "supermaven": false,
     "format_on_save": true
   }
 }
@@ -29,6 +30,7 @@ More specific configurations, such as pluggin toggles and language support, can 
 ### List of toggleable plugins
 
 - `github/copilot.nvim`
+- `supermaven-inc/supermaven-nvim`
 
 ## Preview
 
