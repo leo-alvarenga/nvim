@@ -11,7 +11,7 @@ return {
 	---@type neotree.Config
 	opts = {
 		window = {
-			position = "float",
+			-- position = "float",
 		},
 	},
 }

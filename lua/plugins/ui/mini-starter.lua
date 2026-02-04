@@ -7,6 +7,7 @@ local sections = {
 	exit = "  Exit",
 }
 
+--- ASCII art banner for mini.starter
 local function banner()
 	return table.concat({
 		[[                                                     ]],
@@ -23,14 +24,10 @@ local function banner()
 	}, "\n")
 end
 
+--- Get a random quote from quoth-nvim
 local function footer()
 	return require("quoth-nvim").get_random_quote().text
 end
-
-vim.api.nvim_create_autocmd("BufDelete", {
-
-	callback = function() end,
-})
 
 return {
 	"nvim-mini/mini.starter",
@@ -40,8 +37,13 @@ return {
 		evaluate_single = false,
 		items = {
 			{
+				action = _shared.oil.cmd,
+				name = "Browse files",
+				section = sections.files,
+			},
+			{
 				action = _shared.neo_tree.cmd,
-				name = "Explore",
+				name = "Tree view",
 				section = sections.files,
 			},
 			{

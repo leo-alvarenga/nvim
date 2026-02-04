@@ -85,7 +85,10 @@ function M.setup_plugin()
 
 	-- Neo-tree
 	local _neo_tree = require("utils.neo-tree")
-	map("", with_prefix("e", "pickers"), _neo_tree.toggle, "Explore current directory using Neotree")
+	map("", with_prefix("E", "pickers"), _neo_tree.toggle, "Explore current directory using Neotree")
+
+	-- Oil
+	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Manage the current directory using Oil")
 
 	-- Git blame
 

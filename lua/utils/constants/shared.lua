@@ -15,7 +15,7 @@ return {
 		},
 	},
 	neo_tree = {
-		cmd = "Neotree toggle position=float reveal",
+		cmd = "Neotree toggle dir=./ reveal",
 		notifications = {
 			oil_warning = "[Neo-tree] Cannot open Neo-tree from Oil buffer",
 		},

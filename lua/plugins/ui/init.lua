@@ -7,6 +7,7 @@ return {
 	require("plugins.ui.neo-tree"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.markdown-preview"),
+	require("plugins.ui.oil"),
 	require("plugins.ui.pick"),
 	require("plugins.ui.show-key"),
 	require("plugins.ui.statusline"),
