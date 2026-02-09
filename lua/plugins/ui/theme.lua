@@ -12,6 +12,25 @@ local themes = {
 		opts = { background = "soft" },
 		priority = 1000,
 	},
+	kanagawa = {
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		name = "kanagawa",
+		opts = { transparent = true },
+		priority = 1000,
+	},
+	onedark = {
+		"navarasu/onedark.nvim",
+		lazy = false,
+		name = "onedark",
+		config = function()
+			require("onedark").setup({
+				style = "darker",
+			})
+
+			require("onedark").load()
+		end,
+	},
 	tokyonight = {
 		"folke/tokyonight.nvim",
 		lazy = false,

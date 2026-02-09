@@ -27,6 +27,9 @@ return {
 		prev = {
 			cmd = "Grapple cycle_tags prev",
 		},
+		notifications = {
+			toggle = "[Grapple] Tag toggled current buffer",
+		},
 	},
 	neo_tree = {
 		cmd = "Neotree toggle dir=./ reveal",

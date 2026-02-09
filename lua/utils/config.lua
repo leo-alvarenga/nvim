@@ -10,7 +10,7 @@ function Config:read_or_create_values(child_call)
 
 	if vim.fn.empty(values) > 0 and child_call ~= true then
 		os.execute("cp " .. example_file_dir .. " " .. values_file_dir)
-		self:read_or_create_values(true)
+		return self:read_or_create_values(true)
 	end
 
 	return values
