@@ -8,6 +8,7 @@
 
   "theme": "catppuccin",
   "toggles": {
+    "codecompanion": false,
     "copilot": false,
     "format_on_save": true,
     "supermaven": false
