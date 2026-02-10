@@ -2,6 +2,8 @@
 
 This repository contains my current [Neovim](https://neovim.io/) setup, used at work and for personal projects.
 
+> You can always find the latest version of my configuration in the [`nightly`](https://github.com/leo-alvarenga/nvim/tree/nightly) branch
+
 ## Configurations
 
 More specific configurations, such as plugin toggles and language support, can be found and easily changed by following the steps bellow:
@@ -19,11 +21,13 @@ More specific configurations, such as plugin toggles and language support, can b
     "formatters": ["ast-grep", "prettier", "prettierd", "shfmt", "stylua"],
     "linters": ["jsonlint", "shellharden"]
   },
+
+  "theme": "onedark",
   "toggles": {
     "codecompanion": false,
     "copilot": false,
-    "supermaven": false,
-    "format_on_save": true
+    "format_on_save": true,
+    "supermaven": false
   }
 }
 ```
@@ -33,6 +37,14 @@ More specific configurations, such as plugin toggles and language support, can b
 - `olimorris/codecompanion.nvim`
 - `github/copilot.nvim`
 - `supermaven-inc/supermaven-nvim`
+
+### List of Available Themes
+
+- `catppuccin` - _Catppuccin Mocha_
+- `everforest` - _Everforest Dark_
+- `kanagawa` - _Kanagawa Wave_
+- `onedark` - _One Dark Pro_
+- `tokyonight` - _Tokyo Night Storm_
 
 ## Preview
 

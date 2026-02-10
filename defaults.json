@@ -6,7 +6,7 @@
     "linters": ["jsonlint", "shellharden"]
   },
 
-  "theme": "catppuccin",
+  "theme": "onedark",
   "toggles": {
     "codecompanion": false,
     "copilot": false,
