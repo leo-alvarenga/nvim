@@ -53,3 +53,7 @@ More specific configurations, such as plugin toggles and language support, can b
 ![Neotree](./docs/usage-neotree.png)
 ![Completions](./docs/usage-blink.png)
 ![Copilot completions](./docs/usage-copilot.png)
+
+## License
+
+This project is licensed under the GPLv3 license - see the [LICENSE](./LICENSE) file for details.
