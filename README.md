@@ -56,4 +56,4 @@ More specific configurations, such as plugin toggles and language support, can b
 
 ## License
 
-This project is licensed under the GPLv3 license - see the [LICENSE](./LICENSE.txt) file for details.
+This project is licensed under the GPLv3 license - see the [LICENSE](./LICENSE) file for details.
