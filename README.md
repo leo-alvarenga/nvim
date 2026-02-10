@@ -50,5 +50,6 @@ More specific configurations, such as plugin toggles and language support, can b
 
 ![Starter](./docs/starter.png)
 ![Usage](./docs/usage-simple.png)
-![Completions](./docs/usage-neotree.png)
+![Neotree](./docs/usage-neotree.png)
+![Completions](./docs/usage-blink.png)
 ![Copilot completions](./docs/usage-copilot.png)
