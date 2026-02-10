@@ -1,12 +1,12 @@
-# nvim
+# Nvim
 
 This repository contains my current [Neovim](https://neovim.io/) setup, used at work and for personal projects.
 
 ## Configurations
 
-More specific configurations, such as pluggin toggles and language support, can be found in the easily change by following the steps bellow:
+More specific configurations, such as plugin toggles and language support, can be found and easily changed by following the steps bellow:
 
-1. Create a copy of the `values_example.json` file in the root of the Neovim config (`~/.config/nvim/` by default) directory called `values.json`
+1. Create a copy of the `values_example.json` file in the root of the Neovim config directory (`~/.config/nvim/` by default) and name it `values.json`.
 2. Edit the `values.json` file to override the default settings (found in the `defaults.json` file in the same directory)
 
 ```json
@@ -28,7 +28,7 @@ More specific configurations, such as pluggin toggles and language support, can 
 }
 ```
 
-### List of toggleable plugins
+### List of Togglable Plugins
 
 - `olimorris/codecompanion.nvim`
 - `github/copilot.nvim`
