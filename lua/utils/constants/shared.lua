@@ -1,6 +1,14 @@
 return {
-	starter = {
-		cmd = "MiniStarterOpen",
+	colorizer = {
+		toggle = {
+			cmd = "ColorizerToggle",
+		},
+		attach = {
+			cmd = "ColorizerToggle",
+		},
+		reload = {
+			cmd = "ColorizerToggle",
+		},
 	},
 	format = {
 		notifications = {
@@ -39,6 +47,9 @@ return {
 	},
 	oil = {
 		cmd = "Oil",
+	},
+	starter = {
+		cmd = "MiniStarterOpen",
 	},
 	telescope = {
 		find_files = {

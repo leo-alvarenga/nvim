@@ -7,4 +7,4 @@ require("config.options")
 keymaps.setup_keymaps()
 
 require("config.lazy")
-theme.set("catppuccin")
+theme.set()
