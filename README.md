@@ -48,7 +48,7 @@ More specific configurations, such as plugin toggles and language support, can b
 
 ## Preview
 
-![Dashboard](./docs/dashboard.png)
-![Usage](./docs/usage.png)
-![Completions](./docs/completions.png)
-![Copilot completions](./docs/copilot-completion.png)
+![Starter](./docs/starter.png)
+![Usage](./docs/usage-simple.png)
+![Completions](./docs/usage-neotree.png)
+![Copilot completions](./docs/usage-copilot.png)
