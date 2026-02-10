@@ -1,0 +1,16 @@
+{
+  "development": {
+    "languages": ["c", "lua", "vim", "vimdoc", "query", "csv", "json", "json5"],
+    "lsps": ["bashls", "hyprls", "jsonls", "lua_ls", "marksman", "harper_ls"],
+    "formatters": ["ast-grep", "prettier", "prettierd", "shfmt", "stylua"],
+    "linters": ["jsonlint", "shellharden"]
+  },
+
+  "theme": "onedark",
+  "toggles": {
+    "codecompanion": false,
+    "copilot": false,
+    "format_on_save": true,
+    "supermaven": false
+  }
+}

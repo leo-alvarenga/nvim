@@ -1,9 +1,8 @@
 return {
+	require("plugins.usability.ai"),
 	require("plugins.usability.autopairs"),
 	require("plugins.usability.comments"),
-	require("plugins.usability.copilot"),
-	require("plugins.usability.diffview"),
-	require("plugins.usability.git-blame"),
+	require("plugins.usability.git"),
 	require("plugins.usability.grapple"),
 	require("plugins.usability.move"),
 	require("plugins.usability.surround"),

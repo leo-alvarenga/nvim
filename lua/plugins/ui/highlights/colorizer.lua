@@ -1,6 +1,12 @@
 return {
-	-- Highlight color values (e.g.: HEX, HSL, RGB) with the actual color value
 	"norcalli/nvim-colorizer.lua",
-	opts = {},
-	version = "main",
+	opts = {
+		"css",
+		"javascript",
+		"html",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+	},
+	version = false,
 }

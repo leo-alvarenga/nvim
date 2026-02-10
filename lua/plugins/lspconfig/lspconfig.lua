@@ -1,3 +1,19 @@
+local ts_specific_settings = {
+	typescript = {
+		preferences = {
+			importModuleSpecifier = "auto",
+			includeCompletionsForModuleExports = true,
+			includeInlayParameterNameHints = "all",
+		},
+	},
+	javascript = {
+		preferences = {
+			importModuleSpecifier = "auto",
+			includeCompletionsForModuleExports = true,
+		},
+	},
+}
+
 local specific_settings = {
 	lua_ls = {
 		Lua = {
@@ -12,21 +28,8 @@ local specific_settings = {
 			telemetry = { enable = false },
 		},
 	},
-	tsserver = {
-		typescript = {
-			preferences = {
-				importModuleSpecifier = "auto",
-				includeCompletionsForModuleExports = true,
-				includeInlayParameterNameHints = "all",
-			},
-		},
-		javascript = {
-			preferences = {
-				importModuleSpecifier = "auto",
-				includeCompletionsForModuleExports = true,
-			},
-		},
-	},
+	tsserver = ts_specific_settings,
+	tsgo = ts_specific_settings,
 }
 
 local function on_attach(_, bufnr)
@@ -53,10 +56,10 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = { "saghen/blink.cmp" },
 	config = function()
-		local _langs = require("utils.constants.languages")
+		local lsps = require("utils.config"):get("development").lsps or {}
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		for _i, server in ipairs(_langs.lang_server_list) do
+		for _i, server in ipairs(lsps) do
 			vim.lsp.config[server] = get_config(capabilities, server)
 			vim.lsp.enable(server)
 		end

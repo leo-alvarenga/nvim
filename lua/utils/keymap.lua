@@ -1,8 +1,9 @@
 local M = {}
 
 --- Add prefix to keymap based on the action target
----@param keymap string
----@param target string?
+--- @param keymap string Keymap to add prefix to
+--- @param target string? Target action (e.g., "buffers", "tabs", etc.); Defaults to "general"
+--- @return string Keymap with prefix added
 function M.with_prefix(keymap, target)
 	local prefix_table = require("utils.constants.prefix")
 	local prefix = prefix_table[target] or prefix_table.general
@@ -22,12 +23,16 @@ function M.to_options(desc)
 end
 
 --- Wrapper for setting keymaps via the vim.keymap api
+--- @param mode string|string[] Mode to set the keymap in
+--- @param key string The key combination to map
+--- @param command string|function The command or function to execute
+--- @param desc string|nil Description for the keymap
 function M.map(mode, key, command, desc)
 	vim.keymap.set(mode, key, command, M.to_options(desc))
 end
 
 ---Convert raw string to Vim CMD
----@param cmd string
+--- @param cmd string
 function M.to_cmd(cmd)
 	if not cmd or type(cmd) ~= "string" then
 		return ""

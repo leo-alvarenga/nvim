@@ -78,7 +78,7 @@ return {
 		custom_quotes = quotes,
 		filter = {
 			length_constraints = {
-				max = 80,
+				max = 60,
 			},
 		},
 		include_all = false,

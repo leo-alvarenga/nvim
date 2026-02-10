@@ -30,7 +30,6 @@ return {
 
 			-- Misc
 			rust = { "ast-grep" },
-			python = { "ast-grep" },
 		},
 	},
 	config = function() end,

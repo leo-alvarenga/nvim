@@ -1,5 +1,3 @@
-local _shared = require("utils.constants.shared")
-
 local M = {}
 
 M.enabled = false
@@ -7,14 +5,15 @@ M.enabled = false
 function M.toggle_twilight()
 	M.enabled = not M.enabled
 
-	local prefix = "[Twilight] "
-	local status = prefix .. "Code blocks highlighting enabled"
-	if not M.enabled then
-		status = prefix .. "Code block highlighting disabled"
+	local status = "disabled"
+	if M.enabled then
+		status = "enabled"
 	end
 
+	local _shared = require("utils.constants.shared")
+
 	vim.cmd(_shared.twilight.cmd)
-	vim.notify(status, vim.log.levels.INFO)
+	vim.notify(_shared.twilight.notifications[status], vim.log.levels.INFO)
 end
 
 return M

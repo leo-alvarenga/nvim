@@ -1,5 +1,3 @@
-local with_prefix = require("utils.keymap").with_prefix
-
 return {
 	-- Completions
 	"saghen/blink.cmp",
@@ -8,7 +6,6 @@ return {
 	opts = {
 		keymap = {
 			preset = "default",
-			["<C-space>"] = false,
 			["<C-r>"] = { "show", "show_documentation", "hide_documentation" },
 		},
 
@@ -19,6 +16,15 @@ return {
 		completion = {
 			documentation = {
 				auto_show = true,
+			},
+			ghost_text = {
+				enabled = false,
+			},
+			list = {
+				selection = {
+					preselect = true,
+					auto_insert = false,
+				},
 			},
 		},
 
