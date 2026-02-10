@@ -20,6 +20,7 @@ More specific configurations, such as pluggin toggles and language support, can 
     "linters": ["jsonlint", "shellharden"]
   },
   "toggles": {
+    "codecompanion": false,
     "copilot": false,
     "supermaven": false,
     "format_on_save": true
@@ -29,6 +30,7 @@ More specific configurations, such as pluggin toggles and language support, can 
 
 ### List of toggleable plugins
 
+- `olimorris/codecompanion.nvim`
 - `github/copilot.nvim`
 - `supermaven-inc/supermaven-nvim`
 
