@@ -28,7 +28,7 @@ end
 
 --- Gets a configuration value by key
 --- @param key string The configuration key
---- @return string|nil|number|boolean value
+--- @return table|string|nil|number|boolean value
 function Config:get(key)
 	if type(self.values) ~= "table" then
 		self:read()
@@ -39,6 +39,17 @@ function Config:get(key)
 	end
 
 	return self.values[key] or nil
+end
+
+--- Checks if a feature is enabled in the configuration
+--- @param feature string The feature name to check
+--- @return boolean enabled `true` if the feature is enabled, `false` otherwise
+function Config:is_enabled(feature)
+	if not feature or type(feature) ~= "string" then
+		return false
+	end
+
+	return (self:get("toggles") or {})[feature] or false
 end
 
 local config = Config

@@ -1,7 +1,5 @@
 local function get_codecompanion()
-	local codecompanion_enabled = require("utils.config"):get("toggles").codecompanion or false
-
-	if not codecompanion_enabled then
+	if not require("utils.config"):is_enabled("codecompanion") then
 		return {}
 	end
 
@@ -13,18 +11,38 @@ local function get_codecompanion()
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
+			display = {
+				chat = {
+					fold_context = true,
+					icons = {
+						chat_context = "",
+					},
+				},
+			},
 			interactions = {
 				chat = {
 					adapter = {
 						name = "copilot",
 						model = "gpt-4.1",
 					},
+					callbacks = {
+						["on_ready"] = {
+							actions = {
+								"interactions.background.builtin.chat_make_title",
+							},
+							enabled = true,
+						},
+					},
+					opts = {
+						-- Enable background interactions generally
+						enabled = true,
+					},
 				},
 				inline = {
 					adapter = "copilot",
 				},
 				cmd = {
-					adapter = "anthropic",
+					adapter = "copilot",
 				},
 			},
 		},
