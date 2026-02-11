@@ -84,12 +84,21 @@
       "stylelint"
     ]
   },
-  "theme": "catppuccin",
+
+  "ui": {
+    "theme": "catppuccin"
+  },
+
   "toggles": {
-    "codecompanion": true,
-    "copilot": true,
-    "sidekick": false,
-    "supermaven": false,
-    "format_on_save": true
+    "plugins": {
+      "codecompanion": true,
+      "copilot": true,
+      "sidekick": false,
+      "supermaven": false
+    },
+
+    "options": {
+      "format_on_save": true
+    }
   }
 }

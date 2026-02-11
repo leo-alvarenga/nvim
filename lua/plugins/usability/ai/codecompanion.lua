@@ -1,5 +1,5 @@
 local function get_codecompanion()
-	if not require("utils.config"):is_enabled("codecompanion") then
+	if not require("utils.config"):is_enabled("plugins", "codecompanion") then
 		return {}
 	end
 

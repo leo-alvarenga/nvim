@@ -1,7 +1,5 @@
 local function get_sidekick()
-	local sidekick_enabled = require("utils.config"):get("toggles").sidekick or false
-
-	if not sidekick_enabled then
+	if not require("utils.config"):is_enabled("plugins", "sidekick") then
 		return {}
 	end
 

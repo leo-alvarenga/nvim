@@ -40,7 +40,7 @@ function M.to_cmd(cmd, plugin, terminator)
 		return ""
 	end
 
-	if type(plugin) == "string" and not require("utils.config"):is_enabled(plugin) then
+	if type(plugin) == "string" and not require("utils.config"):is_enabled("plugins", plugin) then
 		return ""
 	end
 

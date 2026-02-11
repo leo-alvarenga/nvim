@@ -15,23 +15,40 @@ More specific configurations, such as plugin toggles and language support, can b
 1. Create a copy of the `values_example.json` file in the root of the Neovim config directory (`~/.config/nvim/` by default) and name it `values.json`.
 2. Edit the `values.json` file to override the default settings (found in the `defaults.json` file in the same directory)
 
-```json
+```javascript
 // defaults.json
 // Use the same structure for values.json
 {
+  // Development settings
   "development": {
+    // List of languages for which treesitter parsers will be installed and configured
     "languages": ["c", "lua", "vim", "vimdoc", "query", "csv", "json", "json5"],
+
+    // List of language servers to be installed and configured
     "lsps": ["bashls", "hyprls", "jsonls", "lua_ls", "marksman", "harper_ls"],
+
+    // List of formatters and linters to be installed and configured
     "formatters": ["ast-grep", "prettier", "prettierd", "shfmt", "stylua"],
     "linters": ["jsonlint", "shellharden"]
   },
 
-  "theme": "onedark",
+  // Ui settings
+  "ui": {
+    "theme": "onedark"
+  },
+
+  // Plugin and option toggles
   "toggles": {
-    "codecompanion": false,
-    "copilot": false,
-    "format_on_save": true,
-    "supermaven": false
+    "plugins": {
+      "codecompanion": false,
+      "copilot": false,
+      "sidekick": false,
+      "supermaven": false
+    },
+
+    "options": {
+      "format_on_save": true
+    }
   }
 }
 ```

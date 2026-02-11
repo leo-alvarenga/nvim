@@ -6,12 +6,20 @@
     "linters": ["jsonlint", "shellharden"]
   },
 
-  "theme": "onedark",
+  "ui": {
+    "theme": "onedark"
+  },
+
   "toggles": {
-    "codecompanion": false,
-    "copilot": false,
-    "format_on_save": true,
-    "sidekick": false,
-    "supermaven": false
+    "plugins": {
+      "codecompanion": false,
+      "copilot": false,
+      "sidekick": false,
+      "supermaven": false
+    },
+
+    "options": {
+      "format_on_save": true
+    }
   }
 }

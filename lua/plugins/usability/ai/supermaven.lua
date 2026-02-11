@@ -1,7 +1,5 @@
 local function get_supermaven()
-	local supermaven_enabled = require("utils.config"):get("toggles").supermaven or false
-
-	if not supermaven_enabled then
+	if not require("utils.config"):is_enabled("plugins", "supermaven") then
 		return {}
 	end
 
