@@ -1,4 +1,20 @@
 return {
+	codecompanion = {
+		actions = {
+			cmd = "CodeCompanionActions",
+		},
+		chat = {
+			toggle = {
+				cmd = "lua require('codecompanion').toggle()",
+			},
+			new = {
+				cmd = "CodeCompanionChat",
+			},
+		},
+		prompt = {
+			cmd = "CodeCompanion",
+		},
+	},
 	colorizer = {
 		toggle = {
 			cmd = "ColorizerToggle",

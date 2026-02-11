@@ -1,9 +1,10 @@
 return {
-	general = "<leader>",
+	ai = "<leader>a",
 	actions = "<C-a>",
-	grapple = "<C-x>",
 	buffers = "<leader>",
 	formatters = "<C-s>",
+	general = "<leader>",
+	grapple = "<C-x>",
 	pickers = "<leader>",
 	tabs = "<C-t>",
 }

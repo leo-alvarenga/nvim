@@ -28,7 +28,7 @@ end
 
 --- Gets a configuration value by key
 --- @param key string The configuration key
---- @return string|nil|number|boolean value
+--- @return table|string|nil|number|boolean value
 function Config:get(key)
 	if type(self.values) ~= "table" then
 		self:read()
@@ -39,6 +39,36 @@ function Config:get(key)
 	end
 
 	return self.values[key] or nil
+end
+
+--- Gets a configuration value by key
+--- @param context 'development'|'toggles'|'ui' The context to look for the key in
+--- @param key string The configuration key
+--- @return table|string|nil|number|boolean value
+function Config:get_in_context(context, key)
+	if type(context) ~= "string" or type(key) ~= "string" then
+		return nil
+	end
+
+	local context_table = self:get(context)
+
+	if type(context_table) ~= "table" then
+		return nil
+	end
+
+	return context_table[key] or nil
+end
+
+--- Checks if a feature is enabled in the configuration
+--- @param kind 'plugins'|'options' The kind of feature to check
+--- @param feature string The feature name to check
+--- @return boolean enabled `true` if the feature is enabled, `false` otherwise
+function Config:is_enabled(kind, feature)
+	if type(kind) ~= "string" or type(feature) ~= "string" then
+		return false
+	end
+
+	return self:get_in_context("toggles", kind)[feature] or false
 end
 
 local config = Config

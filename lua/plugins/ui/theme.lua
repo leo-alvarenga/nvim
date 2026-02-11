@@ -43,7 +43,7 @@ local themes = {
 local function get_theme()
 	local _config = require("utils.config")
 
-	return themes[_config:get("theme") or "catppuccin"]
+	return themes[_config:get_in_context("ui", "theme") or "catppuccin"]
 end
 
 return get_theme()

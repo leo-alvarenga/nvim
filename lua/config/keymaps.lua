@@ -77,7 +77,7 @@ function M.setup_basics()
 	---------------------
 
 	map("n", "K", vim.lsp.buf.hover, "LSP: Show signature help")
-	map("x", "<C-k>", vim.lsp.buf.hover, "LSP: Show signature help")
+	map({ "n", "x" }, "<C-k>", vim.lsp.buf.hover, "LSP: Show signature help")
 end
 -------------------------------------------------
 
@@ -108,11 +108,41 @@ function M.setup_plugin()
 	local _format = require("utils.format")
 
 	-- Formatters
-	map({ "", "i" }, with_prefix("", "formatters"), "", "   Formatter actions")
+	map({ "", "i" }, with_prefix("", "formatters"), "", "   Formatter actions")
 	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
 	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_format_on_save, "Toggle format on save")
 
 	_format.setup_autocmd()
+
+	-- Code Companion
+	map("", with_prefix("", "ai"), "", "   AI actions")
+
+	map(
+		"",
+		with_prefix("a", "ai"),
+		to_cmd(_shared.codecompanion.actions.cmd, "codecompanion"),
+		"See all Code Companion actions"
+	)
+
+	map(
+		"",
+		with_prefix("c", "ai"),
+		to_cmd(_shared.codecompanion.chat.toggle.cmd, "codecompanion"),
+		"Toggle Code Companion chat"
+	)
+	map(
+		"",
+		with_prefix("n", "ai"),
+		to_cmd(_shared.codecompanion.chat.new.cmd, "codecompanion"),
+		"Start a new Code Companion chat"
+	)
+
+	map(
+		"",
+		with_prefix("p", "ai"),
+		to_cmd(_shared.codecompanion.prompt.cmd, "codecompanion"),
+		"Toggle Code Companion prompt"
+	)
 end
 -------------------------------------------------
 
