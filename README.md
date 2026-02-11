@@ -6,6 +6,8 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 
 For the complete list of plugins and configurations, please refer to the [Plugin List](#plugin-list) section at the end of this document.
 
+> Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [tmux](https://github.com/leo-alvarenga/tmux)
+
 ## Configurations
 
 More specific configurations, such as plugin toggles and language support, can be found and easily changed by following the steps bellow:
@@ -36,8 +38,9 @@ More specific configurations, such as plugin toggles and language support, can b
 
 ### List of Togglable Plugins
 
+- `github/copilot.vim`
 - `olimorris/codecompanion.nvim`
-- `github/copilot.nvim`
+- `folke/sidekick.nvim`
 - `supermaven-inc/supermaven-nvim`
 
 ### List of Available Themes
@@ -61,6 +64,7 @@ More specific configurations, such as plugin toggles and language support, can b
 - AI Integrations
   - [`github/copilot.vim`](https://github.com/github/copilot.vim)
   - [`olimorris/codecompanion.nvim`](https://github.com/olimorris/codecompanion.nvim)
+  - [`folke/sidekick.nvim`](https://github.com/folke/sidekick.nvim)
   - [`supermaven-inc/supermaven-nvim`](https://github.com/supermaven-inc/supermaven-nvim)
 
 - Git Integrations
