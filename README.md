@@ -6,7 +6,7 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 
 For the complete list of plugins and configurations, please refer to the [Plugin List](#plugin-list) section at the end of this document.
 
-> Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [tmux](https://github.com/leo-alvarenga/tmux)
+> Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [leo-alvarenga/tmux](https://github.com/leo-alvarenga/tmux)
 
 ## Configurations
 
