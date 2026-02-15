@@ -38,23 +38,6 @@ return {
 			cmd = "GitBlameToggle",
 		},
 	},
-	grapple = {
-		toggle = {
-			cmd = "Grapple toggle",
-		},
-		open = {
-			cmd = "Grapple toggle_tags",
-		},
-		next = {
-			cmd = "Grapple cycle_tags next",
-		},
-		prev = {
-			cmd = "Grapple cycle_tags prev",
-		},
-		notifications = {
-			toggle = "[Grapple] Tag toggled current buffer",
-		},
-	},
 	neo_tree = {
 		cmd = "Neotree toggle dir=./ reveal",
 		notifications = {

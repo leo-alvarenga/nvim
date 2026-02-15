@@ -19,7 +19,6 @@ return {
 		telescope.setup({
 			buffers = telescope_picker_opts,
 			fd = telescope_picker_opts,
-			grapple = telescope_picker_opts,
 			help_tags = telescope_picker_opts,
 			live_grep = telescope_picker_opts,
 		})
@@ -39,10 +38,5 @@ return {
 		map("", with_prefix("c", "pickers"), builtin.buffers, "Telescope - Buffers")
 
 		map("", with_prefix("C", "pickers"), builtin.help_tags, "Telescope - help tags")
-
-		map("", with_prefix("g", "pickers"), ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
-
-		-- Loading extensions
-		telescope.load_extension("grapple")
 	end,
 }
