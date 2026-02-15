@@ -1,6 +1,6 @@
 return {
 	"leo-alvarenga/drift.nvim",
-	dir = "~/personal/drift.nvim",
+	-- dir = "~/personal/drift.nvim",
 	--- @type drift.DriftConfigOptions
 	opts = {
 		keymaps = {
