@@ -10,48 +10,7 @@ For the complete list of plugins and configurations, please refer to the [Plugin
 
 ## Configurations
 
-More specific configurations, such as plugin toggles and language support, can be found and easily changed by following the steps bellow:
-
-1. Create a copy of the `values_example.json` file in the root of the Neovim config directory (`~/.config/nvim/` by default) and name it `values.json`.
-2. Edit the `values.json` file to override the default settings (found in the `defaults.json` file in the same directory)
-
-```javascript
-// defaults.json
-// Use the same structure for values.json
-{
-  // Development settings
-  "development": {
-    // List of languages for which treesitter parsers will be installed and configured
-    "languages": ["c", "lua", "vim", "vimdoc", "query", "csv", "json", "json5"],
-
-    // List of language servers to be installed and configured
-    "lsps": ["bashls", "hyprls", "jsonls", "lua_ls", "marksman", "harper_ls"],
-
-    // List of formatters and linters to be installed and configured
-    "formatters": ["ast-grep", "prettier", "prettierd", "shfmt", "stylua"],
-    "linters": ["jsonlint", "shellharden"]
-  },
-
-  // Ui settings
-  "ui": {
-    "theme": "onedark"
-  },
-
-  // Plugin and option toggles
-  "toggles": {
-    "plugins": {
-      "codecompanion": false,
-      "copilot": false,
-      "sidekick": false,
-      "supermaven": false
-    },
-
-    "options": {
-      "format_on_save": true
-    }
-  }
-}
-```
+More specific configurations, such as plugin toggles and language support, can be found and easily changed by editing the values inside the files found under `lua/values/`.
 
 ### List of Togglable Plugins
 
@@ -111,7 +70,6 @@ More specific configurations, such as plugin toggles and language support, can b
 
 - UI and Productivity
   - [`akinsho/bufferline.nvim`](https://github.com/akinsho/bufferline.nvim)
-  - [`cbochs/grapple.nvim`](https://github.com/cbochs/grapple.nvim)
     - Dependencies:
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`folke/todo-comments.nvim`](https://github.com/folke/todo-comments.nvim)
