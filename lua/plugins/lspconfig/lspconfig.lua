@@ -56,7 +56,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = { "saghen/blink.cmp" },
 	config = function()
-		local lsps = require("utils.config"):get("development").lsps or {}
+		local lsps = require("values.languages").lsps or {}
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		for _i, server in ipairs(lsps) do

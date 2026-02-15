@@ -1,6 +1,5 @@
 local function get_mason_tool_installer()
-	local _table = require("utils.table")
-	local _langs = require("utils.config"):get("development") or {}
+	local _langs = require("values.languages")
 
 	return {
 		-- Manage all LSP and other tools
@@ -8,11 +7,12 @@ local function get_mason_tool_installer()
 		opts = {
 			auto_update = true,
 
-			ensure_installed = _table.merge_arrays({
-				_langs.lsps or nil,
-				_langs.formatters or nil,
-				_langs.linters or nil,
-			}),
+			ensure_installed = vim.tbl_extend(
+				"force",
+				_langs.lsps or {},
+				_langs.formatters or {},
+				_langs.linters or {}
+			),
 
 			integrations = {
 				["mason-lspconfig"] = true,
