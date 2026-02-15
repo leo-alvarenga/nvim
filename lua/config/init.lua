@@ -1,7 +1,5 @@
-require("utils.config"):read()
-
 local keymaps = require("config.keymaps")
-local theme = require("utils.theme")
+local theme = require("config.utils.theme")
 
 require("config.options")
 keymaps.setup_keymaps()

@@ -5,7 +5,7 @@ local M = {}
 --- @param target string? Target action (e.g., "buffers", "tabs", etc.); Defaults to "general"
 --- @return string Keymap with prefix added
 function M.with_prefix(keymap, target)
-	local prefix_table = require("utils.constants.prefix")
+	local prefix_table = require("values.constants.prefix")
 	local prefix = prefix_table[target] or prefix_table.general
 
 	return prefix .. keymap
@@ -40,7 +40,7 @@ function M.to_cmd(cmd, plugin, terminator)
 		return ""
 	end
 
-	if type(plugin) == "string" and not require("utils.config"):is_enabled("plugins", plugin) then
+	if type(plugin) == "string" and not require("values.plugins").is_enabled(plugin) then
 		return ""
 	end
 

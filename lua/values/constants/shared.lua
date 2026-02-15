@@ -74,9 +74,6 @@ return {
 		live_grep = {
 			cmd = "Telescope live_grep",
 		},
-		workspaces = {
-			cmd = "Telescope workspaces",
-		},
 	},
 	twilight = {
 		cmd = "Twilight",

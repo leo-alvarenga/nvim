@@ -7,11 +7,11 @@ local M = {
 
 function M.config()
 	local configs = require("nvim-treesitter.configs")
-	local _langs = require("utils.config"):get("development")
+	local _langs = require("values.languages")
 
 	configs.setup({
 		ensure_installed = _langs.languages,
-		sync_install = false,
+		sync_install = true,
 		auto_install = true,
 		ignore_install = {},
 

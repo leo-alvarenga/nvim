@@ -18,7 +18,7 @@ return {
 			},
 		})
 
-		local _keymap = require("utils.keymap")
+		local _keymap = require("config.utils.keymap")
 		local map = _keymap.map
 		local with_prefix = _keymap.with_prefix
 

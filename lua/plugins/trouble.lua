@@ -1,4 +1,4 @@
-local with_prefix = require("utils.keymap").with_prefix
+local with_prefix = require("config.utils.keymap").with_prefix
 
 return {
 	-- Better diagnostics

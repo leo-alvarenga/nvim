@@ -1,15 +1,7 @@
-local function get_copilot()
-	local config = require("utils.config")
-	local copilot_enabled = config:is_enabled("plugins", "copilot") or config:is_enabled("plugins", "sidekick")
+local is_enabled = require("values.plugins").is_enabled
 
-	if not copilot_enabled then
-		return {}
-	end
-
-	return {
-		"github/copilot.vim",
-		version = false,
-	}
-end
-
-return get_copilot()
+return {
+	"github/copilot.vim",
+	enabled = is_enabled("copilot") or is_enabled("sidekick"),
+	version = false,
+}

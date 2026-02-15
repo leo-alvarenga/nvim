@@ -10,7 +10,7 @@ function M.toggle_twilight()
 		status = "enabled"
 	end
 
-	local _shared = require("utils.constants.shared")
+	local _shared = require("values.constants.shared")
 
 	vim.cmd(_shared.twilight.cmd)
 	vim.notify(_shared.twilight.notifications[status], vim.log.levels.INFO)

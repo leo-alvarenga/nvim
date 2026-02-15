@@ -3,7 +3,7 @@ local M = {}
 --- Safely toggle Neo-tree file explorer
 --- @void
 function M.toggle()
-	local _shared = require("utils.constants.shared")
+	local _shared = require("values.constants.shared")
 
 	local buf_name = vim.api.nvim_buf_get_name(0)
 
