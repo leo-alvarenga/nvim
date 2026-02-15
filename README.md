@@ -104,6 +104,10 @@ More specific configurations, such as plugin toggles and language support, can b
     - Dependencies:
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`windwp/nvim-ts-autotag`](https://github.com/windwp/nvim-ts-autotag)
+  - [`kevinhwang91/nvim-ufo`](https://github.com/kevinhwang91/nvim-ufo)
+    - Dependencies:
+      - [`kevinhwang91/promise-async`](https://github.com/(kevinhwang91/promise-async)
+  - [`nvim-treesitter/nvim-treesitter-context`](https://github.com/(nvim-treesitter/nvim-treesitter-context)
 
 ## License
 
