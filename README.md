@@ -104,10 +104,17 @@ More specific configurations, such as plugin toggles and language support, can b
     - Dependencies:
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`windwp/nvim-ts-autotag`](https://github.com/windwp/nvim-ts-autotag)
+  - [`pmizio/typescript-tools.nvim`](https://github.com/pmizio/typescript-tools.nvim)
+    - Dependencies:
+      - [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)
+      - [`nvim-lua/plenary.nvim`](https://github.com/nvim-lua/plenary.nvim)
   - [`kevinhwang91/nvim-ufo`](https://github.com/kevinhwang91/nvim-ufo)
     - Dependencies:
-      - [`kevinhwang91/promise-async`](https://github.com/(kevinhwang91/promise-async)
-  - [`nvim-treesitter/nvim-treesitter-context`](https://github.com/(nvim-treesitter/nvim-treesitter-context)
+      - [`kevinhwang91/promise-async`](https://github.com/kevinhwang91/promise-async)
+  - [`nvim-treesitter/nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context)
+  - [`aikhe/wrapped.nvim`](https://github.com/aikhe/wrapped.nvim)
+    - Dependencies:
+      - [`nvzone/volt`](https://github.com/nvzone/volt)
 
 ## License
 
