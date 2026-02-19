@@ -40,14 +40,18 @@ local specific_settings = {
 
 local function on_attach(_, bufnr)
 	vim.keymap.set("n", "gd", function()
-		vim.lsp.buf.definition({
-			reuse_win = true,
-		})
-		-- require("goto-preview").goto_preview_definition()
+		require("goto-preview").goto_preview_definition()
 	end, get_opts("Go to definition", bufnr))
 
 	vim.keymap.set("n", "ga", vim.lsp.buf.code_action, get_opts("See Code Actions", bufnr))
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, get_opts("Go to References", bufnr))
+
+	vim.keymap.set("n", "gD", function()
+		require("goto-preview").close_all_win()
+	end, get_opts("Close all preview windows", bufnr))
+
+	vim.keymap.set("n", "gr", function()
+		require("goto-preview").goto_preview_references()
+	end, get_opts("Go to References", bufnr))
 end
 
 local function get_config(capabilities, server)
