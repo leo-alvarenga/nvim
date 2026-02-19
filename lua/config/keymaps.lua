@@ -94,6 +94,8 @@ function M.setup_plugin()
 	-- Oil
 	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Manage the current directory using Oil")
 
+	map("", with_prefix("y", "pickers"), to_cmd(_shared.yank_history.cmd), "Telescope - Yank history")
+
 	-- Actions
 	map("", with_prefix("", "actions"), "", "   Misc actions")
 	map("", with_prefix("g", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")

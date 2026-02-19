@@ -36,7 +36,8 @@ return {
 		end, "Telescope - Live grep")
 
 		map("", with_prefix("c", "pickers"), builtin.buffers, "Telescope - Buffers")
-
 		map("", with_prefix("C", "pickers"), builtin.help_tags, "Telescope - help tags")
+
+		telescope.load_extension("yank_history")
 	end,
 }

@@ -115,6 +115,8 @@ More specific configurations, such as plugin toggles and language support, can b
   - [`aikhe/wrapped.nvim`](https://github.com/aikhe/wrapped.nvim)
     - Dependencies:
       - [`nvzone/volt`](https://github.com/nvzone/volt)
+  - [`gbprod/yanky.nvim`](https://github.com/gbprod/yanky.nvim)
+    - [`kkharji/sqlite.lua`](https://github.com/kkharji/sqlite.lua)
 
 ## License
 
