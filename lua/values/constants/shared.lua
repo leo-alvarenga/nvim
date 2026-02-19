@@ -65,4 +65,7 @@ return {
 			disabled = "[Twilight] Code block highlighting disabled",
 		},
 	},
+	yank_history = {
+		cmd = "Telescope yank_history",
+	},
 }

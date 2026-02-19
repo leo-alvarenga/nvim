@@ -1,3 +1,9 @@
+--- @param desc string
+--- @param bufnr number
+local function get_opts(desc, bufnr)
+	return vim.tbl_deep_extend("force", { buffer = bufnr, silent = true }, { desc = desc })
+end
+
 local ts_specific_settings = {
 	typescript = {
 		preferences = {
@@ -33,9 +39,19 @@ local specific_settings = {
 }
 
 local function on_attach(_, bufnr)
-	local opts = { buffer = bufnr, silent = true, desc = "Go to definition" }
+	vim.keymap.set("n", "gd", function()
+		require("goto-preview").goto_preview_definition()
+	end, get_opts("Go to definition", bufnr))
 
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "ga", vim.lsp.buf.code_action, get_opts("See Code Actions", bufnr))
+
+	vim.keymap.set("n", "gD", function()
+		require("goto-preview").close_all_win()
+	end, get_opts("Close all preview windows", bufnr))
+
+	vim.keymap.set("n", "gr", function()
+		require("goto-preview").goto_preview_references()
+	end, get_opts("Go to References", bufnr))
 end
 
 local function get_config(capabilities, server)

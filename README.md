@@ -84,7 +84,7 @@ More specific configurations, such as plugin toggles and language support, can b
   - [`nvim-mini/mini.comment`](https://github.com/echasnovski/mini.comment)
   - [`nvim-mini/mini.cursorword`](https://github.com/echasnovski/mini.cursorword)
   - [`nvim-mini/mini.move`](https://github.com/echasnovski/mini.move)
-  - [`nvim-mini/mini.notify`](https://github.com/echasnovski/mini.notify)
+  - [`rcarriga/nvim-notify`](https://github.com/rcarriga/nvim-notify)
   - [`nvim-mini/mini.pairs`](https://github.com/echasnovski/mini.pairs)
   - [`nvim-mini/mini.pick`](https://github.com/echasnovski/mini.pick)
   - [`nvim-mini/mini.starter`](https://github.com/echasnovski/mini.starter)
@@ -104,6 +104,21 @@ More specific configurations, such as plugin toggles and language support, can b
     - Dependencies:
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`windwp/nvim-ts-autotag`](https://github.com/windwp/nvim-ts-autotag)
+  - [`pmizio/typescript-tools.nvim`](https://github.com/pmizio/typescript-tools.nvim)
+    - Dependencies:
+      - [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)
+      - [`nvim-lua/plenary.nvim`](https://github.com/nvim-lua/plenary.nvim)
+  - [`kevinhwang91/nvim-ufo`](https://github.com/kevinhwang91/nvim-ufo)
+    - Dependencies:
+      - [`kevinhwang91/promise-async`](https://github.com/kevinhwang91/promise-async)
+  - [`nvim-treesitter/nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context)
+  - [`aikhe/wrapped.nvim`](https://github.com/aikhe/wrapped.nvim)
+    - Dependencies:
+      - [`nvzone/volt`](https://github.com/nvzone/volt)
+  - [`gbprod/yanky.nvim`](https://github.com/gbprod/yanky.nvim)
+    - [`kkharji/sqlite.lua`](https://github.com/kkharji/sqlite.lua)
+  - [`rmagatti/goto-preview`](https://github.com/rmagatti/goto-preview)
+    - [`rmagatti/logger.nvim`](https://github.com/rmagatti/logger.nvim)
 
 ## License
 

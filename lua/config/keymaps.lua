@@ -82,68 +82,10 @@ end
 -------------------------------------------------
 
 -------------------------------------------------
--- Plugin related
-function M.setup_plugin()
-	local _shared = require("values.constants.shared")
-	local to_cmd = _keymap.to_cmd
-
-	-- Neo-tree
-	local _neo_tree = require("config.utils.neo-tree")
-	map("", with_prefix("E", "pickers"), _neo_tree.toggle, "Explore current directory using Neotree")
-
-	-- Oil
-	map("", with_prefix("e", "pickers"), to_cmd(_shared.oil.cmd), "Manage the current directory using Oil")
-
-	-- Actions
-	map("", with_prefix("", "actions"), "", "   Misc actions")
-	map("", with_prefix("g", "actions"), to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
-
-	local _format = require("config.utils.format")
-
-	-- Formatters
-	map({ "", "i" }, with_prefix("", "formatters"), "", "   Formatter actions")
-	map({ "", "i" }, with_prefix("s", "formatters"), _format.format_current, "Format file (if possible)")
-	map({ "", "i" }, with_prefix("S", "formatters"), _format.toggle_format_on_save, "Toggle format on save")
-
-	_format.setup_autocmd()
-
-	-- Code Companion
-	map("", with_prefix("", "ai"), "", "   AI actions")
-
-	map(
-		"",
-		with_prefix("a", "ai"),
-		to_cmd(_shared.codecompanion.actions.cmd, "codecompanion"),
-		"See all Code Companion actions"
-	)
-
-	map(
-		"",
-		with_prefix("c", "ai"),
-		to_cmd(_shared.codecompanion.chat.toggle.cmd, "codecompanion"),
-		"Toggle Code Companion chat"
-	)
-	map(
-		"",
-		with_prefix("n", "ai"),
-		to_cmd(_shared.codecompanion.chat.new.cmd, "codecompanion"),
-		"Start a new Code Companion chat"
-	)
-
-	map(
-		"",
-		with_prefix("p", "ai"),
-		to_cmd(_shared.codecompanion.prompt.cmd, "codecompanion"),
-		"Toggle Code Companion prompt"
-	)
-end
--------------------------------------------------
-
--------------------------------------------------
 -- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
-	M.setup_plugin()
+	map("", with_prefix("", "actions"), "", "   Misc actions")
 end
 -------------------------------------------------
 

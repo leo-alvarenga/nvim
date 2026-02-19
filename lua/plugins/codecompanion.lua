@@ -1,3 +1,40 @@
+local opts = {
+	display = {
+		chat = {
+			fold_context = true,
+			icons = {
+				chat_context = "",
+			},
+		},
+	},
+	interactions = {
+		chat = {
+			adapter = {
+				name = "copilot",
+				model = "gpt-4.1",
+			},
+			callbacks = {
+				["on_ready"] = {
+					actions = {
+						"interactions.background.builtin.chat_make_title",
+					},
+					enabled = true,
+				},
+			},
+			opts = {
+				-- Enable background interactions generally
+				enabled = true,
+			},
+		},
+		inline = {
+			adapter = "copilot",
+		},
+		cmd = {
+			adapter = "copilot",
+		},
+	},
+}
+
 return {
 	"olimorris/codecompanion.nvim",
 	enabled = require("values.plugins").is_enabled("codecompanion"),
@@ -6,40 +43,45 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
-	opts = {
-		display = {
-			chat = {
-				fold_context = true,
-				icons = {
-					chat_context = "",
-				},
-			},
-		},
-		interactions = {
-			chat = {
-				adapter = {
-					name = "copilot",
-					model = "gpt-4.1",
-				},
-				callbacks = {
-					["on_ready"] = {
-						actions = {
-							"interactions.background.builtin.chat_make_title",
-						},
-						enabled = true,
-					},
-				},
-				opts = {
-					-- Enable background interactions generally
-					enabled = true,
-				},
-			},
-			inline = {
-				adapter = "copilot",
-			},
-			cmd = {
-				adapter = "copilot",
-			},
-		},
-	},
+
+	config = function()
+		require("codecompanion").setup(opts)
+
+		local _keymap = require("config.utils.keymap")
+		local _shared = require("values.constants.shared")
+
+		local map = _keymap.map
+		local with_prefix = _keymap.with_prefix
+		local to_cmd = _keymap.to_cmd
+
+		-- Code Companion
+		map("", with_prefix("", "ai"), "", "   AI actions")
+
+		map(
+			"",
+			with_prefix("a", "ai"),
+			to_cmd(_shared.codecompanion.actions.cmd, "codecompanion"),
+			"See all Code Companion actions"
+		)
+
+		map(
+			"",
+			with_prefix("c", "ai"),
+			to_cmd(_shared.codecompanion.chat.toggle.cmd, "codecompanion"),
+			"Toggle Code Companion chat"
+		)
+		map(
+			"",
+			with_prefix("n", "ai"),
+			to_cmd(_shared.codecompanion.chat.new.cmd, "codecompanion"),
+			"Start a new Code Companion chat"
+		)
+
+		map(
+			"",
+			with_prefix("p", "ai"),
+			to_cmd(_shared.codecompanion.prompt.cmd, "codecompanion"),
+			"Toggle Code Companion prompt"
+		)
+	end,
 }
