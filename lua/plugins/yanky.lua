@@ -2,9 +2,22 @@ return {
 	"gbprod/yanky.nvim",
 	version = false,
 	dependencies = {
-		{ "kkharji/sqlite.lua" },
+		{
+			"kkharji/sqlite.lua",
+		},
 	},
 	opts = {
-		ring = { storage = "sqlite" },
+		highlight = {
+			on_put = false,
+			on_yank = false,
+		},
+		ring = {
+			storage = "sqlite",
+		},
+
+		system_clipboard = {
+			sync_with_ring = true,
+			clipboard_register = nil,
+		},
 	},
 }
