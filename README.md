@@ -84,7 +84,7 @@ More specific configurations, such as plugin toggles and language support, can b
   - [`nvim-mini/mini.comment`](https://github.com/echasnovski/mini.comment)
   - [`nvim-mini/mini.cursorword`](https://github.com/echasnovski/mini.cursorword)
   - [`nvim-mini/mini.move`](https://github.com/echasnovski/mini.move)
-  - [`nvim-mini/mini.notify`](https://github.com/echasnovski/mini.notify)
+  - [`rcarriga/nvim-notify`](https://github.com/rcarriga/nvim-notify)
   - [`nvim-mini/mini.pairs`](https://github.com/echasnovski/mini.pairs)
   - [`nvim-mini/mini.pick`](https://github.com/echasnovski/mini.pick)
   - [`nvim-mini/mini.starter`](https://github.com/echasnovski/mini.starter)
@@ -117,6 +117,8 @@ More specific configurations, such as plugin toggles and language support, can b
       - [`nvzone/volt`](https://github.com/nvzone/volt)
   - [`gbprod/yanky.nvim`](https://github.com/gbprod/yanky.nvim)
     - [`kkharji/sqlite.lua`](https://github.com/kkharji/sqlite.lua)
+  - [`rmagatti/goto-preview`](https://github.com/rmagatti/goto-preview)
+    - [`rmagatti/logger.nvim`](https://github.com/rmagatti/logger.nvim)
 
 ## License
 
