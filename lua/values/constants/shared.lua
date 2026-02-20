@@ -44,6 +44,9 @@ return {
 			oil_warning = "[Neo-tree] Cannot open Neo-tree from Oil buffer",
 		},
 	},
+	notify = {
+		cmd = "NotificationsClear",
+	},
 	oil = {
 		cmd = "Oil",
 	},
