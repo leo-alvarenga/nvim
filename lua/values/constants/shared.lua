@@ -26,6 +26,20 @@ return {
 			cmd = "ColorizerToggle",
 		},
 	},
+	diffview = {
+
+		description = "Toggle Diffview",
+		open = {
+			cmd = "DiffviewOpen",
+			description = "Open Diffview",
+			notification = "[Diffview] Diffview opened",
+		},
+		close = {
+			cmd = "DiffviewClose",
+			description = "Close Diffview",
+			notification = "[Diffview] Diffview closed",
+		},
+	},
 	format = {
 		notifications = {
 			disabled = "[Conform] Format on save is now disabled",
