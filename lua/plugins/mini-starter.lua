@@ -1,3 +1,4 @@
+local _ui = require("values.ui")
 local _shared = require("values.constants.shared")
 
 local sections = {
@@ -9,19 +10,7 @@ local sections = {
 
 --- ASCII art banner for mini.starter
 local function banner()
-	return table.concat({
-		[[                                                     ]],
-		[[  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ]],
-		[[  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ]],
-		[[ ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ]],
-		[[ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ]],
-		[[ ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ]],
-		[[ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ]],
-		[[ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ]],
-		[[    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ]],
-		[[          ░    ░  ░    ░ ░        ░   ░         ░    ]],
-		[[                                 ░                   ]],
-	}, "\n")
+	return table.concat(_ui.banner, "\n")
 end
 
 --- Get a random quote from quoth-nvim
@@ -38,42 +27,42 @@ return {
 		items = {
 			{
 				action = _shared.oil.cmd,
-				name = "Browse files",
+				name = _shared.oil.description,
 				section = sections.files,
 			},
 			{
 				action = _shared.neo_tree.cmd,
-				name = "Tree view",
+				name = _shared.neo_tree.description,
 				section = sections.files,
 			},
 			{
 				action = _shared.telescope.find_files.cmd,
-				name = "Find a file",
+				name = _shared.telescope.find_files.description,
 				section = sections.files,
 			},
 			{
 				action = _shared.telescope.live_grep.cmd,
-				name = "Search in files",
+				name = _shared.telescope.live_grep.description,
 				section = sections.files,
 			},
 			{
-				action = "e $MYVIMRC",
-				name = "Customize current Config",
+				action = _shared.misc.edit_config.cmd,
+				name = _shared.misc.edit_config.description,
 				section = sections.config,
 			},
 			{
-				action = "Lazy",
-				name = "Open Plugin Manager",
+				action = _shared.lazy.cmd,
+				name = _shared.lazy.description,
 				section = sections.plugins,
 			},
 			{
-				action = "Mason",
-				name = "Manage LSPs and Tools",
+				action = _shared.mason.cmd,
+				name = _shared.mason.description,
 				section = sections.plugins,
 			},
 			{
-				action = "qa",
-				name = "Quit Neovim",
+				action = _shared.misc.quit.cmd,
+				name = _shared.misc.quit.description,
 				section = sections.exit,
 			},
 		},

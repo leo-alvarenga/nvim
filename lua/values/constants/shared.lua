@@ -38,8 +38,17 @@ return {
 			cmd = "GitBlameToggle",
 		},
 	},
+	lazy = {
+		cmd = "Lazy",
+		description = "Open plugin manager",
+	},
+	mason = {
+		cmd = "Mason",
+		description = "Manage LSP and tools",
+	},
 	neo_tree = {
 		cmd = "Neotree toggle dir=./ reveal",
+		description = "Tree view",
 		notifications = {
 			oil_warning = "[Neo-tree] Cannot open Neo-tree from Oil buffer",
 		},
@@ -49,6 +58,7 @@ return {
 	},
 	oil = {
 		cmd = "Oil",
+		description = "Browse files",
 	},
 	starter = {
 		cmd = "MiniStarterOpen",
@@ -56,9 +66,11 @@ return {
 	telescope = {
 		find_files = {
 			cmd = "Telescope find_files",
+			description = "Find a file",
 		},
 		live_grep = {
 			cmd = "Telescope live_grep",
+			description = "Search in files",
 		},
 	},
 	twilight = {
@@ -70,5 +82,17 @@ return {
 	},
 	yank_history = {
 		cmd = "Telescope yank_history",
+	},
+
+	misc = {
+		quit = {
+			cmd = "qa",
+			description = "Quit Neovim",
+		},
+
+		edit_config = {
+			cmd = "e $MYVIMRC",
+			description = "Customize current Config",
+		},
 	},
 }
