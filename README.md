@@ -119,6 +119,8 @@ More specific configurations, such as plugin toggles and language support, can b
     - [`kkharji/sqlite.lua`](https://github.com/kkharji/sqlite.lua)
   - [`rmagatti/goto-preview`](https://github.com/rmagatti/goto-preview)
     - [`rmagatti/logger.nvim`](https://github.com/rmagatti/logger.nvim)
+  - [`ruicsh/tailwindcss-dial.nvim`](https://github.com/ruicsh/tailwindcss-dial.nvim)
+    - [`monaqa/dial.nvim`](https://github.com/monaqa/dial.nvim)
 
 ## License
 
