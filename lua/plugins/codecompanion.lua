@@ -55,33 +55,33 @@ return {
 		local to_cmd = _keymap.to_cmd
 
 		-- Code Companion
-		map("", with_prefix("", "ai"), "", "   AI actions")
+		map("", with_prefix("", "ai"), "", _shared.descriptions.ai)
 
 		map(
 			"",
 			with_prefix("a", "ai"),
-			to_cmd(_shared.codecompanion.actions.cmd, "codecompanion"),
-			"See all Code Companion actions"
+			to_cmd(_shared.cmds.codecompanion.actions, "codecompanion"),
+			_shared.descriptions.codecompanion.actions
 		)
 
 		map(
 			"",
 			with_prefix("c", "ai"),
-			to_cmd(_shared.codecompanion.chat.toggle.cmd, "codecompanion"),
-			"Toggle Code Companion chat"
+			to_cmd(_shared.cmds.codecompanion.chat_toggle, "codecompanion"),
+			_shared.descriptions.codecompanion.chat_toggle
 		)
 		map(
 			"",
 			with_prefix("n", "ai"),
-			to_cmd(_shared.codecompanion.chat.new.cmd, "codecompanion"),
-			"Start a new Code Companion chat"
+			to_cmd(_shared.cmds.codecompanion.chat_new, "codecompanion"),
+			_shared.descriptions.codecompanion.chat_new
 		)
 
 		map(
 			"",
 			with_prefix("p", "ai"),
-			to_cmd(_shared.codecompanion.prompt.cmd, "codecompanion"),
-			"Toggle Code Companion prompt"
+			to_cmd(_shared.cmds.codecompanion.prompt, "codecompanion"),
+			_shared.descriptions.codecompanion.prompt
 		)
 	end,
 }

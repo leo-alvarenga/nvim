@@ -10,7 +10,7 @@ return {
 		local map = _keymap.map
 		local with_prefix = _keymap.with_prefix
 
-		map("", with_prefix("e", "pickers"), _keymap.to_cmd(_shared.oil.cmd), "Manage the current directory using Oil")
+		map("", with_prefix("e", "pickers"), _keymap.to_cmd(_shared.cmds.oil), _shared.descriptions.oil.long_desc)
 	end,
 
 	dependencies = {

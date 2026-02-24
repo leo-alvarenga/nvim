@@ -16,6 +16,6 @@ return {
 		local map = _keymap.map
 		local with_prefix = _keymap.with_prefix
 
-		map("", with_prefix("g", "actions"), _keymap.to_cmd(_shared.git.blame.cmd), "Toggle git-blame")
+		map("", with_prefix("g", "actions"), _keymap.to_cmd(_shared.cmds.git_blame), _shared.descriptions.git_blame)
 	end,
 }
