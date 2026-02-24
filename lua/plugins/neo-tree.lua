@@ -10,7 +10,7 @@ local function toggle()
 		return
 	end
 
-	vim.cmd(_shared.neo_tree.cmd)
+	vim.cmd(_shared.cmds.neo_tree)
 end
 
 ---@module 'neo-tree'
