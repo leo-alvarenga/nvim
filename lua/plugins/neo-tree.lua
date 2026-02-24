@@ -6,11 +6,11 @@ local function toggle()
 	local buf_name = vim.api.nvim_buf_get_name(0)
 
 	if buf_name:match("oil://") then
-		vim.notify_once(_shared.neo_tree.notifications.oil_warning, vim.log.levels.WARN)
+		vim.notify_once(_shared.notifications.neo_tree.oil_warning, vim.log.levels.WARN)
 		return
 	end
 
-	vim.cmd(_shared.neo_tree.cmd)
+	vim.cmd(_shared.cmds.neo_tree)
 end
 
 ---@module 'neo-tree'

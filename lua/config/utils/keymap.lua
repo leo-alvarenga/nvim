@@ -12,14 +12,17 @@ function M.with_prefix(keymap, target)
 end
 
 --- From a nil or string value, get a valid options object to use when mapping
-function M.to_options(desc)
+--- @param desc string|nil Description for the keymap; if nil, no description will be included in the options
+--- @param opts table|nil Additional options to include in the returned options object; if nil, only noremap and silent will be included
+--- @return table Options object with noremap and silent set to true, and desc included if
+function M.to_options(desc, opts)
 	local options = { noremap = true, silent = true }
 
 	if desc then
 		options.desc = desc
 	end
 
-	return options
+	return vim.tbl_extend("force", options, opts or {})
 end
 
 --- Wrapper for setting keymaps via the vim.keymap api
@@ -27,8 +30,9 @@ end
 --- @param key string The key combination to map
 --- @param command string|function The command or function to execute
 --- @param desc string|nil Description for the keymap
-function M.map(mode, key, command, desc)
-	vim.keymap.set(mode, key, command, M.to_options(desc))
+--- @param opts table|nil Additional options to include in the keymap; if nil, only noremap and silent will be included
+function M.map(mode, key, command, desc, opts)
+	vim.keymap.set(mode, key, command, M.to_options(desc, opts))
 end
 
 ---Convert raw string to Vim CMD

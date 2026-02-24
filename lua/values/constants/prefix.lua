@@ -1,8 +1,8 @@
 return {
 	ai = "<leader>a",
-	actions = "<C-a>",
+	actions = "<leader>s",
 	buffers = "<leader>",
-	formatters = "<C-s>",
+	formatters = "<leader>s",
 	general = "<leader>",
 	pickers = "<leader>",
 	tabs = "<C-t>",

@@ -42,7 +42,6 @@ M.lsps = {
 	"jsonls",
 	"lua_ls",
 	"marksman",
-	"harper_ls",
 	"docker_compose_language_service",
 	"docker_language_server",
 	"dockerls",
