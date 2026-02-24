@@ -16,7 +16,7 @@ end
 --- Get a random quote from quoth-nvim
 local function footer()
 	local quote = require("quoth-nvim").get_random_quote()
-	return quote.text .. "\n" .. quote.author
+	return '"' .. quote.text .. '"\n' .. quote.author
 end
 
 return {
