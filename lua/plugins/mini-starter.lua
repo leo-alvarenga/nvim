@@ -21,6 +21,7 @@ end
 
 return {
 	"nvim-mini/mini.starter",
+	enabled = false,
 	version = false,
 	opts = {
 		autoopen = true,

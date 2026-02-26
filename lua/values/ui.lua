@@ -24,26 +24,25 @@ M.title = {
 	"\\_| \\_/\\___|\\___/ \\___/|_|_| |_| |_|",
 }
 
-M.banner = {
-	(function()
+M.banner = (function()
+	local padding = string.rep(" ", 4)
+	local lines = {}
+
+	local offset = math.floor((#M.logo - #M.title) / 2)
+	local empty_line = string.rep(" ", #M.title[1])
+
+	for i, line in ipairs(M.logo) do
 		local banner = ""
-		local padding = string.rep(" ", 4)
-
-		local offset = math.floor((#M.logo - #M.title) / 2)
-		local empty_line = string.rep(" ", #M.title[1])
-
-		for i, line in ipairs(M.logo) do
-			if i > offset and i <= offset + #M.title then
-				banner = banner .. (M.title[i - offset] or empty_line)
-			else
-				banner = banner .. empty_line
-			end
-
-			banner = banner .. padding .. line .. "\n"
+		if i > offset and i <= offset + #M.title then
+			banner = banner .. (M.title[i - offset] or empty_line)
+		else
+			banner = banner .. empty_line
 		end
 
-		return banner
-	end)(),
-}
+		table.insert(lines, banner .. padding .. line)
+	end
+
+	return lines
+end)()
 
 return M

@@ -21,7 +21,7 @@ function M.close_current()
 		return
 	end
 
-	require("mini.starter").open()
+	require("homecoming-nvim").open()
 end
 
 function M.is_actual_file()
