@@ -15,11 +15,13 @@ end
 
 --- Get a random quote from quoth-nvim
 local function footer()
-	return require("quoth-nvim").get_random_quote().text
+	local quote = require("quoth-nvim").get_random_quote()
+	return '"' .. quote.text .. '"\n' .. quote.author
 end
 
 return {
 	"nvim-mini/mini.starter",
+	enabled = false,
 	version = false,
 	opts = {
 		autoopen = true,

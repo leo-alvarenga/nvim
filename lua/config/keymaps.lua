@@ -1,4 +1,3 @@
-local _buffer = require("config.utils.buffer")
 local _keymap = require("config.utils.keymap")
 
 local map = _keymap.map
@@ -15,14 +14,6 @@ function M.buffer_management()
 
 	-- Open new Buffer
 	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty Buffer")
-
-	-- Close current Buffer
-	map(
-		"",
-		with_prefix("q", "buffers"),
-		_buffer.close_current,
-		"Close current Buffer (go to Dashboard if it's the last one)"
-	)
 end
 ---------------------
 
