@@ -21,6 +21,10 @@ M.cmds = {
 
 	git_blame = "GitBlameToggle",
 
+	homecoming = {
+		buffer_delete = "HomecomingCloseCurrBuf",
+	},
+
 	lazy = "Lazy",
 
 	mason = {
@@ -66,6 +70,10 @@ M.descriptions = {
 	},
 
 	git_blame = "Toggle Git Blame",
+
+	homecoming = {
+		buffer_delete = "Close current buffer from Homecoming",
+	},
 
 	lazy = "Open plugin manager",
 
