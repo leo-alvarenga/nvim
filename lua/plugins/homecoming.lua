@@ -14,6 +14,7 @@ return {
 
 	opts = {
 		enabled = true,
+		section_anchor = "header_half",
 		sections = {
 			{
 				title = sections.files,
@@ -51,7 +52,6 @@ return {
 			},
 			{
 				title = sections.plugins,
-
 				items = {
 					{ action = _shared.cmds.lazy, label = _shared.descriptions.lazy },
 					{
@@ -73,7 +73,7 @@ return {
 		footer_mt = 2,
 		footer = function()
 			local quote = require("quoth-nvim").get_random_quote()
-			return { '"' .. quote.text .. '"', "- " .. quote.author }
+			return { '"' .. quote.text .. '"', quote.author }
 		end,
 	},
 }

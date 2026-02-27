@@ -21,7 +21,7 @@ function M.close_current()
 		return
 	end
 
-	require("homecoming-nvim").open()
+	require("homecoming-nvim").open(true)
 end
 
 function M.is_actual_file()
