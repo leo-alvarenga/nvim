@@ -8,6 +8,11 @@ For the complete list of plugins and configurations, please refer to the [Plugin
 
 > Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [leo-alvarenga/tmux](https://github.com/leo-alvarenga/tmux)
 
+> Check out my Neovim plugins, which are also used in this configuration:
+>
+> - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim)
+> - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
+
 ## Configurations
 
 More specific configurations, such as plugin toggles and language support, can be found and easily changed by editing the values inside the files found under `lua/values/`.
@@ -29,7 +34,7 @@ More specific configurations, such as plugin toggles and language support, can b
 
 ## Preview
 
-![Starter](./docs/starter.png)
+![Starter using leo-alvarenga/homecoming.nvim](./docs/starter.png)
 ![Usage](./docs/usage-simple.png)
 ![Neotree](./docs/usage-neotree.png)
 ![Completions](./docs/usage-blink.png)
