@@ -53,6 +53,7 @@
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`nvim-mini/mini.comment`](https://github.com/echasnovski/mini.comment)
   - [`nvim-mini/mini.cursorword`](https://github.com/echasnovski/mini.cursorword)
+  - [`nvim-mini/mini.jump`](https://github.com/echasnovski/mini.jump)
   - [`nvim-mini/mini.move`](https://github.com/echasnovski/mini.move)
   - [`rcarriga/nvim-notify`](https://github.com/rcarriga/nvim-notify)
   - [`nvim-mini/mini.pairs`](https://github.com/echasnovski/mini.pairs)
