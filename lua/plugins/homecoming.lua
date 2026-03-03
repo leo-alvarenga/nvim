@@ -4,17 +4,29 @@ local _shared = require("values.constants.shared")
 local sections = {
 	files = "  Files",
 	config = "  Config",
-	plugins = " Plugins and LSPs",
+	plugins = "  Plugins and LSPs",
 	exit = "  Exit",
 }
 
 return {
 	"leo-alvarenga/homecoming.nvim",
+	-- dir = "~/personal/homecoming.nvim",
+	branch = "nightly",
 	config = function()
 		require("homecoming-nvim.types")
 
 		--- @type homecoming-nvim.Opts
 		local opts = {
+			header = _ui.banner,
+
+			footer_mt = 2,
+			footer = function()
+				local quote = require("quoth-nvim").get_random_quote()
+				return { '"' .. quote.text .. '"', quote.author }
+			end,
+
+			item_indent = 3,
+
 			section_anchor = "header_half",
 			sections = {
 				{
@@ -69,13 +81,6 @@ return {
 					},
 				},
 			},
-			header = _ui.banner,
-
-			footer_mt = 2,
-			footer = function()
-				local quote = require("quoth-nvim").get_random_quote()
-				return { '"' .. quote.text .. '"', quote.author }
-			end,
 		}
 
 		require("homecoming-nvim").setup(opts)
