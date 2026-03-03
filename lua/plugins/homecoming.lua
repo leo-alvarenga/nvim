@@ -18,8 +18,9 @@ return {
 		--- @type homecoming-nvim.Opts
 		local opts = {
 			header = _ui.banner,
+			header_mb = 1,
 
-			footer_mt = 2,
+			footer_mt = 1,
 			footer = function()
 				local quote = require("quoth-nvim").get_random_quote()
 				return { '"' .. quote.text .. '"', quote.author }
