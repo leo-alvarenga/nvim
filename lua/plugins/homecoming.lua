@@ -26,6 +26,7 @@ return {
 				return { '"' .. quote.text .. '"', quote.author }
 			end,
 
+			item_selected_hl_group = "QuickFixLine",
 			item_indent = 3,
 
 			section_anchor = "header_half",
