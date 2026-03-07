@@ -34,24 +34,14 @@ return {
 				{
 					title = sections.files,
 					items = {
-
-						{
-							action = _shared.cmds.oil,
-							label = _shared.descriptions.oil.browse,
-						},
 						{
 							action = _shared.cmds.neo_tree,
-							label = _shared.descriptions.neo_tree.tree,
+							label = _shared.descriptions.oil.browse,
 							section = sections.files,
 						},
 						{
 							action = _shared.cmds.telescope.find_files,
 							label = _shared.descriptions.telescope.find_files,
-							section = sections.files,
-						},
-						{
-							action = _shared.cmds.telescope.live_grep,
-							label = _shared.descriptions.telescope.live_grep,
 							section = sections.files,
 						},
 					},
