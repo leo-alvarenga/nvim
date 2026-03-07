@@ -11,6 +11,7 @@ For the complete list of plugins and configurations, please refer to the [Plugin
 > Check out my Neovim plugins, which are also used in this configuration:
 >
 > - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim)
+> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim)
 > - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
 
 ## Configurations
