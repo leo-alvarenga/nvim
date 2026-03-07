@@ -93,7 +93,6 @@ return {
 
 		M.setup_autocmd()
 
-		map({ "", "i" }, with_prefix("", "formatters"), "", "   Formatter actions")
 		map({ "", "i" }, with_prefix("s", "formatters"), M.format_current, "Format file (if possible)")
 		map({ "", "i" }, with_prefix("S", "formatters"), M.toggle_format_on_save, "Toggle format on save")
 	end,

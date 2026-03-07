@@ -40,9 +40,7 @@
   - [`rachartier/tiny-inline-diagnostic.nvim`](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
 
 - UI & Productivity
-  - [`akinsho/bufferline.nvim`](https://github.com/akinsho/bufferline.nvim)
-    - Dependencies:
-      - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
+  - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim)
   - [`folke/todo-comments.nvim`](https://github.com/folke/todo-comments.nvim)
   - [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim)
   - [`folke/twilight.nvim`](https://github.com/folke/twilight.nvim)
@@ -53,6 +51,7 @@
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`nvim-mini/mini.comment`](https://github.com/echasnovski/mini.comment)
   - [`nvim-mini/mini.cursorword`](https://github.com/echasnovski/mini.cursorword)
+  - [`nvim-mini/mini.jump`](https://github.com/echasnovski/mini.jump)
   - [`nvim-mini/mini.move`](https://github.com/echasnovski/mini.move)
   - [`rcarriga/nvim-notify`](https://github.com/rcarriga/nvim-notify)
   - [`nvim-mini/mini.pairs`](https://github.com/echasnovski/mini.pairs)
