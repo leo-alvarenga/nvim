@@ -2,6 +2,9 @@ return {
 	"leo-alvarenga/mantel.nvim",
 	-- dir = "~/personal/mantel.nvim",
 	branch = "nightly",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	config = function()
 		local mantel = require("mantel-nvim")
 
