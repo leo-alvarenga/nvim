@@ -1,7 +1,7 @@
 local M = {}
 
 --- @type Theme
-M.theme = "onedark"
+M.theme = "nordic"
 
 M.logo = {
 	"⠀⠀⠀⠀⣠⣤⣶⣶⣶⣤⣄⡀⠀",

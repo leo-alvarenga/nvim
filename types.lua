@@ -6,5 +6,6 @@
 --- | "kanagawa"
 --- | "onedark"
 --- | "tokyonight"
+--- | "nordic"
 
 return {}

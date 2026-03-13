@@ -40,6 +40,14 @@ local themes = {
 		opts = { style = "night", transparent = true },
 		priority = 1000,
 	},
+	nordic = {
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nordic").load()
+		end,
+	},
 }
 
 return themes[theme] or themes["catppuccin"]
