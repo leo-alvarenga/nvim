@@ -10,6 +10,7 @@ return {
 
 		local opts = {
 			mode = "enhanced",
+			style = "slanted",
 		}
 
 		mantel.setup(opts)
