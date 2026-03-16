@@ -10,9 +10,9 @@ For the complete list of plugins and configurations, please refer to the [Plugin
 
 > Check out my Neovim plugins, which are also used in this configuration:
 >
-> - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim)
-> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim)
-> - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
+> - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim) - Startup screen/dashboard plugin
+> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim) - Tabline/bufferline plugin
+> - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim) - Quote provider plugin, for testing and greeting messages
 
 ## Configurations
 
