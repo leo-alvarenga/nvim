@@ -10,7 +10,7 @@ return {
 
 		local opts = {
 			mode = "enhanced",
-			style = "slanted",
+			style = { preset = "slanted", ignore_first_buffer = true },
 		}
 
 		mantel.setup(opts)
