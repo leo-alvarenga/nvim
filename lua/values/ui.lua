@@ -1,6 +1,7 @@
 local M = {}
 
-M.theme = "onedark"
+--- @type Theme
+M.theme = "kanagawa"
 
 M.logo = {
 	"⠀⠀⠀⠀⣠⣤⣶⣶⣶⣤⣄⡀⠀",

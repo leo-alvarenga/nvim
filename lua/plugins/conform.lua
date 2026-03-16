@@ -10,7 +10,7 @@ function M.format_current(args, silent)
 		vim.notify(require("values.constants.shared").format.notifications.manual, vim.log.levels.INFO)
 	end
 
-	require("conform").format(args)
+	require("conform").format(args or { bufnr = vim.api.nvim_get_current_buf() })
 end
 
 --- Toggles the format on save feature and notifies the user of the new status

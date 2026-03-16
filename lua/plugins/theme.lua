@@ -1,32 +1,28 @@
 local theme = require("values.ui").theme or "catppuccin"
 
-return {
-	{
+local themes = {
+	catppuccin = {
 		"catppuccin/nvim",
-		enabled = theme == "catppuccin",
 		name = "catppuccin",
 		opts = { transparent_background = true },
 		priority = 1000,
 	},
-	{
+	everforest = {
 		"sainnhe/everforest",
-		enabled = theme == "everforest",
 		lazy = false,
 		name = "everforest",
 		opts = { background = "soft" },
 		priority = 1000,
 	},
-	{
+	kanagawa = {
 		"rebelot/kanagawa.nvim",
-		enabled = theme == "kanagawa",
 		lazy = false,
 		name = "kanagawa",
 		opts = { transparent = true },
 		priority = 1000,
 	},
-	{
+	onedark = {
 		"navarasu/onedark.nvim",
-		enabled = theme == "onedark",
 		lazy = false,
 		name = "onedark",
 		config = function()
@@ -37,12 +33,22 @@ return {
 			require("onedark").load()
 		end,
 	},
-	{
+	tokyonight = {
 		"folke/tokyonight.nvim",
-		enabled = theme == "tokyonight",
 		lazy = false,
 		name = "tokyonight",
 		opts = { style = "night", transparent = true },
 		priority = 1000,
 	},
+	nordic = {
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		name = "nordic",
+		priority = 1000,
+		config = function()
+			require("nordic").load()
+		end,
+	},
 }
+
+return themes[theme] or themes["catppuccin"]

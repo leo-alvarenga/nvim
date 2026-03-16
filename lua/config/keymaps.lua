@@ -9,9 +9,6 @@ local M = {}
 ---------------------
 -- Buffer management
 function M.buffer_management()
-	map("", with_prefix("h", "buffers"), ":bprevious<cr>", "Go to previous Buffer")
-	map("", with_prefix("l", "buffers"), ":bnext<cr>", "Go to next Buffer")
-
 	-- Open new Buffer
 	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty Buffer")
 end
