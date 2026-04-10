@@ -84,6 +84,7 @@
     - [`rmagatti/logger.nvim`](https://github.com/rmagatti/logger.nvim)
   - [`ruicsh/tailwindcss-dial.nvim`](https://github.com/ruicsh/tailwindcss-dial.nvim)
     - [`monaqa/dial.nvim`](https://github.com/monaqa/dial.nvim)
+  - [`MeanderingProgrammer/render-markdown.nvim`](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 
 - Utility Libraries
   - [`nvim-lua/plenary.nvim`](https://github.com/nvim-lua/plenary.nvim)
@@ -97,3 +98,4 @@
   - [`leo-alvarenga/drift.nvim`](https://github.com/leo-alvarenga/drift.nvim)
   - [`leo-alvarenga/quoth.nvim`](https://github.com/leo-alvarenga/quoth.nvim)
   - [`nmac427/guess-indent.nvim`](https://github.com/nmac427/guess-indent.nvim)
+  - [`dstein64/vim-startuptime`](https://github.com/dstein64/vim-startuptime)

@@ -9,8 +9,7 @@ return {
 		local mantel = require("mantel-nvim")
 
 		local opts = {
-			mode = "enhanced",
-			style = { preset = "slanted", ignore_first_buffer = true },
+			preset = "slanted",
 		}
 
 		mantel.setup(opts)

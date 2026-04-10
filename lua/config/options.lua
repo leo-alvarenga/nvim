@@ -16,79 +16,78 @@ local scroll_off = 10
 -- Options
 
 -- Basics
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.shiftwidth = tabwidth -- Amount to indent with << and >>
-vim.opt.tabstop = tabwidth -- How many spaces are shown per Tab
-vim.opt.softtabstop = tabwidth -- How many spaces are applied when pressing Tab
-vim.opt.wrap = false
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.list = true
+vim.o.expandtab = true -- Convert tabs to spaces
+vim.o.shiftwidth = tabwidth -- Amount to indent with << and >>
+vim.o.tabstop = tabwidth -- How many spaces are shown per Tab
+vim.o.softtabstop = tabwidth -- How many spaces are applied when pressing Tab
+vim.o.wrap = false
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.list = true
 vim.opt.listchars = { tab = tabchar, trail = trailingspacechar, nbsp = nbspchar }
-vim.opt.scrolloff = scroll_off
-vim.opt.sidescrolloff = scroll_off
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.scrolloff = scroll_off
+vim.o.sidescrolloff = scroll_off
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Show line under cursor
-vim.opt.cursorline = true
+vim.o.cursorline = true
 
 -- Store undos between sessions
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Indentation
-vim.opt.smarttab = true
-vim.opt.smartindent = true
-vim.opt.autoindent = true -- Keep identation from previous line
-vim.opt.breakindent = true -- Enable break indent
-vim.opt.lazyredraw = true
+vim.o.smarttab = true
+vim.o.smartindent = true
+vim.o.autoindent = true -- Keep identation from previous line
+vim.o.breakindent = true -- Enable break indent
+vim.o.lazyredraw = true
 
 -- Files
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.opt.swapfile = false
-vim.opt.updatetime = 300 -- Make completion faster
-vim.opt.autoread = true -- Ensure files changes outside current vim session are loaded
-vim.opt.autowrite = false
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+vim.o.updatetime = 300 -- Make completion faster
+vim.o.autoread = true -- Ensure files changes outside current vim session are loaded
+vim.o.autowrite = false
 
 -- Search
-vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.smartcase = true
-vim.opt.incsearch = true -- Show search results incremently as you type
+vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.smartcase = true
+vim.o.incsearch = true -- Show search results incremently as you type
 
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = false })
 
 -- Visual settings
-vim.opt.termguicolors = true -- Enable 24-bit colors
-vim.opt.signcolumn = "yes" -- Always show sign column
-vim.opt.showmatch = true -- Highlight matching brackets
-vim.opt.matchtime = 5 -- How long to show matching bracket
-vim.opt.cmdheight = 1 -- Command line height
-vim.opt.completeopt = "menuone,noinsert,noselect" -- Completion options
-vim.opt.showmode = false -- Don't show mode in command line
-vim.opt.pumheight = 10 -- Popup menu height
-vim.opt.pumblend = 10 -- Popup menu transparency
-vim.opt.winblend = 0 -- Floating window transparency
-vim.opt.conceallevel = 0 -- Don't hide markup
-vim.opt.concealcursor = "" -- Don't hide cursor line markup
-vim.opt.lazyredraw = true -- Don't redraw during macros
-vim.opt.synmaxcol = 300 -- Syntax highlighting limit
+vim.o.termguicolors = true -- Enable 24-bit colors
+vim.o.signcolumn = "yes" -- Always show sign column
+vim.o.showmatch = true -- Highlight matching brackets
+vim.o.matchtime = 5 -- How long to show matching bracket
+vim.o.cmdheight = 0 -- Command line height
+vim.o.completeopt = "menuone,noinsert,noselect" -- Completion options
+vim.o.showmode = false -- Don't show mode in command line
+vim.o.pumheight = 10 -- Popup menu height
+vim.o.pumblend = 10 -- Popup menu transparency
+vim.o.winblend = 0 -- Floating window transparency
+vim.o.conceallevel = 0 -- Don't hide markup
+vim.o.concealcursor = "" -- Don't hide cursor line markup
+vim.o.lazyredraw = true -- Don't redraw during macros
+vim.o.synmaxcol = 300 -- Syntax highlighting limit
 vim.o.winborder = "rounded" -- Rounded border for floating windows
 
 -- Behavior settings
-vim.opt.hidden = true -- Allow hidden buffers
-vim.opt.errorbells = false -- No error bells
-vim.opt.backspace = "indent,eol,start" -- Better backspace behavior
-vim.opt.autochdir = false -- Don't auto change directory
-vim.opt.iskeyword:append("-") -- Treat dash as part of word
+vim.o.hidden = true -- Allow hidden buffers
+vim.o.errorbells = false -- No error bells
+vim.o.backspace = "indent,eol,start" -- Better backspace behavior
+vim.o.autochdir = false -- Don't auto change directory
 vim.opt.path:append("**") -- include subdirectories in search
-vim.opt.selection = "inclusive" -- Selection behavior - incluse include the starting char
-vim.opt.mouse = "a" -- Enable mouse support
-vim.opt.modifiable = true -- Allow buffer modifications
-vim.opt.encoding = "UTF-8" -- Set encoding
+vim.o.selection = "inclusive" -- Selection behavior - incluse include the starting char
+vim.o.mouse = "a" -- Enable mouse support
+vim.o.modifiable = true -- Allow buffer modifications
+vim.o.encoding = "UTF-8" -- Set encoding
 
 -- Folding settings
-vim.opt.foldmethod = "expr" -- Use expression for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use treesitter for folding
-vim.opt.foldlevel = 99 -- Start with all folds open
+vim.o.foldmethod = "expr" -- Use expression for folding
+vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- Use treesitter for folding
+vim.o.foldlevel = 99 -- Start with all folds open

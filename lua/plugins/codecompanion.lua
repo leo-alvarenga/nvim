@@ -38,7 +38,7 @@ local opts = {
 return {
 	"olimorris/codecompanion.nvim",
 	enabled = require("values.plugins").is_enabled("codecompanion"),
-	version = "^18.0.0",
+	version = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
