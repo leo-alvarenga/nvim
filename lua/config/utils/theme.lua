@@ -1,9 +1,9 @@
 local M = {}
 
 ---Set current colorscheme
----@param theme string
 function M.set()
-	vim.cmd("colorscheme " .. require("values.ui").theme)
+	local ui = require("values.ui")
+	vim.cmd("colorscheme " .. (ui.theme_name or ui.theme))
 end
 
 return M

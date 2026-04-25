@@ -15,6 +15,9 @@ local scroll_off = 10
 
 -- Options
 
+-- vim.pack
+vim.opt.pp:prepend(vim.fn.stdpath("data") .. "/site/pack")
+
 -- Basics
 vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.shiftwidth = tabwidth -- Amount to indent with << and >>

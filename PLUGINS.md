@@ -69,7 +69,6 @@
       - [`nvim-treesitter/nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
   - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`saghen/blink.indent`](https://github.com/saghen/blink.indent)
-  - [`stevearc/oil.nvim`](https://github.com/stevearc/oil.nvim)
     - Dependencies:
       - [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
   - [`kevinhwang91/nvim-ufo`](https://github.com/kevinhwang91/nvim-ufo)
@@ -78,8 +77,6 @@
   - [`aikhe/wrapped.nvim`](https://github.com/aikhe/wrapped.nvim)
     - Dependencies:
       - [`nvzone/volt`](https://github.com/nvzone/volt)
-  - [`gbprod/yanky.nvim`](https://github.com/gbprod/yanky.nvim)
-    - [`kkharji/sqlite.lua`](https://github.com/kkharji/sqlite.lua)
   - [`rmagatti/goto-preview`](https://github.com/rmagatti/goto-preview)
     - [`rmagatti/logger.nvim`](https://github.com/rmagatti/logger.nvim)
   - [`ruicsh/tailwindcss-dial.nvim`](https://github.com/ruicsh/tailwindcss-dial.nvim)

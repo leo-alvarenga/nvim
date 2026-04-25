@@ -1,0 +1,22 @@
+--- @type PluginSpec
+return {
+	src = "gh:f-person/git-blame.nvim",
+	data = {
+		config = function()
+			require("gitblame").setup({
+				enabled = false,
+				message_template = " <summary> • <date> • <author> • <<sha>>",
+				date_format = "%m-%d-%Y %H:%M:%S",
+				virtual_text_column = 1,
+			})
+
+			local _keymap = require("config.utils.keymap")
+			local _shared = require("values.constants.shared")
+
+			local map = _keymap.map
+			local with_prefix = _keymap.with_prefix
+
+			map("", with_prefix("g", "actions"), _keymap.to_cmd(_shared.cmds.git_blame), _shared.descriptions.git_blame)
+		end,
+	},
+}

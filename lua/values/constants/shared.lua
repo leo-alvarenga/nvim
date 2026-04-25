@@ -25,8 +25,6 @@ M.cmds = {
 		buffer_delete = "HomecomingCloseCurrBuf",
 	},
 
-	lazy = "Lazy",
-
 	mantel = {
 		buf_next = "MantelBufNext",
 		buf_prev = "MantelBufPrev",
@@ -43,8 +41,6 @@ M.cmds = {
 
 	notify_clear = "NotificationsClear",
 
-	oil = "Oil",
-
 	starter = "MiniStarterOpen",
 
 	telescope = {
@@ -53,8 +49,6 @@ M.cmds = {
 	},
 
 	twilight = "Twilight",
-
-	yank_history = "Telescope yank_history",
 
 	-- misc
 	quit = "qa",
@@ -82,8 +76,6 @@ M.descriptions = {
 		buffer_delete = "Close current buffer from Homecoming",
 	},
 
-	lazy = "Open plugin manager",
-
 	mantel = {
 		buf_next = "Go to next buffer in the tabline",
 		buf_prev = "Go to previous buffer in the tabline",
@@ -99,11 +91,6 @@ M.descriptions = {
 	neo_tree = {
 		tree = "Tree view",
 		long_desc = "Explore current directory using Neotree",
-	},
-
-	oil = {
-		browse = "Browse files",
-		long_desc = "Manage the current directory using Oil",
 	},
 
 	starter = "Open Mini Starter",
