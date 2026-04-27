@@ -57,27 +57,27 @@ return {
 			map(
 				"",
 				with_prefix("a", "ai"),
-				to_cmd(_shared.cmds.codecompanion.actions, "codecompanion"),
+				to_cmd(_shared.cmds.codecompanion.actions),
 				_shared.descriptions.codecompanion.actions
 			)
 
 			map(
 				"",
 				with_prefix("c", "ai"),
-				to_cmd(_shared.cmds.codecompanion.chat_toggle, "codecompanion"),
+				to_cmd(_shared.cmds.codecompanion.chat_toggle),
 				_shared.descriptions.codecompanion.chat_toggle
 			)
 			map(
 				"",
 				with_prefix("n", "ai"),
-				to_cmd(_shared.cmds.codecompanion.chat_new, "codecompanion"),
+				to_cmd(_shared.cmds.codecompanion.chat_new),
 				_shared.descriptions.codecompanion.chat_new
 			)
 
 			map(
 				"",
 				with_prefix("p", "ai"),
-				to_cmd(_shared.cmds.codecompanion.prompt, "codecompanion"),
+				to_cmd(_shared.cmds.codecompanion.prompt),
 				_shared.descriptions.codecompanion.prompt
 			)
 		end,
