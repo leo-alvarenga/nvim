@@ -14,18 +14,18 @@ function M.get_plugins()
 		{ src = "gh:kevinhwang91/promise-async" },
 
 		--- Theme
-		require("config.plugins.plugins.theme"),
+		require("plugins.theme"),
 	}
 
 	for _, tbl in ipairs({
-		require("config.plugins.plugins.treesitter"),
-		require("config.plugins.plugins.lsp"),
-		require("config.plugins.plugins.code-completions"),
-		require("config.plugins.plugins.ai"),
-		require("config.plugins.plugins.git"),
-		require("config.plugins.plugins.ui"),
-		require("config.plugins.plugins.ux"),
-		require("config.plugins.plugins.misc"),
+		require("plugins.treesitter"),
+		require("plugins.lsp"),
+		require("plugins.code-completions"),
+		require("plugins.ai"),
+		require("plugins.git"),
+		require("plugins.ui"),
+		require("plugins.ux"),
+		require("plugins.misc"),
 	}) do
 		for _, v in ipairs(tbl) do
 			table.insert(plugins, v)

@@ -41,6 +41,8 @@ M.cmds = {
 
 	notify_clear = "NotificationsClear",
 
+	oil = "Oil",
+
 	starter = "MiniStarterOpen",
 
 	telescope = {
@@ -93,7 +95,7 @@ M.descriptions = {
 		long_desc = "Explore current directory using Neotree",
 	},
 
-	starter = "Open Mini Starter",
+	oil = "Explore current directory using Oil",
 
 	telescope = {
 		find_files = "Find a file",

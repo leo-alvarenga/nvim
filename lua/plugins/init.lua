@@ -32,7 +32,7 @@ function M.pack(verbose)
 		end
 
 		return plugin
-	end, require("config.plugins.plugins").get_plugins())
+	end, require("plugins.helpers").get_plugins())
 
 	vim.pack.add(plugins)
 

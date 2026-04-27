@@ -21,7 +21,7 @@ return {
 				footer_mt = 1,
 				footer_hl_group = "Constant",
 				footer = function()
-					local plugins = require("config.plugins.plugins").get_plugins()
+					local plugins = require("plugins.helpers").get_plugins()
 
 					return {
 						"󰏖  vim.pack   " .. tostring(#plugins) .. " plugins",

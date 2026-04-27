@@ -10,7 +10,7 @@ return {
 				options = {
 					mode = "buffers",
 					style_preset = bufferline.style_preset.default,
-					separator_style = "slope",
+					separator_style = "slant",
 					buffer_close_icon = "",
 					close_icon = "",
 				},
