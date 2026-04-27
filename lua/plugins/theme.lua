@@ -1,30 +1,43 @@
 local theme = require("values.ui").theme or "catppuccin"
 
+--- @type table<string, PluginSpec>
 local themes = {
 	catppuccin = {
-		"catppuccin/nvim",
 		name = "catppuccin",
-		opts = { transparent_background = true },
-		priority = 1000,
+		src = "gh:catppuccin/nvim",
+		data = {
+			config = function()
+				require("catppuccin").setup({
+					transparent_background = true,
+				})
+			end,
+		},
 	},
 	everforest = {
-		"sainnhe/everforest",
-		lazy = false,
 		name = "everforest",
-		opts = { background = "soft" },
-		priority = 1000,
+		src = "gh:sainnhe/everforest",
+		data = {
+			config = function()
+				require("everforest").setup({
+					background = "soft",
+				})
+			end,
+		},
 	},
 	kanagawa = {
-		"rebelot/kanagawa.nvim",
-		lazy = false,
 		name = "kanagawa",
-		opts = { transparent = true },
-		priority = 1000,
+		src = "gh:rebelot/kanagawa.nvim",
+		data = {
+			config = function()
+				require("kanagawa").setup({
+					transparent = true,
+				})
+			end,
+		},
 	},
 	onedark = {
-		"navarasu/onedark.nvim",
-		lazy = false,
 		name = "onedark",
+		src = "gh:navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
 				style = "darker",
@@ -34,20 +47,28 @@ local themes = {
 		end,
 	},
 	tokyonight = {
-		"folke/tokyonight.nvim",
-		lazy = false,
 		name = "tokyonight",
-		opts = { style = "night", transparent = true },
-		priority = 1000,
+		src = "gh:folke/tokyonight.nvim",
+		data = {
+			config = function()
+				require("tokyonight").setup({
+					style = "night",
+					transparent = true,
+				})
+			end,
+		},
 	},
 	nordic = {
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
 		name = "nordic",
-		priority = 1000,
-		config = function()
-			require("nordic").load()
-		end,
+		src = "gh:AlexvZyl/nordic.nvim",
+		data = {
+			config = function()
+				require("nordic").load()
+			end,
+		},
+	},
+	base16 = {
+		src = "gh:RRethy/base16-nvim",
 	},
 }
 

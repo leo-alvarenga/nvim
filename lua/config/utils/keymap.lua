@@ -37,14 +37,9 @@ end
 
 ---Convert raw string to Vim CMD
 --- @param cmd string
---- @param plugin string? Optional plugin name for context
 --- @param terminator string? Optional terminator to append to the command (Defaults to "<CR>")
-function M.to_cmd(cmd, plugin, terminator)
+function M.to_cmd(cmd, terminator)
 	if not cmd or type(cmd) ~= "string" then
-		return ""
-	end
-
-	if type(plugin) == "string" and not require("values.plugins").is_enabled(plugin) then
 		return ""
 	end
 

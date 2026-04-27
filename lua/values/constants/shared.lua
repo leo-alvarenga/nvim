@@ -25,8 +25,6 @@ M.cmds = {
 		buffer_delete = "HomecomingCloseCurrBuf",
 	},
 
-	lazy = "Lazy",
-
 	mantel = {
 		buf_next = "MantelBufNext",
 		buf_prev = "MantelBufPrev",
@@ -54,8 +52,6 @@ M.cmds = {
 
 	twilight = "Twilight",
 
-	yank_history = "Telescope yank_history",
-
 	-- misc
 	quit = "qa",
 	edit_config = "e $MYVIMRC",
@@ -82,8 +78,6 @@ M.descriptions = {
 		buffer_delete = "Close current buffer from Homecoming",
 	},
 
-	lazy = "Open plugin manager",
-
 	mantel = {
 		buf_next = "Go to next buffer in the tabline",
 		buf_prev = "Go to previous buffer in the tabline",
@@ -101,12 +95,7 @@ M.descriptions = {
 		long_desc = "Explore current directory using Neotree",
 	},
 
-	oil = {
-		browse = "Browse files",
-		long_desc = "Manage the current directory using Oil",
-	},
-
-	starter = "Open Mini Starter",
+	oil = "Explore current directory using Oil",
 
 	telescope = {
 		find_files = "Find a file",

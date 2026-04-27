@@ -2,28 +2,28 @@
 
 This repository contains my current [Neovim](https://neovim.io/) setup, used at work and for personal projects.
 
-> You can always find the latest version of my configuration in the [`nightly`](https://github.com/leo-alvarenga/nvim/tree/nightly) branch
+## Requirements
 
-For the complete list of plugins and configurations, please refer to the [Plugin List](./PLUGINS.md).
+- Neovim 0.12 or higher
+- `tree-sitter` CLI tool for syntax highlighting and code parsing
+- `ripgrep` for file searching and live grep functionality
+- `fd` for fast file searching in the file explorer
+- `node` and `npm` for managing plugins that require Node.js
+- `python3` and `pip` for Python-based plugins and language servers
+- `lua` and `lua-rocks` for Lua-based plugins and configurations
+- `cargo` for Rust-based plugins and language servers
+
+> You can always find the latest version of my configuration in the [`nightly`](https://github.com/leo-alvarenga/nvim/tree/nightly) branch
 
 > Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [leo-alvarenga/tmux](https://github.com/leo-alvarenga/tmux)
 
 > Check out my Neovim plugins, which are also used in this configuration:
 >
 > - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim) - Startup screen/dashboard plugin
-> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim) - Tabline/bufferline plugin
-> - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim) - Quote provider plugin, for testing and greeting messages
+> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim) - My go-to Tabline/bufferline plugin
+> - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
 
 ## Configurations
-
-More specific configurations, such as plugin toggles and language support, can be found and easily changed by editing the values inside the files found under `lua/values/`.
-
-### List of Togglable Plugins
-
-- `github/copilot.vim`
-- `olimorris/codecompanion.nvim`
-- `folke/sidekick.nvim`
-- `supermaven-inc/supermaven-nvim`
 
 ### List of Available Themes
 
