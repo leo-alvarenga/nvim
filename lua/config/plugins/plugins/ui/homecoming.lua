@@ -10,8 +10,7 @@ return {
 
 			local sections = {
 				files = "  Files",
-				config = "  Config",
-				plugins = "  LSPs and Tools",
+				plugins = "󱁤  LSPs and Tools",
 				exit = "  Exit",
 			}
 
@@ -20,9 +19,13 @@ return {
 				header_mb = 1,
 
 				footer_mt = 1,
+				footer_hl_group = "Constant",
 				footer = function()
-					local quote = require("quoth-nvim").get_random_quote()
-					return { '"' .. quote.text .. '"', quote.author }
+					local plugins = require("config.plugins.plugins").get_plugins()
+
+					return {
+						"󰏖  vim.pack   " .. tostring(#plugins) .. " plugins",
+					}
 				end,
 
 				item_indent = 3,
@@ -41,15 +44,6 @@ return {
 								action = _shared.cmds.telescope.find_files,
 								label = _shared.descriptions.telescope.find_files,
 								section = sections.files,
-							},
-						},
-					},
-					{
-						title = sections.config,
-						items = {
-							{
-								action = _shared.cmds.edit_config,
-								label = _shared.descriptions.edit_config,
 							},
 						},
 					},

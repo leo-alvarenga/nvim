@@ -10,6 +10,8 @@ function M.setup_plugin(plugin)
 
 	if type(plugin.data.config) == "function" then
 		plugin.data.config()
+	elseif type(plugin.data.config) == "string" then
+		vim.cmd(plugin.data.config)
 	end
 
 	if plugin.data.keys and type(plugin.data.keys) == "table" then
@@ -21,9 +23,8 @@ end
 
 --- @param verbose boolean?
 function M.pack(verbose)
-	local plugins = require("config.plugins.plugins")
-
-	plugins = vim.tbl_map(function(plugin)
+	--- @type PluginSpec[]
+	local plugins = vim.tbl_map(function(plugin)
 		local src = plugin.src
 
 		if type(src) == "string" then
@@ -31,7 +32,7 @@ function M.pack(verbose)
 		end
 
 		return plugin
-	end, plugins)
+	end, require("config.plugins.plugins").get_plugins())
 
 	vim.pack.add(plugins)
 
@@ -48,6 +49,10 @@ function M.pack(verbose)
 
 		M.setup_plugin(plugin)
 	end
+end
+
+function M.get_installed_plugins()
+	return vim.pack.get(nil, { info = false }) or {}
 end
 
 return M
