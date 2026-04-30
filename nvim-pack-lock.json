@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "CopilotChat": {
+      "rev": "137d3bc527518f5ea982c43c43084496732365c3",
+      "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -21,6 +25,10 @@
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot-chat": {
+      "rev": "137d3bc527518f5ea982c43c43084496732365c3",
+      "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+    },
     "copilot.vim": {
       "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
       "src": "https://github.com/github/copilot.vim"
@@ -40,6 +48,10 @@
     "git-blame.nvim": {
       "rev": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7",
       "src": "https://github.com/f-person/git-blame.nvim"
+    },
+    "guess-indent": {
+      "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
+      "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
     "homecoming-nvim": {
       "rev": "dcb904ddacdbd4443c13cab8cad812d2ae6a6a1e",

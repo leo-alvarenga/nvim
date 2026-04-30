@@ -1,8 +1,3 @@
-local _keymap = require("config.utils.keymap")
-
-local map = _keymap.map
-local with_prefix = _keymap.with_prefix
-
 --- @type PluginSpec
 return {
 	src = "gh:olimorris/codecompanion.nvim",
@@ -47,7 +42,11 @@ return {
 
 			require("codecompanion").setup(opts)
 
+			local _keymap = require("config.utils.keymap")
 			local _shared = require("values.constants.shared")
+
+			local map = _keymap.map
+			local with_prefix = _keymap.with_prefix
 
 			local to_cmd = _keymap.to_cmd
 

@@ -8,6 +8,10 @@ M.cmds = {
 		prompt = "CodeCompanion",
 	},
 
+	copilot_chat = {
+		chat_toggle = "CopilotChatToggle",
+	},
+
 	colorizer = {
 		toggle = "ColorizerToggle",
 		attach = "ColorizerToggle",
@@ -20,6 +24,8 @@ M.cmds = {
 	},
 
 	git_blame = "GitBlameToggle",
+
+	guess_indent = "GuessIndent",
 
 	homecoming = {
 		buffer_delete = "HomecomingCloseCurrBuf",
@@ -59,11 +65,16 @@ M.cmds = {
 
 M.descriptions = {
 	ai = "   AI actions",
+
 	codecompanion = {
 		actions = "See all Code Companion actions",
 		chat_toggle = "Toggle Code Companion chat",
 		chat_new = "Start a new Code Companion chat",
 		prompt = "Toggle Code Companion prompt",
+	},
+
+	copilot_chat = {
+		chat_toggle = "Toggle Copilot chat",
 	},
 
 	diffview = {
