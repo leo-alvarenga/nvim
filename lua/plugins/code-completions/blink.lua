@@ -7,7 +7,7 @@ return {
 			require("blink.cmp").setup({
 				keymap = {
 					preset = "default",
-					["<C-r>"] = { "show", "show_documentation", "hide_documentation" },
+					["H"] = { "show", "show_documentation", "hide_documentation" },
 				},
 
 				appearance = {

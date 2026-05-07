@@ -4,7 +4,11 @@ return {
 	src = "gh:MeanderingProgrammer/render-markdown.nvim",
 	data = {
 		config = function()
-			require("render-markdown").setup({})
+			require("render-markdown").setup({
+				code = {
+					style = "language",
+				},
+			})
 		end,
 	},
 }

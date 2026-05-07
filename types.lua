@@ -8,6 +8,7 @@
 --- | "tokyonight"
 --- | "nordic"
 --- | "sonokai"
+--- | "gruvbox"
 --- | "base16"
 
 --- @class PluginKeys
@@ -20,6 +21,7 @@
 --- @class PluginConfig
 --- @field config function
 --- @field keys PluginKeys[]?
+--- @field events string[]?
 
 --- @class PluginSpec
 --- @field src string
