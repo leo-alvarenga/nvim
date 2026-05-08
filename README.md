@@ -17,10 +17,10 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 
 > Make sure to also check my tmux configuration, which is designed to work seamlessly with this Neovim setup: [leo-alvarenga/tmux](https://github.com/leo-alvarenga/tmux)
 
-> Check out my Neovim plugins, which are also used in this configuration:
+> Check out my Neovim plugins:
 >
-> - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim) - Startup screen/dashboard plugin
-> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim) - My go-to Tabline/bufferline plugin
+> - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim)
+> - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim)
 > - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
 
 ## Configurations

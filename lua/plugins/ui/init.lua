@@ -1,6 +1,7 @@
 --- @type PluginSpec[]
 return {
 	require("plugins.ui.bufferline"),
+	require("plugins.ui.fidget"),
 	require("plugins.ui.homecoming"),
 	require("plugins.ui.lualine"),
 	require("plugins.ui.neo-tree"),

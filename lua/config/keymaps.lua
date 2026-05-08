@@ -1,7 +1,9 @@
+local _shared = require("values.constants.shared")
 local _keymap = require("config.utils.keymap")
 
 local map = _keymap.map
 local with_prefix = _keymap.with_prefix
+local to_cmd = _keymap.to_cmd
 
 local M = {}
 -------------------------------------------------
@@ -10,28 +12,28 @@ local M = {}
 -- Buffer management
 function M.buffer_management()
 	-- Open new Buffer
-	map("", with_prefix("n", "buffers"), ":enew<CR>", "Open new empty Buffer")
+	map("", with_prefix("n", "buffers"), to_cmd("enew"), _shared.descriptions.buffers.new)
 end
 ---------------------
 
 function M.tab_management()
-	map("", with_prefix("", "tabs"), "", " 󰓩  Tabs")
+	map("", with_prefix("", "tabs"), "", _shared.descriptions.tabs)
 
-	map("", with_prefix("h", "tabs"), ":tabprevious<cr>", "Go to previous Tab")
-	map("", with_prefix("l", "tabs"), ":tabnext<cr>", "Go to next Tab")
-	map("", with_prefix("n", "tabs"), ":tabnew<CR>", "Open new empty Tab")
-	map("", with_prefix("q", "tabs"), ":tabclose<CR>", "Close current Tab")
-	map("", with_prefix("o", "tabs"), ":tabonly<CR>", "Close all tabs (except for the current one)")
+	map("", with_prefix("h", "tabs"), to_cmd("tabprevious"), _shared.descriptions.tab.prev)
+	map("", with_prefix("l", "tabs"), to_cmd("tabnext"), _shared.descriptions.tab.next)
+	map("", with_prefix("n", "tabs"), to_cmd("tabnew"), _shared.descriptions.tab.new)
+	map("", with_prefix("q", "tabs"), to_cmd("tabclose"), _shared.descriptions.tab.close)
+	map("", with_prefix("o", "tabs"), to_cmd("tabonly"), _shared.descriptions.tab.only)
 end
 
 -- Basic and Helix related keymappings
 function M.setup_basics()
-	map("", with_prefix("", "general"), "", "   General")
+	map("", with_prefix("", "general"), "", _shared.descriptions.general)
 
 	---------------------
 	--  Undo/Redo
-	map("", "u", ":undo<CR>", "Undo")
-	map("", "U", ":redo<CR>", "Redo")
+	map("", "u", to_cmd("undo"), "Undo")
+	map("", "U", to_cmd("redo"), "Redo")
 	---------------------
 
 	M.buffer_management()
@@ -64,8 +66,11 @@ function M.setup_basics()
 	map("x", "X", "0$k")
 	---------------------
 
-	map("n", "K", vim.lsp.buf.hover, "LSP: Show signature help")
-	map({ "n", "x" }, "<C-k>", vim.lsp.buf.hover, "LSP: Show signature help")
+	map("n", "K", vim.lsp.buf.hover, _shared.descriptions.lsp.hover)
+	map({ "n", "x" }, "<C-k>", vim.lsp.buf.hover, _shared.descriptions.lsp.hover)
+
+	map("n", "J", vim.lsp.buf.signature_help, _shared.descriptions.lsp.signature_help)
+	map({ "n", "x" }, "<C-j>", vim.lsp.buf.signature_help, _shared.descriptions.lsp.signature_help)
 end
 -------------------------------------------------
 
@@ -73,7 +78,8 @@ end
 -- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
-	map("", with_prefix("", "actions"), "", "   Misc actions")
+
+	map("", with_prefix("", "actions"), "", _shared.descriptions.actions)
 end
 -------------------------------------------------
 

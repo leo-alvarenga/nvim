@@ -9,9 +9,11 @@ vim.pack.get(nil, { info = false })
 
 local tabwidth = 4
 
-local tabchar = "| "
-local trailingspacechar = "·"
-local nbspchar = "␣"
+local listchars = {
+	tab = "| ",
+	trail = "·",
+	nbsp = "␣",
+}
 
 local scroll_off = 10
 
@@ -29,7 +31,7 @@ vim.o.wrap = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.list = true
-vim.opt.listchars = { tab = tabchar, trail = trailingspacechar, nbsp = nbspchar }
+vim.opt.listchars = listchars
 vim.o.scrolloff = scroll_off
 vim.o.sidescrolloff = scroll_off
 vim.o.number = true

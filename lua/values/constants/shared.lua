@@ -1,11 +1,22 @@
 local M = {}
 
 M.cmds = {
+	bufferline = {
+		buf_next = "BufferLineCycleNext",
+		buf_prev = "BufferLineCyclePrev",
+		move_buf_left = "BufferLineMovePrev",
+		move_buf_right = "BufferLineMoveNext",
+	},
+
 	codecompanion = {
 		actions = "CodeCompanionActions",
 		chat_toggle = "lua require('codecompanion').toggle()",
 		chat_new = "CodeCompanionChat",
 		prompt = "CodeCompanion",
+	},
+
+	copilot_chat = {
+		chat_toggle = "CopilotChatToggle",
 	},
 
 	colorizer = {
@@ -20,6 +31,8 @@ M.cmds = {
 	},
 
 	git_blame = "GitBlameToggle",
+
+	guess_indent = "GuessIndent",
 
 	homecoming = {
 		buffer_delete = "HomecomingCloseCurrBuf",
@@ -58,12 +71,32 @@ M.cmds = {
 }
 
 M.descriptions = {
+	-- Sections
+	actions = "   Misc actions",
 	ai = "   AI actions",
+	general = "   General",
+	tabs = " 󰓩  Tabs",
+
+	bufferline = {
+		buf_next = "Go to next buffer in the tabline",
+		buf_prev = "Go to previous buffer in the tabline",
+		move_buf_left = "Move current buffer left in the tabline",
+		move_buf_right = "Move current buffer right in the tabline",
+	},
+
+	buffers = {
+		new = "Open new empty Buffer",
+	},
+
 	codecompanion = {
 		actions = "See all Code Companion actions",
 		chat_toggle = "Toggle Code Companion chat",
 		chat_new = "Start a new Code Companion chat",
 		prompt = "Toggle Code Companion prompt",
+	},
+
+	copilot_chat = {
+		chat_toggle = "Toggle Copilot chat",
 	},
 
 	diffview = {
@@ -72,10 +105,17 @@ M.descriptions = {
 		toggle = "Toggle Diffview",
 	},
 
+	edit_config = "Customize current Config",
+
 	git_blame = "Toggle Git Blame",
 
 	homecoming = {
 		buffer_delete = "Close current buffer from Homecoming",
+	},
+
+	lsp = {
+		hover = "Show LSP hover information",
+		signature_help = "Show LSP signature help",
 	},
 
 	mantel = {
@@ -97,13 +137,20 @@ M.descriptions = {
 
 	oil = "Explore current directory using Oil",
 
+	quit = "Quit Neovim",
+
+	tab = {
+		new = "Open new empty Tab",
+		next = "Go to next Tab",
+		prev = "Go to previous Tab",
+		close = "Close current Tab",
+		only = "Close all tabs (except for the current one)",
+	},
+
 	telescope = {
 		find_files = "Find a file",
 		live_grep = "Search in files",
 	},
-
-	quit = "Quit Neovim",
-	edit_config = "Customize current Config",
 }
 
 M.notifications = {
