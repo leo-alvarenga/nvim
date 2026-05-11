@@ -88,6 +88,8 @@ M.descriptions = {
 		new = "Open new empty Buffer",
 	},
 
+	code_action = "Perform a code action",
+
 	codecompanion = {
 		actions = "See all Code Companion actions",
 		chat_toggle = "Toggle Code Companion chat",

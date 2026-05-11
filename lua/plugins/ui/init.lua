@@ -9,5 +9,6 @@ return {
 	require("plugins.ui.oil"),
 	require("plugins.ui.telescope"),
 	require("plugins.ui.trouble"),
+	require("plugins.ui.tiny-code-action"),
 	require("plugins.ui.tiny-inline-diagnostics"),
 }

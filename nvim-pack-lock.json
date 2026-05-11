@@ -78,6 +78,10 @@
       "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markview": {
+      "rev": "dbf74b6db11c1468d5128a38b26b6d99dc7316e9",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason": {
       "rev": "12ddd182d9efbdc848b540f16484a583d52da0fb",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -181,13 +185,13 @@
       "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
       "src": "https://github.com/kevinhwang91/promise-async"
     },
-    "render-markdown": {
-      "rev": "d67113f11384c0dad96fced2f7b91f1fc811e97f",
-      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-    },
     "telescope": {
       "rev": "506338434fec5ad19cb1f8d45bf92d66c4917393",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "tiny-code-action": {
+      "rev": "0d040ed81f7953118b81cd12681fcdfcac069803",
+      "src": "https://github.com/rachartier/tiny-code-action.nvim"
     },
     "tiny-inline-diagnostic": {
       "rev": "147af4e49f51dd48f41972de26552872b8ba7b25",
