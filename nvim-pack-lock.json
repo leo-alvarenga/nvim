@@ -61,6 +61,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "heirline": {
+      "rev": "fae936abb5e0345b85c3a03ecf38525b0828b992",
+      "src": "https://github.com/rebelot/heirline.nvim"
+    },
     "homecoming-nvim": {
       "rev": "dcb904ddacdbd4443c13cab8cad812d2ae6a6a1e",
       "src": "https://github.com/leo-alvarenga/homecoming.nvim",
@@ -73,10 +77,6 @@
     "lint": {
       "rev": "eab58b48eb11d7745c11c505e0f3057165902461",
       "src": "https://github.com/mfussenegger/nvim-lint"
-    },
-    "lualine": {
-      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "markview": {
       "rev": "dbf74b6db11c1468d5128a38b26b6d99dc7316e9",
@@ -126,6 +126,10 @@
       "rev": "4d0828d95adaf4250c1373d2cd9318d3509712b7",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "version": "'v3.x'"
+    },
+    "noice": {
+      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
+      "src": "https://github.com/folke/noice.nvim"
     },
     "none-ls-extras.nvim": {
       "rev": "70ec8815cdf186223af04cc5a15bc8bdface0ef0",

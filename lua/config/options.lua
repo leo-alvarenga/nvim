@@ -39,6 +39,7 @@ vim.o.relativenumber = true
 
 -- Show line under cursor
 vim.o.cursorline = true
+vim.g.neovim_terminfo_sync_output = 0 -- Fix cursorline performance issues in Neovim 0.10
 
 -- Store undos between sessions
 vim.o.undofile = true
@@ -48,7 +49,6 @@ vim.o.smarttab = true
 vim.o.smartindent = true
 vim.o.autoindent = true -- Keep identation from previous line
 vim.o.breakindent = true -- Enable break indent
-vim.o.lazyredraw = true
 
 -- Files
 vim.o.backup = false
@@ -71,7 +71,8 @@ vim.o.termguicolors = true -- Enable 24-bit colors
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.showmatch = true -- Highlight matching brackets
 vim.o.matchtime = 5 -- How long to show matching bracket
-vim.o.cmdheight = 0 -- Command line height
+vim.o.laststatus = 3 -- Global statusline
+vim.o.cmdheight = 1 -- Command line height
 vim.o.completeopt = "menuone,noinsert,noselect" -- Completion options
 vim.o.showmode = false -- Don't show mode in command line
 vim.o.pumheight = 10 -- Popup menu height
@@ -79,7 +80,6 @@ vim.o.pumblend = 10 -- Popup menu transparency
 vim.o.winblend = 0 -- Floating window transparency
 vim.o.conceallevel = 0 -- Don't hide markup
 vim.o.concealcursor = "" -- Don't hide cursor line markup
-vim.o.lazyredraw = true -- Don't redraw during macros
 vim.o.synmaxcol = 300 -- Syntax highlighting limit
 vim.o.winborder = "rounded" -- Rounded border for floating windows
 

@@ -141,6 +141,8 @@ M.descriptions = {
 
 	quit = "Quit Neovim",
 
+	restart = "Restart Neovim",
+
 	tab = {
 		new = "Open new empty Tab",
 		next = "Go to next Tab",
