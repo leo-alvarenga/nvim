@@ -103,6 +103,21 @@ return {
 				-- severity can be "Error", "Warn", "Info", or "Hint"
 				return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity[severity:upper()] })
 			end
+
+			local function get_lsp_count()
+				local clients = vim.lsp.get_clients({ bufnr = 0 })
+
+				local has_copilot = clients
+					and vim.tbl_contains(
+						vim.tbl_map(function(client)
+							return client.name
+						end, clients),
+						"GitHub Copilot"
+					)
+
+				return #clients, has_copilot
+			end
+
 			-----------------------------------
 
 			----------------------------------------------------------------
@@ -237,19 +252,27 @@ return {
 
 			-----------------------------------
 			-- LSP Component
-			local LSP = to_kanagawa_pill(colors.boatYellow, {
+			local LSP = to_kanagawa_pill(colors.oniViolet, {
 				provider = function()
 					local filetype = vim.bo.filetype
 
-					local lsp_count = #vim.lsp.get_clients({ bufnr = 0 })
+					local lsp_count, has_copilot = get_lsp_count()
 
 					if not filetype or filetype == "" then
 						filetype = "no ft"
 					end
 
 					local lsp_indicator = lsp_count > 0 and "" or ""
+					local copilot_indicator = has_copilot and "  Ready" or "  Offline"
 
-					return string.format("%s %s %s %d", filetype_icon(), filetype, lsp_indicator, lsp_count)
+					return string.format(
+						"%s %s %s %d | %s",
+						filetype_icon(),
+						filetype,
+						lsp_indicator,
+						lsp_count,
+						copilot_indicator
+					)
 				end,
 			}, 0, 1)
 
