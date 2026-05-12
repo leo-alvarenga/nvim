@@ -91,10 +91,13 @@ return {
 			end
 
 			local function filetype_icon()
-				local filetype = vim.bo.filetype
-				local icon, _ = require("nvim-web-devicons").get_icon(filetype, { default = true })
+				local full_name = vim.api.nvim_buf_get_name(0)
+				local filename = vim.fn.fnamemodify(full_name, ":t")
+				local extension = vim.fn.fnamemodify(full_name, ":e")
 
-				return icon
+				local icon, _ = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+
+				return icon or ""
 			end
 
 			--- @param severity string
@@ -251,8 +254,8 @@ return {
 			-----------------------------------
 
 			-----------------------------------
-			-- LSP Component
-			local LSP = to_kanagawa_pill(colors.oniViolet, {
+			-- FileInfo Component
+			local FileInfo = to_kanagawa_pill(colors.oniViolet, {
 				provider = function()
 					local filetype = vim.bo.filetype
 
@@ -276,8 +279,8 @@ return {
 				end,
 			}, 0, 1)
 
-			LSP.condition = conditions.lsp_attached
-			LSP.update = { "LspAttach", "LspDetach" }
+			FileInfo.condition = conditions.lsp_attached
+			FileInfo.update = { "LspAttach", "LspDetach" }
 			-----------------------------------
 
 			-----------------------------------
@@ -310,7 +313,7 @@ return {
 				FileName,
 				{ provider = "%=" },
 
-				LSP,
+				FileInfo,
 				FilePosition,
 			}
 
