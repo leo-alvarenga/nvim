@@ -1,11 +1,9 @@
 local M = {}
 
 M.cmds = {
-	bufferline = {
-		buf_next = "BufferLineCycleNext",
-		buf_prev = "BufferLineCyclePrev",
-		move_buf_left = "BufferLineMovePrev",
-		move_buf_right = "BufferLineMoveNext",
+	buffers = {
+		buf_next = "bnext",
+		buf_prev = "bprev",
 	},
 
 	codecompanion = {
@@ -77,15 +75,10 @@ M.descriptions = {
 	general = "   General",
 	tabs = " 󰓩  Tabs",
 
-	bufferline = {
-		buf_next = "Go to next buffer in the tabline",
-		buf_prev = "Go to previous buffer in the tabline",
-		move_buf_left = "Move current buffer left in the tabline",
-		move_buf_right = "Move current buffer right in the tabline",
-	},
-
 	buffers = {
 		new = "Open new empty Buffer",
+		buf_next = "Go to next buffer in the tabline",
+		buf_prev = "Go to previous buffer in the tabline",
 	},
 
 	code_action = "Perform a code action",
@@ -177,6 +170,21 @@ M.notifications = {
 		enabled = "[Twilight] Code block highlighting enabled",
 		disabled = "[Twilight] Code block highlighting disabled",
 	},
+}
+
+M.colors = {
+	sumiInk0 = "#16161D",
+	sumiInk1 = "#21222C",
+	sumiInk2 = "#403B4A",
+	sumiInk3 = "#1F1F28",
+	sumiInk4 = "#2A2737",
+	crystalBlue = "#7E9CD8",
+	springGreen = "#76946A",
+	oniViolet = "#957FB8",
+	fujiWhite = "#DCD7BA",
+	autumnRed = "#E46876",
+	boatYellow = "#C0A36E",
+	waveBlue2 = "#2D4F67",
 }
 
 return M
