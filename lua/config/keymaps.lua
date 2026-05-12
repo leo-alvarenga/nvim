@@ -80,6 +80,8 @@ function M.setup_keymaps()
 	M.setup_basics()
 
 	map("", with_prefix("", "actions"), "", _shared.descriptions.actions)
+	map("", with_prefix("r", "actions"), to_cmd("restart"), _shared.descriptions.restart)
+	map("", with_prefix("q", "actions"), to_cmd("q"), _shared.descriptions.restart)
 end
 -------------------------------------------------
 
