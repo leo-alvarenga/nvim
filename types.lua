@@ -1,16 +1,5 @@
 --- @meta
 
---- @alias Theme
---- | "catppuccin"
---- | "everforest"
---- | "kanagawa"
---- | "onedark"
---- | "tokyonight"
---- | "nordic"
---- | "sonokai"
---- | "gruvbox"
---- | "base16"
-
 --- @class PluginKeys
 --- @field mode string|string[] Mode(s) in which the keymap should be set
 --- @field key string The key combination to map

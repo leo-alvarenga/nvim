@@ -1,6 +1,5 @@
 local M = {}
 
---- @type Theme
 M.theme = "kanagawa"
 
 M.logo = {

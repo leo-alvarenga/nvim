@@ -1,6 +1,6 @@
 # Nvim
 
-This repository contains my current [Neovim](https://neovim.io/) setup, used at work and for personal projects.
+This repository contains my current [Neovim](https://neovim.io/) setup, used at work and for personal projects, tailored for customization and performance. It includes a curated selection of plugins and configurations to enhance the coding experience across various programming languages and workflows. Built with Lua, this setup emphasizes speed and responsiveness, while also providing a visually appealing interface built around _Kanagawa Wave_.
 
 ## Requirements
 
@@ -22,16 +22,6 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 > - [leo-alvarenga/homecoming.nvim](https://github.com/leo-alvarenga/homecoming.nvim)
 > - [leo-alvarenga/mantel.nvim](https://github.com/leo-alvarenga/mantel.nvim)
 > - [leo-alvarenga/quoth.nvim](https://github.com/leo-alvarenga/quoth.nvim)
-
-## Configurations
-
-### List of Available Themes
-
-- `catppuccin` - _Catppuccin Mocha_
-- `everforest` - _Everforest Dark_
-- `kanagawa` - _Kanagawa Wave_
-- `onedark` - _One Dark Pro_
-- `tokyonight` - _Tokyo Night Storm_
 
 ## Preview
 
