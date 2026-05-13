@@ -9,43 +9,57 @@ return function()
 
 	-----------------------------------
 	-- Mode Component
-	local ViMode = utils.to_kanagawa_pill(function()
-		local mode = vim.fn.mode():sub(1, 1)
-		return utils.mode_colors[mode] or utils.colors.crystalBlue
-	end, {
-		provider = function()
-			local mode = vim.fn.mode():sub(1, 1)
-			return utils.mode_icons[mode] .. " " .. utils.mode_names[mode]
-		end,
+	local ViMode = utils.to_kanagawa_surround(
+		{
+			provider = function()
+				local mode = vim.fn.mode():sub(1, 1)
+				return utils.mode_icons[mode] .. " " .. utils.mode_names[mode]
+			end,
 
-		hl = function()
-			local mode = vim.fn.mode():sub(1, 1)
-			return {
-				bg = utils.mode_colors[mode] or utils.colors.crystalBlue,
-				fg = utils.colors.sumiInk0,
-				bold = true,
-			}
-		end,
+			hl = function()
+				local mode = vim.fn.mode():sub(1, 1)
+				return {
+					bg = utils.mode_colors[mode] or utils.colors.crystalBlue,
+					fg = utils.colors.sumiInk0,
+					bold = true,
+				}
+			end,
 
-		update = { "ModeChanged" },
-	}, 0, 1)
+			update = { "ModeChanged" },
+		},
+		nil,
+		"",
+		function()
+			local mode = vim.fn.mode():sub(1, 1)
+			return utils.mode_colors[mode] or utils.colors.crystalBlue
+		end
+	)
 	-----------------------------------
 
 	-----------------------------------
 	-- Git Branch Component
-	local Git = utils.to_kanagawa_pill(utils.colors.autumnRed, {
-		provider = function()
-			local branch = vim.fn.system("git branch --show-current"):gsub("\n", "")
+	local Git = utils.to_kanagawa_surround({
+		{
+			provider = " ",
+			hl = function()
+				local mode = vim.fn.mode():sub(1, 1)
+				return { bg = utils.colors.sumiInk1, fg = utils.mode_colors[mode] or utils.colors.crystalBlue }
+			end,
+		},
+		{
+			condition = conditions.is_git_repo,
+			provider = function()
+				local branch = vim.fn.system("git branch --show-current"):gsub("\n", "")
 
-			if vim.fn.strdisplaywidth(branch) > 20 then
-				branch = vim.fn.strcharpart(branch, 0, 17) .. "..."
-			end
+				if vim.fn.strdisplaywidth(branch) > 20 then
+					branch = vim.fn.strcharpart(branch, 0, 17) .. "..."
+				end
 
-			return string.format("󰘬 %s", branch)
-		end,
-	}, 0, 1)
+				return string.format("󰘬 %s", branch)
+			end,
+		},
+	}, "", nil, utils.colors.sumiInk1, utils.colors.autumnRed, 0, 1)
 
-	Git.condition = conditions.is_git_repo
 	-----------------------------------
 
 	-----------------------------------
@@ -130,41 +144,39 @@ return function()
 
 	-----------------------------------
 	-- FileInfo Component
-	local FileInfo = utils.to_kanagawa_pill(utils.colors.oniViolet, {
-		provider = function()
-			local filetype = vim.bo.filetype
+	local FileInfo = utils.to_kanagawa_surround({
+		{
+			provider = function()
+				local filetype = vim.bo.filetype
 
-			local lsp_count, has_copilot = utils.get_lsp_count()
+				local _, has_copilot = utils.get_lsp_count()
 
-			if not filetype or filetype == "" then
-				filetype = "no ft"
-			end
+				if not filetype or filetype == "" then
+					filetype = "no ft"
+				end
 
-			local lsp_indicator = lsp_count > 0 and "" or ""
-			local copilot = {
-				icon = has_copilot and "" or "",
-				status = has_copilot and "Ready" or "Offline",
-			}
+				local copilot = has_copilot and "" or ""
 
-			return string.format(
-				"%s %s | %s %d | %s %s",
-				utils.filetype_icon(vim.api.nvim_buf_get_name(0)),
-				filetype,
-				lsp_indicator,
-				lsp_count,
-				copilot.icon,
-				copilot.status
-			)
-		end,
-	}, 0, 1)
+				return string.format(
+					"%s %s | %s ",
+					utils.filetype_icon(vim.api.nvim_buf_get_name(0)),
+					filetype,
+					copilot
+				)
+			end,
+		},
+		{
+			provider = " ",
+			hl = { bg = utils.colors.sumiInk1, fg = utils.colors.oniViolet },
+		},
+	}, nil, "", utils.colors.sumiInk1, utils.colors.oniViolet)
 
-	FileInfo.condition = conditions.lsp_attached
 	FileInfo.update = { "LspAttach", "LspDetach" }
 	-----------------------------------
 
 	-----------------------------------
 	-- File Position Component
-	local FilePosition = utils.to_kanagawa_pill(utils.colors.springGreen, {
+	local FilePosition = utils.to_kanagawa_surround({
 		provider = function()
 			local encoding = vim.bo.fileencoding
 
@@ -180,7 +192,7 @@ return function()
 				vim.fn.col(".")
 			)
 		end,
-	})
+	}, "", nil, utils.colors.oniViolet)
 	-----------------------------------
 
 	return {

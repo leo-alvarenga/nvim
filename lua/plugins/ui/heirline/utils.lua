@@ -51,6 +51,33 @@ M.mode_names = {
 	unknown = "UNKNOWN",
 }
 
+--- @param component table The component to wrap in the pill
+--- @param left_sep string? The left separator for the pill (default: "")
+--- @param right_sep string? The right separator for the pill (default: "
+--- @param bg string|function The background color for the pill
+--- @param fg string|function? The background color for the pill
+--- @param pl integer? Optional padding length (default: 0)
+--- @param pr integer? Optional padding length (default: 0)
+--- @return table The pill component
+function M.to_kanagawa_surround(component, left_sep, right_sep, bg, fg, pl, pr)
+	left_sep = left_sep or ""
+	right_sep = right_sep or ""
+
+	pl = pl or 0
+	pr = pr or 0
+
+	return utils.surround({ string.rep(" ", pl) .. left_sep, right_sep .. string.rep(" ", pr) }, bg, {
+		hl = function(self)
+			return {
+				bold = true,
+				fg = fg or M.colors.sumiInk0,
+				bg = type(bg) == "string" and bg or bg(self),
+			}
+		end,
+		component,
+	})
+end
+
 --- A helper function to create a "pill" component with the Kanagawa colorscheme style
 --- @param color string|function The background color for the pill
 --- @param component table The component to wrap in the pill
