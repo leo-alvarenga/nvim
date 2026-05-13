@@ -20,7 +20,7 @@ return function()
 			return string.format("%s %s%s", icon, filename, modified_icon)
 		end,
 		hl = function(self)
-			return { bold = self.is_active or self.is_visible, italic = true }
+			return { bold = self.is_active or self.is_visible, italic = self.is_active or self.is_visible }
 		end,
 	})
 
