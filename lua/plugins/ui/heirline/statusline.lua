@@ -157,12 +157,7 @@ return function()
 
 				local copilot = has_copilot and "" or ""
 
-				return string.format(
-					"%s %s | %s ",
-					utils.filetype_icon(vim.api.nvim_buf_get_name(0)),
-					filetype,
-					copilot
-				)
+				return string.format("%s %s | %s ", utils.filetype_icon(0), filetype, copilot)
 			end,
 		},
 		{

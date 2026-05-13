@@ -139,13 +139,19 @@ function M.to_kanagawa_slanted(color, component, pl, pr)
 	}
 end
 
---- @param full_name string The full path of the file
+--- @param bufnr integer
 --- @return string The icon for the file type
-function M.filetype_icon(full_name)
+function M.filetype_icon(bufnr)
+	local full_name = vim.api.nvim_buf_get_name(bufnr)
+
 	local filename = vim.fn.fnamemodify(full_name, ":t")
 	local extension = vim.fn.fnamemodify(full_name, ":e")
 
 	local icon, _ = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+
+	if not icon then
+		icon, _ = require("nvim-web-devicons").get_icon(vim.bo[bufnr].filetype or "", nil, { default = true })
+	end
 
 	return icon or ""
 end
