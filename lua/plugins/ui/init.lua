@@ -4,7 +4,6 @@ return {
 	require("plugins.ui.homecoming"),
 	require("plugins.ui.heirline"),
 	require("plugins.ui.neo-tree"),
-	require("plugins.ui.noice"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.oil"),
 	require("plugins.ui.telescope"),

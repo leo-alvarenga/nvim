@@ -156,8 +156,13 @@ return function()
 				end
 
 				local copilot = has_copilot and "" or ""
+				local reg = vim.fn.reg_recording() or ""
 
-				return string.format("%s %s | %s ", utils.filetype_icon(0), filetype, copilot)
+				if reg ~= "" then
+					reg = string.format("  %s | ", reg)
+				end
+
+				return string.format("%s%s %s | %s ", reg, utils.filetype_icon(0), filetype, copilot)
 			end,
 		},
 		{
@@ -166,7 +171,7 @@ return function()
 		},
 	}, nil, "", utils.colors.sumiInk1, utils.colors.oniViolet)
 
-	FileInfo.update = { "LspAttach", "LspDetach" }
+	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
 	-----------------------------------
 
 	-----------------------------------
