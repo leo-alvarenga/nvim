@@ -59,7 +59,6 @@ M.lsps = {
 	"cssmodules_ls",
 	"html",
 	"svelte",
-	"eslint",
 	"tailwindcss",
 }
 
@@ -79,7 +78,7 @@ M.linters = {
 	"shellharden",
 	"sonarlint-language-server",
 	"kube-linter",
-	"eslint_d",
+	"oxlint",
 	"htmlhint",
 	"stylelint",
 }

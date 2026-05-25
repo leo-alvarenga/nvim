@@ -135,10 +135,6 @@
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
-    "null-ls": {
-      "rev": "e135361b9c11755ef6c48f54a2c970c509b56239",
-      "src": "https://github.com/nvimtools/none-ls.nvim"
-    },
     "nvim-colorizer.lua": {
       "rev": "a065833f35a3a7cc3ef137ac88b5381da2ba302e",
       "src": "https://github.com/norcalli/nvim-colorizer.lua"
@@ -172,6 +168,10 @@
     "onedark": {
       "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
       "src": "https://github.com/navarasu/onedark.nvim"
+    },
+    "orgmode": {
+      "rev": "4f02f19b3c9a740828befb51c3d33b3be7aa2e2b",
+      "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

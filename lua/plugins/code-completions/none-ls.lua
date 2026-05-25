@@ -1,3 +1,5 @@
+-- TODO: Remove none-ls
+
 --- @type PluginSpec
 return {
 	name = "null-ls",

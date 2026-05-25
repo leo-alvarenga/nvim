@@ -165,13 +165,15 @@ end
 function M.get_lsp_count()
 	local clients = vim.lsp.get_clients({ bufnr = 0 })
 
-	local has_copilot = clients
-		and vim.tbl_contains(
-			vim.tbl_map(function(client)
-				return client.name
-			end, clients),
-			"GitHub Copilot"
-		)
+	local has_copilot = false
+	if clients then
+		for _, client in ipairs(clients) do
+			if client.name and string.match(client.name:lower(), "copilot") then
+				has_copilot = true
+				break
+			end
+		end
+	end
 
 	return #clients, has_copilot
 end
