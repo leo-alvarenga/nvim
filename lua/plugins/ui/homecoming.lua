@@ -25,12 +25,12 @@ return {
 
 					return {
 						"󰏖  vim.pack   " .. tostring(#plugins) .. " plugins",
+						tostring(vim.version().build or "unknown"),
 					}
 				end,
 
 				item_indent = 3,
 
-				section_anchor = "header_half",
 				sections = {
 					{
 						title = sections.files,
