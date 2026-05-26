@@ -47,9 +47,14 @@ return {
 						template = "* TODO (󱁤) %? :work:\n %u",
 						target = "~/.orgfiles/work.org",
 					},
+					m = {
+						description = " Work meeting/Call",
+						template = "* MEETING () %? :meeting:\n ** More info:\n",
+						target = "~/.orgfiles/work.org",
+					},
 					s = {
 						description = "󱞁 Meeting notes",
-						template = "* MEETING (󱁤) %? :meeting:\n Date: %U\n ** Notes\n - ",
+						template = "* NOTES (󱁤) %? :notes:\n Date: %U\n ** Notes\n - ",
 						target = "~/.orgfiles/work.org",
 					},
 				},
