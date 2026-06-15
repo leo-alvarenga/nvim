@@ -90,6 +90,10 @@
       "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
     },
+    "mini.animate": {
+      "rev": "a133965b027a6377fddca43f11659af357c12758",
+      "src": "https://github.com/echasnovski/mini.animate"
+    },
     "mini.comment": {
       "rev": "8e5ff3ed3cc0e8f216617aae01020c00c20f7a87",
       "src": "https://github.com/nvim-mini/mini.comment"

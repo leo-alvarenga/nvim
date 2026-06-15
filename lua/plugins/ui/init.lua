@@ -3,6 +3,7 @@ return {
 	require("plugins.ui.fidget"),
 	require("plugins.ui.homecoming"),
 	require("plugins.ui.heirline"),
+	require("plugins.ui.mini-animate"),
 	require("plugins.ui.neo-tree"),
 	require("plugins.ui.notify"),
 	require("plugins.ui.oil"),
