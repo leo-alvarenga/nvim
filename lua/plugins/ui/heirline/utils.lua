@@ -32,9 +32,11 @@ M.mode_icons = {
 	["\22"] = "󰩬",
 	[""] = "󰩬",
 	c = "",
+	t = "",
 	s = "󰩬",
 	S = "󰩬",
 	unknown = "",
+	yazi = "󰙅",
 }
 
 M.mode_names = {
@@ -49,7 +51,38 @@ M.mode_names = {
 	t = "TERMINAL",
 	["!"] = "SHELL",
 	unknown = "UNKNOWN",
+	yazi = "Yazi",
 }
+
+local function is_curr_buf_yazi()
+	return vim.api.nvim_buf_get_name(0):sub(-4) == "yazi"
+end
+
+--- @return string The current mode icon and name
+function M.vi_mode_provider()
+	local mode = vim.fn.mode():sub(1, 1)
+	local icon = M.mode_icons[mode] or M.mode_icons.unknown
+	local mode_name = M.mode_names[mode] or M.mode_names.unknown
+
+	if is_curr_buf_yazi() then
+		icon = M.mode_icons.yazi
+		mode_name = M.mode_names.yazi
+	end
+
+	return icon .. " " .. mode_name
+end
+
+function M.file_name_provider()
+	local status = ""
+
+	if vim.bo.modified then
+		status = " [+]"
+	elseif vim.bo.readonly then
+		status = " [-]"
+	end
+
+	return string.format("%s%s", vim.fn.expand("%:t"), status)
+end
 
 --- @param component table The component to wrap in the pill
 --- @param left_sep string? The left separator for the pill (default: "")

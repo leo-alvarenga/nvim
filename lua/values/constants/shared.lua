@@ -48,11 +48,7 @@ M.cmds = {
 		logs = "MasonLog",
 	},
 
-	neo_tree = "Neotree toggle dir=./ reveal",
-
 	notify_clear = "NotificationsClear",
-
-	oil = "Oil",
 
 	starter = "MiniStarterOpen",
 
@@ -62,6 +58,12 @@ M.cmds = {
 	},
 
 	twilight = "Twilight",
+
+	yazi = {
+		open = "Yazi",
+		cwd = "Yazi cwd",
+		toggle = "Yazi toggle",
+	},
 
 	-- misc
 	quit = "qa",
@@ -125,13 +127,6 @@ M.descriptions = {
 		logs = "View Mason logs",
 	},
 
-	neo_tree = {
-		tree = "Tree view",
-		long_desc = "Explore current directory using Neotree",
-	},
-
-	oil = "Explore current directory using Oil",
-
 	quit = "Quit Neovim",
 
 	restart = "Restart Neovim",
@@ -148,6 +143,14 @@ M.descriptions = {
 		find_files = "Find a file",
 		live_grep = "Search in files",
 	},
+
+	yazi = {
+		open = "Open Yazi at the current file",
+		cwd = "Open Yazi in the current working directory",
+		toggle = "Resume the last Yazi session",
+
+		short = "Open Yazi",
+	},
 }
 
 M.notifications = {
@@ -160,10 +163,6 @@ M.notifications = {
 		enabled = "[Conform] Format on save is now enabled",
 		disabled = "[Conform] Format on save is now disabled",
 		manual = "[Conform] Formatting current buffer",
-	},
-
-	neo_tree = {
-		oil_warning = "[Neo-tree] Cannot open Neo-tree from Oil buffer",
 	},
 
 	twilight = {

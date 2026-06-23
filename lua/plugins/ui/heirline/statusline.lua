@@ -11,10 +11,7 @@ return function()
 	-- Mode Component
 	local ViMode = utils.to_kanagawa_surround(
 		{
-			provider = function()
-				local mode = vim.fn.mode():sub(1, 1)
-				return utils.mode_icons[mode] .. " " .. utils.mode_names[mode]
-			end,
+			provider = utils.vi_mode_provider,
 
 			hl = function()
 				local mode = vim.fn.mode():sub(1, 1)
@@ -128,17 +125,7 @@ return function()
 	-- File name Component
 	local FileName = {
 		hl = { fg = utils.colors.fujiWhite },
-		provider = function()
-			local status = ""
-
-			if vim.bo.modified then
-				status = " [+]"
-			elseif vim.bo.readonly then
-				status = " [-]"
-			end
-
-			return string.format("%s%s", vim.fn.expand("%:t"), status)
-		end,
+		provider = utils.file_name_provider,
 	}
 	-----------------------------------
 

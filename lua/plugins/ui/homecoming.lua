@@ -36,8 +36,8 @@ return {
 						title = sections.files,
 						items = {
 							{
-								action = _shared.cmds.neo_tree,
-								label = _shared.descriptions.neo_tree.tree,
+								action = _shared.cmds.yazi.cwd,
+								label = _shared.descriptions.yazi.short,
 								section = sections.files,
 							},
 							{
