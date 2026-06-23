@@ -12,6 +12,7 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 - `python3` and `pip` for Python-based plugins and language servers
 - `lua` and `lua-rocks` for Lua-based plugins and configurations
 - `cargo` for Rust-based plugins and language servers
+- `yazi` for file exploration and management (required for the `yazi.nvim` plugin)
 
 > You can always find the latest version of my configuration in the [`nightly`](https://github.com/leo-alvarenga/nvim/tree/nightly) branch
 
@@ -27,7 +28,6 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 
 ![Starter using leo-alvarenga/homecoming.nvim](./docs/starter.png)
 ![Usage](./docs/usage-simple.png)
-![Neotree](./docs/usage-neotree.png)
 ![Completions](./docs/usage-blink.png)
 ![Copilot completions](./docs/usage-copilot.png)
 
