@@ -87,6 +87,26 @@ function M.pack(verbose)
 	vim.api.nvim_create_user_command("PackListAll", function()
 		vim.print("Installed plugins: \n" .. table.concat(plugin_names, ";\n"))
 	end, { desc = "Load plugins" })
+
+	vim.api.nvim_create_user_command("PackUpdateAll", function()
+		for _, plugin in ipairs(plugin_names) do
+			::continue::
+
+			if not plugin then
+				goto continue
+			end
+
+			if verbose then
+				vim.notify("Updating plugin: " .. plugin)
+			end
+
+			local ok = pcall(vim.pack.update, { plugin })
+
+			if not ok then
+				vim.notify("Failed to update plugin: " .. plugin)
+			end
+		end
+	end, { desc = "Load plugins" })
 end
 
 function M.get_installed_plugins()

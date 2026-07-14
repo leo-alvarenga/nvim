@@ -71,7 +71,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "markview": {
-      "rev": "c363dc67ca9549270dc7da8e50b504ba439418dd",
+      "rev": "2471f4097f8561a6880a0fe05ee0f21cbc82b374",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "mason": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mason-lspconfig": {
-      "rev": "47059d71b42d74b0a1e9f61c1d99d301039c3b5b",
+      "rev": "a4068c3ebd4cb335b25239e5ea35c22ee6007962",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer": {
@@ -177,7 +177,7 @@
       "src": "https://github.com/rachartier/tiny-code-action.nvim"
     },
     "tiny-inline-diagnostic": {
-      "rev": "e930d0a46031645040d5492595b46cdf6ab3514f",
+      "rev": "6264451f14119d63a52580e5198d6baf8518b0b2",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "todo-comments": {
@@ -214,7 +214,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi": {
-      "rev": "2314e0eb074996acc30183e3e9dfbfefd82f24aa",
+      "rev": "d06c6c7a2e06f847963f5f14542feda1ca3872e0",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
