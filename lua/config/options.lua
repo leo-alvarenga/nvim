@@ -3,8 +3,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.pack.get(nil, { info = false })
-
 -- Control variables
 
 local tabwidth = 4

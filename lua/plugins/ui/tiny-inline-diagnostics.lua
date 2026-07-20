@@ -10,7 +10,7 @@ return {
 				preset = "simple",
 
 				options = {
-					enable_on_selecte = true,
+					enable_on_select = true,
 					show_all_diags_on_cursorline = true,
 
 					show_source = {

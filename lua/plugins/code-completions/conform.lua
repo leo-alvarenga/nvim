@@ -1,4 +1,5 @@
 local M = {}
+local _shared = require("values.constants.shared")
 
 M.format_on_save = require("values.workflow").format_on_save
 
@@ -7,7 +8,7 @@ M.format_on_save = require("values.workflow").format_on_save
 --- @param silent boolean: Whether to suppress notifications (default: false)
 function M.format_current(args, silent)
 	if not silent then
-		vim.notify(require("values.constants.shared").format.notifications.manual, vim.log.levels.INFO)
+		vim.notify(_shared.notifications.format.manual, vim.log.levels.INFO)
 	end
 
 	require("conform").format(args or { bufnr = vim.api.nvim_get_current_buf() })
@@ -17,15 +18,13 @@ end
 function M.toggle_format_on_save()
 	M.format_on_save = not M.format_on_save
 
-	local _shared = require("values.constants.shared")
-
 	local status = "enabled"
 
 	if not M.format_on_save then
 		status = "disabled"
 	end
 
-	vim.notify(_shared.format.notifications[status], vim.log.levels.INFO)
+	vim.notify(_shared.notifications.format[status], vim.log.levels.INFO)
 end
 
 --- Checks if format on save is enabled and formats the current buffer if it is

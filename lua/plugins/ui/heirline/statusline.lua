@@ -1,6 +1,4 @@
 return function()
-	local conditions = require("heirline.conditions")
-
 	local utils = require("plugins.ui.heirline.utils")
 
 	----------------------------------------------------------------
@@ -44,16 +42,7 @@ return function()
 			end,
 		},
 		{
-			condition = conditions.is_git_repo,
-			provider = function()
-				local branch = vim.fn.system("git branch --show-current"):gsub("\n", "")
-
-				if vim.fn.strdisplaywidth(branch) > 20 then
-					branch = vim.fn.strcharpart(branch, 0, 17) .. "..."
-				end
-
-				return string.format("󰘬 %s", branch)
-			end,
+			provider = utils.git_branch_provider,
 		},
 	}, "", nil, utils.colors.sumiInk1, utils.colors.autumnRed, 0, 1)
 

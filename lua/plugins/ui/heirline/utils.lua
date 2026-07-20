@@ -58,6 +58,34 @@ local function is_curr_buf_yazi()
 	return vim.api.nvim_buf_get_name(0):sub(-4) == "yazi"
 end
 
+local function is_curr_buf_dashboard()
+	return vim.api.nvim_buf_get_name(0) == "homecoming://Dashboard"
+end
+
+function M.git_branch_provider()
+	local branch = vim.b.gitsigns_head or "no branch"
+	local icon = "󰘬"
+
+	if branch == "" or branch == "no branch" then
+		icon = ""
+		branch = "detached"
+	end
+
+	if is_curr_buf_yazi() then
+		icon = M.mode_icons.yazi
+		branch = ""
+	elseif is_curr_buf_dashboard() then
+		icon = " "
+		branch = "Homecoming"
+	end
+
+	if vim.fn.strdisplaywidth(branch) > 20 then
+		branch = vim.fn.strcharpart(branch, 0, 17) .. "..."
+	end
+
+	return string.format("%s %s", icon, branch)
+end
+
 --- @return string The current mode icon and name
 function M.vi_mode_provider()
 	local mode = vim.fn.mode():sub(1, 1)

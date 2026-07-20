@@ -35,12 +35,7 @@ function M.setup_plugin(plugin)
 		return
 	end
 
-	if type(plugin.data.config) == "function" then
-		plugin.data.config()
-	elseif type(plugin.data.config) == "string" then
-		vim.cmd(plugin.data.config)
-	end
-
+	M.exec_config_fn(plugin.data)
 	if plugin.data.keys and type(plugin.data.keys) == "table" then
 		for _, keymap in ipairs(plugin.data.keys) do
 			map(keymap.mode, keymap.key, keymap.command, keymap.desc, keymap.opts)

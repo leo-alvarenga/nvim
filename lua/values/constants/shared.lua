@@ -36,13 +36,6 @@ M.cmds = {
 		buffer_delete = "HomecomingCloseCurrBuf",
 	},
 
-	mantel = {
-		buf_next = "MantelBufNext",
-		buf_prev = "MantelBufPrev",
-		move_buf_left = "MantelMoveBufLeft",
-		move_buf_right = "MantelMoveBufRight",
-	},
-
 	mason = {
 		manager = "Mason",
 		logs = "MasonLog",
@@ -113,13 +106,6 @@ M.descriptions = {
 	lsp = {
 		hover = "Show LSP hover information",
 		signature_help = "Show LSP signature help",
-	},
-
-	mantel = {
-		buf_next = "Go to next buffer in the tabline",
-		buf_prev = "Go to previous buffer in the tabline",
-		move_buf_left = "Move current buffer left in the tabline",
-		move_buf_right = "Move current buffer right in the tabline",
 	},
 
 	mason = {
