@@ -53,10 +53,11 @@ M.web_fmt_combo = { "prettier", stop_after_first = true }
 M.opts = {
 	formatters_by_ft = {
 		-- Basics
-		bash = { "shellharden", "shfmt", stop_after_first = true },
-		json = { "prettier", "jq", stop_after_first = true },
-		lua = { "stylua" },
+		nix = { "nixpkgs-fmt" },
 		markdown = { "prettier" },
+		lua = { "stylua" },
+		json = { "prettier", "jq", stop_after_first = true },
+		bash = { "shellharden", "shfmt", stop_after_first = true },
 
 		-- DevOps and Infra
 		terraform = { "terraform" },

@@ -18,7 +18,7 @@ return {
 					-- Basics
 					bash = { "shellharden", "shfmt", stop_after_first = true },
 					json = { "jsonlint" },
-					lua = { "stylua" },
+					lua = { "luacheck" },
 
 					-- DevOps and Infra
 					terraform = { "terraform" },

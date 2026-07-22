@@ -34,6 +34,7 @@ M.languages = {
 	"yaml",
 	"markdown",
 	"markdown_inline",
+	"nix"
 }
 
 M.lsps = {
@@ -61,6 +62,7 @@ M.lsps = {
 	"svelte",
 	"eslint",
 	"tailwindcss",
+	"nil_ls",
 }
 
 M.formatters = {
@@ -72,6 +74,7 @@ M.formatters = {
 	"terraform",
 	"yamlfmt",
 	"jq",
+	"statix"
 }
 
 M.linters = {
@@ -82,6 +85,7 @@ M.linters = {
 	"eslint_d",
 	"htmlhint",
 	"stylelint",
+	"luacheck",
 }
 
 return M

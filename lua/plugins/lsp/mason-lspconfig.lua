@@ -5,7 +5,9 @@ return {
 	data = {
 
 		config = function()
-			require("mason-lspconfig").setup({})
+			require("mason-lspconfig").setup({
+				automatic_enable = true,
+			})
 		end,
 	},
 }
