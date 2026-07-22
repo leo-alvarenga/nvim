@@ -25,7 +25,6 @@ return {
 
 					return {
 						"󰏖  vim.pack   " .. tostring(#plugins) .. " plugins",
-						tostring(vim.version().build or "unknown"),
 					}
 				end,
 
