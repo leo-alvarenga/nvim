@@ -34,7 +34,7 @@ M.languages = {
 	"yaml",
 	"markdown",
 	"markdown_inline",
-	"nix"
+	"nix",
 }
 
 M.lsps = {
@@ -74,7 +74,8 @@ M.formatters = {
 	"terraform",
 	"yamlfmt",
 	"jq",
-	"statix"
+	"statix",
+	"nixpkgs-fmt",
 }
 
 M.linters = {
