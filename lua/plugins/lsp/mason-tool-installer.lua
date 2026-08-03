@@ -12,6 +12,7 @@ return {
 				ensure_installed = vim.tbl_extend(
 					"force",
 					_langs.lsps or {},
+					_langs.hidden_lsps or {},
 					_langs.formatters or {},
 					_langs.linters or {}
 				),
