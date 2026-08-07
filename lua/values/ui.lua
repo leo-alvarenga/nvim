@@ -1,6 +1,6 @@
 local M = {}
 
-M.theme = "kanagawa"
+M.theme = "everforest"
 M.border = "rounded"
 
 -- Statusline/Tabline style: "bubble" (rounded pills) | "powerline" (slanted)

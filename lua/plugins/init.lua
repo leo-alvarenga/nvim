@@ -47,6 +47,8 @@ end
 --- @return string src
 function M.get_src(plugin)
 	local src = string.gsub(plugin.src, "^gh:", "https://github.com/")
+	src = string.gsub(src, "^codeberg:", "https://codeberg.org/")
+
 	return src or ""
 end
 

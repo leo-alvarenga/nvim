@@ -33,6 +33,14 @@
       "rev": "ae0efeaa73e1dc71b2da3bd5006badeaa7c11704",
       "src": "https://github.com/leo-alvarenga/drift.nvim"
     },
+    "everforest": {
+      "rev": "85a86eb62409e3ec88713bff3d1b9d7374e112e4",
+      "src": "https://github.com/sainnhe/everforest"
+    },
+    "evergarden": {
+      "rev": "6a47a90e5caf1b21e54ff7967017c255bab80fdd",
+      "src": "https://codeberg.org/evergarden/nvim.git"
+    },
     "fidget": {
       "rev": "6f793b2bcd2d35e201c09520f698bb763220908a",
       "src": "https://github.com/j-hui/fidget.nvim"
@@ -118,6 +126,10 @@
       "rev": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "nightfox": {
+      "rev": "4dacd3f0185a2227bdf3b6c0975a8f0bf87cac9a",
+      "src": "https://github.com/edeneast/nightfox.nvim"
+    },
     "none-ls-extras.nvim": {
       "rev": "27681d797a26f1b4d6119296df42f5204c88a2dc",
       "src": "https://github.com/nvimtools/none-ls-extras.nvim"
@@ -160,9 +172,17 @@
       "rev": "f32a06d4b5399dad8bf0478c772bf6c513f02dcf",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
+    "oxocarbon": {
+      "rev": "488dca6e3ff01acd88a648b83244073037261e64",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "poimandres": {
+      "rev": "a488957d803943a4201ac3b774913fcafa9e6b3a",
+      "src": "https://github.com/olivercederborg/poimandres.nvim"
     },
     "promise-async": {
       "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
