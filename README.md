@@ -31,6 +31,17 @@ This repository contains my current [Neovim](https://neovim.io/) setup, used at 
 ![Completions](./docs/usage-blink.png)
 ![Copilot completions](./docs/usage-copilot.png)
 
+## Themming
+
+For now, at least, there is only one theme available `Kanagawa Wave`.
+
+### Style variants
+
+The statusline and tabline come in two interchangeable looks, picked in `lua/values/ui.lua` (`M.bar_style`):
+
+- `"powerline"` — angled/slanted separators (`\ue0ba` / `\ue0bc`) *(default)*
+- `"bubble"` — rounded pill separators (`\ue0b6` / `\ue0b4`)
+
 ## License
 
 This project is licensed under the GPLv3 license - see the [LICENSE](./LICENSE) file for details.

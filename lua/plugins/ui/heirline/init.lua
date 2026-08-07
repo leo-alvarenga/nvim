@@ -4,8 +4,18 @@ return {
 	src = "gh:rebelot/heirline.nvim",
 	data = {
 		config = function()
-			local get_statusline = require("plugins.ui.heirline.statusline")
-			local get_tabline = require("plugins.ui.heirline.tabline")
+			-- Style: "bubble" (rounded pills) or "powerline" (slanted)
+			-- Switch in lua/values/ui.lua (M.bar_style)
+			local ui = require("values.ui")
+			local style = ui.bar_style or "bubble"
+
+			assert(
+				style == "bubble" or style == "powerline",
+				string.format("values.ui.bar_style: invalid style '%s' (expected 'bubble' or 'powerline')", style)
+			)
+
+			local get_statusline = require("plugins.ui.heirline." .. style .. ".statusline")
+			local get_tabline = require("plugins.ui.heirline." .. style .. ".tabline")
 
 			vim.o.showtabline = 2
 

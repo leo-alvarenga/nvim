@@ -166,13 +166,18 @@ end
 --- @param component table The component to wrap in the pill
 --- @param pl integer? Optional padding length (default: 0)
 --- @param pr integer? Optional padding length (default: 0)
+--- @param disable_l boolean? Optional flag to disable the left separator (default: false)
+--- @param disable_r boolean? Optional flag to disable the right separator (default: false)
 --- @return table The pill component
-function M.to_kanagawa_slanted(color, component, pl, pr)
+function M.to_kanagawa_slanted(color, component, pl, pr, disable_l, disable_r)
 	pl = pl or 0
 	pr = pr or 0
 
 	return {
 		{
+			condition = function()
+				return not disable_l
+			end,
 			provider = string.rep(" ", pl) .. "",
 			hl = function(self)
 				return {
@@ -190,6 +195,9 @@ function M.to_kanagawa_slanted(color, component, pl, pr)
 			end,
 		},
 		{
+			condition = function()
+				return not disable_r
+			end,
 			provider = "" .. string.rep(" ", pr),
 			hl = function(self)
 				return {

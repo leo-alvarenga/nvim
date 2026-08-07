@@ -2,6 +2,10 @@ local M = {}
 
 M.theme = "kanagawa"
 
+-- Statusline/Tabline style: "bubble" (rounded pills) | "powerline" (slanted)
+-- Implemented in lua/plugins/ui/heirline/{bubble,powerline}/
+M.bar_style = "powerline"
+
 M.logo = {
 	"│ ╲ ││",
 	"││╲╲││",
