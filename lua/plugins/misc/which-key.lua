@@ -4,7 +4,9 @@ return {
 	src = "gh:folke/which-key.nvim",
 	data = {
 		config = function()
-			require("which-key").setup({})
+			local ui = require("values.ui")
+
+			require("which-key").setup({ win = { border = ui.border } })
 		end,
 		keys = {
 			{

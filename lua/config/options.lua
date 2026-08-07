@@ -1,3 +1,5 @@
+local ui = require("values.ui")
+
 -- Leader options
 
 vim.g.mapleader = " "
@@ -79,7 +81,7 @@ vim.o.winblend = 0 -- Floating window transparency
 vim.o.conceallevel = 0 -- Don't hide markup
 vim.o.concealcursor = "" -- Don't hide cursor line markup
 vim.o.synmaxcol = 300 -- Syntax highlighting limit
-vim.o.winborder = "rounded" -- Rounded border for floating windows
+vim.o.winborder = ui.border -- Rounded border for floating windows
 
 -- Behavior settings
 vim.o.hidden = true -- Allow hidden buffers

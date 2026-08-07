@@ -1,7 +1,7 @@
 {
   "plugins": {
     "CopilotChat": {
-      "rev": "f0c2a23ab79dc295f5e0eef0d8b587a39020c852",
+      "rev": "f5171b9575279995205fde6a6c06c2632bb0b9d9",
       "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
     },
     "blink.cmp": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/f-person/git-blame.nvim"
     },
     "gitsigns": {
-      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
+      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guess-indent": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mason-lspconfig": {
-      "rev": "a4068c3ebd4cb335b25239e5ea35c22ee6007962",
+      "rev": "67029ccdac1ef8941e13b826417bc0ffac24cc86",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer": {
@@ -139,7 +139,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "3d3321b560a63ff92a8692401f303a5123336b86",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -185,7 +185,7 @@
       "src": "https://github.com/folke/todo-comments.nvim"
     },
     "treesitter-context": {
-      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
+      "rev": "f3061339b8eaf9fda873600bc425b8d2d8502533",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context",
       "version": "'master'"
     },
@@ -214,7 +214,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi": {
-      "rev": "d06c6c7a2e06f847963f5f14542feda1ca3872e0",
+      "rev": "7cc8fe84f48b636502f38df5410318b9a6642d0d",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }

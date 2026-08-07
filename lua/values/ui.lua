@@ -1,6 +1,7 @@
 local M = {}
 
 M.theme = "kanagawa"
+M.border = "rounded"
 
 -- Statusline/Tabline style: "bubble" (rounded pills) | "powerline" (slanted)
 -- Implemented in lua/plugins/ui/heirline/{bubble,powerline}/
