@@ -54,12 +54,16 @@ M.mode_names = {
 	yazi = "Yazi",
 }
 
-local function is_curr_buf_yazi()
+function M.is_curr_buf_yazi()
 	return vim.api.nvim_buf_get_name(0):sub(-4) == "yazi"
 end
 
-local function is_curr_buf_dashboard()
+function M.is_curr_buf_dashboard()
 	return vim.api.nvim_buf_get_name(0) == "homecoming://Dashboard"
+end
+
+function M.git_branch_condition()
+	return not M.is_curr_buf_yazi() and not M.is_curr_buf_dashboard() and vim.b.gitsigns_head ~= nil
 end
 
 function M.git_branch_provider()
@@ -69,14 +73,6 @@ function M.git_branch_provider()
 	if branch == "" or branch == "no branch" then
 		icon = ""
 		branch = "detached"
-	end
-
-	if is_curr_buf_yazi() then
-		icon = M.mode_icons.yazi
-		branch = ""
-	elseif is_curr_buf_dashboard() then
-		icon = " "
-		branch = "Homecoming"
 	end
 
 	if vim.fn.strdisplaywidth(branch) > 20 then
@@ -92,7 +88,7 @@ function M.vi_mode_provider()
 	local icon = M.mode_icons[mode] or M.mode_icons.unknown
 	local mode_name = M.mode_names[mode] or M.mode_names.unknown
 
-	if is_curr_buf_yazi() then
+	if M.is_curr_buf_yazi() then
 		icon = M.mode_icons.yazi
 		mode_name = M.mode_names.yazi
 	end

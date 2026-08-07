@@ -45,6 +45,7 @@ return function()
 			end,
 		},
 		{
+			condition = utils.git_branch_condition,
 			provider = function()
 				local git = utils.git_branch_provider()
 
