@@ -1,7 +1,7 @@
 return function()
 	local utils = require("plugins.ui.heirline.utils")
 
-	local TablineTabActive = utils.to_kanagawa_slanted(utils.colors.oniViolet, {
+	local TablineTabActive = utils.slanted(utils.colors.accent, {
 		provider = function(self)
 			return string.format(" %s ", self.tabnr)
 		end,
@@ -21,19 +21,19 @@ return function()
 				return string.format("  %s  ", self.tabnr)
 			end,
 			hl = {
-				fg = utils.colors.sumiInk4,
+				fg = utils.colors.muted,
 			},
 		},
 
 		TablineTabActive,
 	}
 
-	local TablineFile = utils.to_kanagawa_slanted(function(self)
+	local TablineFile = utils.slanted(function(self)
 		if self.is_active or self.is_visible then
-			return utils.colors.oniViolet
+			return utils.colors.accent
 		end
 
-		return utils.colors.sumiInk2
+		return utils.colors.inactiveBg
 	end, {
 		provider = function(self)
 			local icon = utils.filetype_icon(self.bufnr)
@@ -55,15 +55,15 @@ return function()
 	local get_trunc = function(provider)
 		return {
 			provider = provider,
-			hl = { fg = utils.colors.oniViolet },
+			hl = { fg = utils.colors.accent },
 		}
 	end
 
 	local Divider = { provider = " " }
 
 	--- @diagnostic disable-next-line
-	local TabList = utils.to_kanagawa_slanted(function(self)
-		return utils.colors.sumiInk2
+	local TabList = utils.slanted(function(self)
+		return utils.colors.inactiveBg
 	end, {
 		--- @diagnostic disable-next-line
 		require("heirline.utils").make_tablist({ TablineTab }),
@@ -79,7 +79,7 @@ return function()
 		Divider,
 	}, get_trunc(" "), get_trunc(" "))
 
-	local LeftDecorator = utils.to_kanagawa_slanted(utils.colors.oniViolet, {
+	local LeftDecorator = utils.slanted(utils.colors.accent, {
 		provider = "  ",
 	}, 0, 0, true)
 

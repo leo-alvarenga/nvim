@@ -4,7 +4,6 @@ M.theme = "everforest"
 M.border = "rounded"
 
 -- Statusline/Tabline style: "bubble" (rounded pills) | "powerline" (slanted)
--- Implemented in lua/plugins/ui/heirline/{bubble,powerline}/
 M.bar_style = "powerline"
 
 M.logo = {

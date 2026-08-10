@@ -157,19 +157,43 @@ M.notifications = {
 	},
 }
 
-M.colors = {
-	sumiInk0 = "#16161D",
-	sumiInk1 = "#21222C",
-	sumiInk2 = "#403B4A",
-	sumiInk3 = "#1F1F28",
-	sumiInk4 = "#2A2737",
-	crystalBlue = "#7E9CD8",
-	springGreen = "#76946A",
-	oniViolet = "#957FB8",
-	fujiWhite = "#DCD7BA",
-	autumnRed = "#E46876",
-	boatYellow = "#C0A36E",
-	waveBlue2 = "#2D4F67",
+M.colorschemes = {
+	kanagawa = {
+		statusBg = "#16161D", -- statusline background (darkest)
+		pillText = "#16161D", -- text on colored pills
+		pillBg = "#21222C", -- status pill background (git/diagnostics/fileinfo)
+		inactiveBg = "#403B4A", -- inactive tab background (tabline)
+		muted = "#2A2737", -- inactive tab number / dim text
+		text = "#DCD7BA", -- default text / file name
+		accent = "#957FB8", -- active tab / visual mode / decorators
+		info = "#7E9CD8", -- normal mode / info diagnostics
+		insert = "#76946A", -- insert mode
+		warn = "#C0A36E", -- select mode / warn diagnostics
+		error = "#E46876", -- command+terminal mode / error diagnostics
+		menuBg = "#2A2737", -- completion menu background (blink)
+		selection = "#2D4F67", -- completion selection highlight (blink)
+	},
+
+	-- Currently active theme (lua/values/ui.lua -> M.theme). Colors mirror
+	-- the tmux statusbar (see ~/.config/tmux/everforest.conf).
+	everforest = {
+		statusBg = "#232A2E", -- tmux bgMain / bg_dim (status bar bg)
+		pillText = "#2D353B", -- tmux bg0 (text on accents)
+		pillBg = "#3D484D", -- tmux bg2 (status-right pill bg)
+		inactiveBg = "#3D484D", -- tmux bg2 (inactive tabs)
+		muted = "#7A8472", -- tmux grey0
+		text = "#D3C6AA", -- tmux statusline2 / fg
+		accent = "#A7C080", -- tmux statusline1 (green)
+		info = "#7FBBB3", -- tmux blue
+		insert = "#A7C080", -- tmux green (accent)
+		warn = "#DBBC7F", -- tmux yellow
+		error = "#E67E80", -- tmux red
+		menuBg = "#3D484D", -- tmux bg2
+		selection = "#A7C080", -- tmux green (accent)
+	},
 }
+
+-- Resolved palette for the theme selected in lua/values/ui.lua
+M.colors = M.colorschemes[require("values.ui").theme] or M.colorschemes.kanagawa
 
 return M

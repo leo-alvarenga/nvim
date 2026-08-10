@@ -7,7 +7,7 @@ return function()
 
 	-----------------------------------
 	-- Mode Component
-	local ViMode = utils.to_kanagawa_surround(
+	local ViMode = utils.surround(
 		{
 			provider = function()
 				local mode = utils.vi_mode_provider()
@@ -17,8 +17,8 @@ return function()
 			hl = function()
 				local mode = vim.fn.mode():sub(1, 1)
 				return {
-					bg = utils.mode_colors[mode] or utils.colors.crystalBlue,
-					fg = utils.colors.sumiInk0,
+					bg = utils.mode_colors[mode] or utils.colors.info,
+					fg = utils.colors.pillText,
 					bold = true,
 				}
 			end,
@@ -29,19 +29,19 @@ return function()
 		"",
 		function()
 			local mode = vim.fn.mode():sub(1, 1)
-			return utils.mode_colors[mode] or utils.colors.crystalBlue
+			return utils.mode_colors[mode] or utils.colors.info
 		end
 	)
 	-----------------------------------
 
 	-----------------------------------
 	-- Git Branch Component
-	local Git = utils.to_kanagawa_surround({
+	local Git = utils.surround({
 		{
 			provider = " ",
 			hl = function()
 				local mode = vim.fn.mode():sub(1, 1)
-				return { bg = utils.colors.sumiInk1, fg = utils.mode_colors[mode] or utils.colors.crystalBlue }
+				return { bg = utils.colors.pillBg, fg = utils.mode_colors[mode] or utils.colors.info }
 			end,
 		},
 		{
@@ -52,7 +52,7 @@ return function()
 				return string.format("%s ", git)
 			end,
 		},
-	}, "", "", utils.colors.sumiInk1, utils.colors.autumnRed, 0, 1)
+	}, "", "", utils.colors.pillBg, utils.colors.error, 0, 1)
 
 	-----------------------------------
 
@@ -66,7 +66,7 @@ return function()
 		provider = function()
 			return " " .. utils.get_diag_count("Error")
 		end,
-		hl = { fg = utils.colors.autumnRed },
+		hl = { fg = utils.colors.error },
 	}
 
 	local DiagWarn = {
@@ -76,7 +76,7 @@ return function()
 		provider = function()
 			return " " .. utils.get_diag_count("Warn")
 		end,
-		hl = { fg = utils.colors.boatYellow },
+		hl = { fg = utils.colors.warn },
 	}
 
 	local DiagInfo = {
@@ -86,10 +86,10 @@ return function()
 		provider = function()
 			return " " .. utils.get_diag_count("Info")
 		end,
-		hl = { fg = utils.colors.crystalBlue },
+		hl = { fg = utils.colors.info },
 	}
 
-	local Diagnostics = utils.to_kanagawa_slanted(utils.colors.sumiInk1, {
+	local Diagnostics = utils.slanted(utils.colors.pillBg, {
 		DiagInfo,
 
 		{
@@ -121,14 +121,14 @@ return function()
 	-----------------------------------
 	-- File name Component
 	local FileName = {
-		hl = { fg = utils.colors.fujiWhite },
+		hl = { fg = utils.colors.text },
 		provider = utils.file_name_provider,
 	}
 	-----------------------------------
 
 	-----------------------------------
 	-- FileInfo Component
-	local FileInfo = utils.to_kanagawa_surround({
+	local FileInfo = utils.surround({
 		{
 			provider = function()
 				local filetype = vim.bo.filetype
@@ -151,16 +151,16 @@ return function()
 		},
 		{
 			provider = " ",
-			hl = { bg = utils.colors.sumiInk1, fg = utils.colors.oniViolet },
+			hl = { bg = utils.colors.pillBg, fg = utils.colors.accent },
 		},
-	}, "", "", utils.colors.sumiInk1, utils.colors.oniViolet)
+	}, "", "", utils.colors.pillBg, utils.colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
 	-----------------------------------
 
 	-----------------------------------
 	-- File Position Component
-	local FilePosition = utils.to_kanagawa_surround({
+	local FilePosition = utils.surround({
 		provider = function()
 			local encoding = vim.bo.fileencoding
 
@@ -176,11 +176,11 @@ return function()
 				vim.fn.col(".")
 			)
 		end,
-	}, "", "", utils.colors.oniViolet)
+	}, "", "", utils.colors.accent)
 	-----------------------------------
 
 	return {
-		hl = { bg = "NONE" },
+		hl = { bg = utils.colors.statusBg },
 
 		ViMode,
 		Git,

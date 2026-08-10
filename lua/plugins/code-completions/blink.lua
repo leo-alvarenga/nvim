@@ -54,19 +54,19 @@ return {
 
 					local groups = {
 						-- The actual menu (using the lighter 'Wave' background)
-						BlinkCmpMenu = { fg = colors.fujiWhite, bg = colors.sumiInk4 },
-						BlinkCmpMenuBorder = { fg = colors.crystalBlue, bg = colors.sumiInk4 }, -- Seamless border
+						BlinkCmpMenu = { fg = colors.text, bg = colors.menuBg },
+						BlinkCmpMenuBorder = { fg = colors.info, bg = colors.menuBg }, -- Seamless border
 
 						-- The selection (what you're currently highlighting)
-						BlinkCmpMenuSelection = { fg = "NONE", bg = colors.waveBlue2, bold = true },
+						BlinkCmpMenuSelection = { fg = colors.menuBg, bg = colors.selection, bold = true },
 
 						-- Documentation window
-						BlinkCmpDoc = { fg = colors.fujiWhite, bg = colors.sumiInk4 },
-						BlinkCmpDocBorder = { fg = colors.sumiInk4, bg = colors.sumiInk4 },
+						BlinkCmpDoc = { fg = colors.text, bg = colors.menuBg },
+						BlinkCmpDocBorder = { fg = colors.menuBg, bg = colors.menuBg },
 
 						-- Item details (kind, source)
-						BlinkCmpLabel = { fg = colors.fujiWhite },
-						BlinkCmpLabelMatch = { fg = colors.crystalBlue, bold = true }, -- The part you typed
+						BlinkCmpLabel = { fg = colors.text },
+						BlinkCmpLabelMatch = { fg = colors.info, bold = true }, -- The part you typed
 					}
 
 					for group, settings in pairs(groups) do

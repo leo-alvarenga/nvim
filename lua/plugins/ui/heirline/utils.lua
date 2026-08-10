@@ -11,17 +11,17 @@ M.file_formats = {
 }
 
 M.mode_colors = {
-	n = M.colors.crystalBlue,
-	i = M.colors.springGreen,
-	v = M.colors.oniViolet,
-	V = M.colors.oniViolet,
-	["\22"] = M.colors.oniViolet,
-	[""] = M.colors.oniViolet,
-	c = M.colors.autumnRed,
-	s = M.colors.boatYellow,
-	S = M.colors.boatYellow,
-	t = M.colors.autumnRed,
-	unknown = M.colors.crystalBlue,
+	n = M.colors.info,
+	i = M.colors.insert,
+	v = M.colors.accent,
+	V = M.colors.accent,
+	["\22"] = M.colors.accent,
+	[""] = M.colors.accent,
+	c = M.colors.error,
+	s = M.colors.warn,
+	S = M.colors.warn,
+	t = M.colors.error,
+	unknown = M.colors.info,
 }
 
 M.mode_icons = {
@@ -116,7 +116,7 @@ end
 --- @param pl integer? Optional padding length (default: 0)
 --- @param pr integer? Optional padding length (default: 0)
 --- @return table The pill component
-function M.to_kanagawa_surround(component, left_sep, right_sep, bg, fg, pl, pr)
+function M.surround(component, left_sep, right_sep, bg, fg, pl, pr)
 	left_sep = left_sep or ""
 	right_sep = right_sep or ""
 
@@ -127,7 +127,7 @@ function M.to_kanagawa_surround(component, left_sep, right_sep, bg, fg, pl, pr)
 		hl = function(self)
 			return {
 				bold = true,
-				fg = fg or M.colors.sumiInk0,
+				fg = fg or M.colors.pillText,
 				bg = type(bg) == "string" and bg or bg(self),
 			}
 		end,
@@ -135,13 +135,13 @@ function M.to_kanagawa_surround(component, left_sep, right_sep, bg, fg, pl, pr)
 	})
 end
 
---- A helper function to create a "pill" component with the Kanagawa colorscheme style
+--- A helper function to create a "pill" component with rounded separators
 --- @param color string|function The background color for the pill
 --- @param component table The component to wrap in the pill
 --- @param pl integer? Optional padding length (default: 0)
 --- @param pr integer? Optional padding length (default: 0)
 --- @return table The pill component
-function M.to_kanagawa_pill(color, component, pl, pr)
+function M.pill(color, component, pl, pr)
 	pl = pl or 0
 	pr = pr or 0
 
@@ -149,7 +149,7 @@ function M.to_kanagawa_pill(color, component, pl, pr)
 		hl = function(self)
 			return {
 				bold = true,
-				fg = M.colors.sumiInk0,
+				fg = M.colors.pillText,
 				bg = type(color) == "string" and color or color(self),
 			}
 		end,
@@ -157,15 +157,15 @@ function M.to_kanagawa_pill(color, component, pl, pr)
 	})
 end
 
---- A helper function to create a "pill" component with the Kanagawa colorscheme style
---- @param color string|function The background color for the pill
---- @param component table The component to wrap in the pill
+--- A helper function to create a "slanted" (powerline) component
+--- @param color string|function The background color for the slanted piece
+--- @param component table The component to wrap in the slanted piece
 --- @param pl integer? Optional padding length (default: 0)
 --- @param pr integer? Optional padding length (default: 0)
 --- @param disable_l boolean? Optional flag to disable the left separator (default: false)
 --- @param disable_r boolean? Optional flag to disable the right separator (default: false)
---- @return table The pill component
-function M.to_kanagawa_slanted(color, component, pl, pr, disable_l, disable_r)
+--- @return table The slanted component
+function M.slanted(color, component, pl, pr, disable_l, disable_r)
 	pl = pl or 0
 	pr = pr or 0
 
@@ -186,7 +186,7 @@ function M.to_kanagawa_slanted(color, component, pl, pr, disable_l, disable_r)
 			hl = function(self)
 				return {
 					bg = type(color) == "string" and color or color(self),
-					fg = M.colors.sumiInk0,
+					fg = M.colors.pillText,
 				}
 			end,
 		},

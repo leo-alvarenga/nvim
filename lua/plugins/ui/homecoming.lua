@@ -8,6 +8,8 @@ return {
 			local _ui = require("values.ui")
 			local _shared = require("values.constants.shared")
 
+			local header_hl = _ui.theme == "kanagawa" and nil or "Directory"
+
 			local sections = {
 				files = "  Files",
 				plugins = "󱁤  LSPs and Tools",
@@ -17,6 +19,7 @@ return {
 			local opts = {
 				header = _ui.banner,
 				header_mb = 1,
+				header_hl_group = header_hl,
 
 				footer_mt = 1,
 				footer_hl_group = "Constant",
