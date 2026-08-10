@@ -4,6 +4,9 @@ local M = {}
 function M.get_plugins()
 	--- @type PluginSpec[]
 	local plugins = {
+		--- Theme
+		require("plugins.theme"),
+
 		--- Dependencies
 		{ src = "gh:nvim-lua/plenary.nvim" },
 		{ src = "gh:rafamadriz/friendly-snippets" },
@@ -12,9 +15,6 @@ function M.get_plugins()
 		{ src = "gh:MunifTanjim/nui.nvim" },
 
 		{ src = "gh:kevinhwang91/promise-async" },
-
-		--- Theme
-		require("plugins.theme"),
 	}
 
 	for _, tbl in ipairs({

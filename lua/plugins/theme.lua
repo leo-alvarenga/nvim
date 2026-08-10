@@ -1,8 +1,52 @@
+local function get_theme()
+	--- @type PluginSpec[]
+	local themes = {
+		everforest = {
+			name = "everforest",
+			src = "gh:sainnhe/everforest",
+			data = {
+				config = function()
+					vim.cmd([[
+						if has('termguicolors')
+							set termguicolors
+						endif
+
+						" For dark version.
+						set background=dark
+
+						" Set contrast.
+						" This configuration option should be placed before `colorscheme everforest`.
+						" Available values: 'hard', 'medium'(default), 'soft'
+						let g:everforest_background = 'hard'
+
+						" For better performance
+						let g:everforest_better_performance = 1
+
+						colorscheme everforest
+					]])
+				end,
+			},
+		},
+
+		kanagawa = {
+			name = "kanagawa",
+			src = "gh:rebelot/kanagawa.nvim",
+			data = {
+				config = function() end,
+			},
+		},
+	}
+
+	local _ui = require("values.ui")
+
+	for _, theme in ipairs(themes) do
+		if theme.name == _ui.theme then
+			return theme
+		end
+	end
+
+	return themes.everforest
+end
+
 --- @type PluginSpec
-return {
-	name = "everforest",
-	src = "gh:sainnhe/everforest",
-	data = {
-		config = function() end,
-	},
-}
+return get_theme()

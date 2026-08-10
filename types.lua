@@ -11,7 +11,7 @@
 --- @field config function
 --- @field keys PluginKeys[]?
 --- @field events string[]?
-
+---
 --- @class PluginSpec
 --- @field src string
 --- @field data PluginConfig?
