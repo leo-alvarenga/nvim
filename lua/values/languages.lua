@@ -65,9 +65,7 @@ M.lsps = {
 	"nil_ls",
 }
 
-M.hidden_lsps = {
-	"ts_ls",
-}
+M.hidden_lsps = {}
 
 M.formatters = {
 	"ast-grep",
