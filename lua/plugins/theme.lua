@@ -32,20 +32,16 @@ local function get_theme()
 			name = "kanagawa",
 			src = "gh:rebelot/kanagawa.nvim",
 			data = {
-				config = function() end,
+				config = function()
+					vim.cmd([[
+						colorscheme kanagawa
+					]])
+				end,
 			},
 		},
 	}
 
-	local _ui = require("values.ui")
-
-	for _, theme in ipairs(themes) do
-		if theme.name == _ui.theme then
-			return theme
-		end
-	end
-
-	return themes.everforest
+	return themes[require("values.ui").theme] or themes["everforest"]
 end
 
 --- @type PluginSpec
