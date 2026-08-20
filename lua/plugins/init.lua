@@ -104,6 +104,25 @@ function M.pack(verbose)
 			end
 		end
 	end, { desc = "Load plugins" })
+
+	vim.api.nvim_create_user_command("PackUninstall", function(args)
+		if not args.fargs or #args.fargs <= 0 then
+			vim.notify("Please provide a plugin name to uninstall")
+			return
+		end
+
+		local plugin_name = args.fargs[1]
+
+		if verbose then
+			vim.notify("Uninstalling plugin: " .. plugin_name)
+		end
+
+		local ok = pcall(vim.pack.del, { plugin_name })
+
+		if not ok then
+			vim.notify("Failed to uninstall plugin: " .. plugin_name)
+		end
+	end, { desc = "Uninstall a plugin", nargs = 1 })
 end
 
 function M.get_installed_plugins()
