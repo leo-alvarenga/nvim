@@ -3,8 +3,8 @@ local M = {}
 M.theme = "kanagawa"
 M.border = "rounded"
 
--- Statusline/Tabline style: "bubble" (rounded pills) | "powerline" (slanted)
-M.bar_style = "powerline"
+-- Statusline/Tabline style: "classic" (chevrons) | "powerline" (slanted) | "bubble" (rounded pills)
+M.bar_style = "classic"
 
 M.logo = {
 	"│ ╲ ││",

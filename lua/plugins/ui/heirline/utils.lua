@@ -204,6 +204,7 @@ function M.slanted(color, component, pl, pr, disable_l, disable_r)
 	}
 end
 
+
 --- @param bufnr integer
 --- @return string The icon for the file type
 function M.filetype_icon(bufnr)
@@ -241,6 +242,26 @@ function M.get_lsp_count()
 	end
 
 	return #clients, has_copilot
+end
+
+local function copilot_enabled()
+	return vim.g.loaded_copilot == 1 and vim.fn["copilot#Enabled"]() == 1
+end
+
+local function supermaven_active()
+	if vim.g.SUPERMAVEN_DISABLED ~= nil then
+		return vim.g.SUPERMAVEN_DISABLED == 0
+	end
+
+	local ok, api = pcall(require, "supermaven-nvim.api")
+	return ok and type(api.is_completion_visible) == "function" and api.is_completion_visible()
+end
+
+--- @return table { copilot = boolean, supermaven = boolean }
+function M.ai_assist_state()
+	local _, lsp_copilot = M.get_lsp_count()
+
+	return { copilot = copilot_enabled() or lsp_copilot, supermaven = supermaven_active() }
 end
 
 return M

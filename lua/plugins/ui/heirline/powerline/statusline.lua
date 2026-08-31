@@ -110,20 +110,23 @@ return function()
 			provider = function()
 				local filetype = vim.bo.filetype
 
-				local _, has_copilot = utils.get_lsp_count()
+				local ai = utils.ai_assist_state()
 
 				if not filetype or filetype == "" then
 					filetype = "no ft"
 				end
 
-				local copilot = has_copilot and "" or ""
+				local ai_icons = (ai.copilot and " " or "") .. (ai.supermaven and " " or "")
+				if ai_icons == "" then
+					ai_icons = ""
+				end
 				local reg = vim.fn.reg_recording() or ""
 
 				if reg ~= "" then
 					reg = string.format("  %s  ", reg)
 				end
 
-				return string.format(" %s%s %s  %s ", reg, utils.filetype_icon(0), filetype, copilot)
+				return string.format(" %s%s %s  %s ", reg, utils.filetype_icon(0), filetype, ai_icons)
 			end,
 		},
 		{

@@ -4,14 +4,14 @@ return {
 	src = "gh:rebelot/heirline.nvim",
 	data = {
 		config = function()
-			-- Style: "bubble" (rounded pills) or "powerline" (slanted)
+			-- Style: "bubble" (rounded pills), "powerline" (slanted) or "classic" (chevrons)
 			-- Switch in lua/values/ui.lua (M.bar_style)
 			local ui = require("values.ui")
-			local style = ui.bar_style or "bubble"
+			local style = ui.bar_style or "classic"
 
 			assert(
-				style == "bubble" or style == "powerline",
-				string.format("values.ui.bar_style: invalid style '%s' (expected 'bubble' or 'powerline')", style)
+				style == "bubble" or style == "powerline" or style == "classic",
+				string.format("values.ui.bar_style: invalid style '%s' (expected 'bubble', 'powerline' or 'classic')", style)
 			)
 
 			local get_statusline = require("plugins.ui.heirline." .. style .. ".statusline")

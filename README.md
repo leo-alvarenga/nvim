@@ -37,9 +37,10 @@ For now, at least, there is only one theme available `Kanagawa Wave`.
 
 ### Style variants
 
-The statusline and tabline come in two interchangeable looks, picked in `lua/values/ui.lua` (`M.bar_style`):
+The statusline and tabline come in three interchangeable looks, picked in `lua/values/ui.lua` (`M.bar_style`):
 
-- `"powerline"` — angled/slanted separators (`\ue0ba` / `\ue0bc`) *(default)*
+- `"classic"` — classic powerline chevrons (`\ue0b0`), only the active buffer gets the accent block *(default)*
+- `"powerline"` — angled/slanted separators (`\ue0ba` / `\ue0bc`)
 - `"bubble"` — rounded pill separators (`\ue0b6` / `\ue0b4`)
 
 ## License

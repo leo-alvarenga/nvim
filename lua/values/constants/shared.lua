@@ -160,6 +160,7 @@ M.notifications = {
 M.colorschemes = {
 	kanagawa = {
 		statusBg = "#16161D", -- statusline background (darkest)
+		tablineBg = "#1F1F28", -- tabline background (matches buffer bg)
 		pillText = "#16161D", -- text on colored pills
 		pillBg = "#21222C", -- status pill background (git/diagnostics/fileinfo)
 		inactiveBg = "#403B4A", -- inactive tab background (tabline)
@@ -178,6 +179,7 @@ M.colorschemes = {
 	-- the tmux statusbar (see ~/.config/tmux/everforest.conf).
 	everforest = {
 		statusBg = "#232A2E", -- tmux bgMain / bg_dim (status bar bg)
+		tablineBg = "#2D353B", -- tmux bg0 (tabline bg, matches buffer bg)
 		pillText = "#2D353B", -- tmux bg0 (text on accents)
 		pillBg = "#3D484D", -- tmux bg2 (status-right pill bg)
 		inactiveBg = "#3D484D", -- tmux bg2 (inactive tabs)
