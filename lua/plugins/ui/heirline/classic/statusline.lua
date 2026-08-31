@@ -81,6 +81,19 @@ return function()
 		end,
 		hl = { fg = colors.text },
 	}
+
+	local LspInfo = utils.surround({
+		{
+			provider = utils.lsp_provider,
+		},
+		{
+			provider = "",
+			hl = { bg = colors.pillBg, fg = colors.accent },
+		},
+	}, "", "", colors.accent, colors.pillBg)
+
+	LspInfo.update = { "LspAttach", "LspDetach" }
+
 	-- FileInfo Component (filetype/copilot pill): pillBg shell with accent
 	-- text, closing wedge into the accent position block (same colors as
 	-- the other layouts).
@@ -109,38 +122,17 @@ return function()
 					reg = string.format("  %s  ", reg)
 				end
 
-				return string.format(" %s%s %s%s ", reg, utils.filetype_icon(0), filetype, ai_assist)
+				return string.format(" %s%s %s%s", reg, utils.filetype_icon(0), filetype, ai_assist)
 			end,
 		},
 		{
 			provider = " ",
 			hl = { bg = colors.pillBg, fg = colors.accent },
 		},
-	}, "", "", colors.pillBg, colors.accent)
+	}, "", "", colors.pillBg, colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
 
-	local LspInfo = utils.surround({
-		{
-			provider = function()
-				local s = utils.lsp_status()
-				local text = utils.lsp_icon(s.primary) .. " " .. s.primary
-				if s.extra > 0 then
-					text = text .. string.format(" (and %d more)", s.extra)
-				end
-				return " " .. text .. " "
-			end,
-		},
-		{
-			provider = " ",
-			hl = { bg = colors.pillBg, fg = colors.accent },
-		},
-	}, "", "", colors.pillBg, colors.accent)
-
-	LspInfo.condition = function()
-		return utils.lsp_status() ~= nil
-	end
-	LspInfo.update = { "LspAttach", "LspDetach" }
 	-- File Position Component (position pill): accent block with dark text,
 	-- flush after FileInfo's closing wedge (accent, same as the other layouts).
 	local FilePosition = utils.surround({
@@ -160,6 +152,7 @@ return function()
 			)
 		end,
 	}, "", "", colors.accent)
+
 	return {
 		hl = { bg = colors.statusBg },
 
@@ -170,8 +163,8 @@ return function()
 
 		{ provider = "%=" },
 
-		FileInfo,
 		LspInfo,
+		FileInfo,
 		FilePosition,
 	}
 end

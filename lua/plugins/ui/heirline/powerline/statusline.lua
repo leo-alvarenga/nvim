@@ -101,10 +101,12 @@ return function()
 		return utils.get_diag_count("Error") > 0 or utils.get_diag_count("Warn") > 0 or utils.get_diag_count("Info") > 0
 	end
 	Diagnostics.update = { "DiagnosticChanged", "BufEnter" }
+
 	local FileName = {
 		hl = { fg = utils.colors.text },
 		provider = utils.file_name_provider,
 	}
+
 	local FileInfo = utils.surround({
 		{
 			provider = function()
@@ -127,34 +129,29 @@ return function()
 					reg = string.format("  %s  ", reg)
 				end
 
-				return string.format(" %s%s %s  %s ", reg, utils.filetype_icon(0), filetype, ai_icons)
+				return string.format(" %s%s %s  %s", reg, utils.filetype_icon(0), filetype, ai_icons)
 			end,
 		},
 		{
-			provider = " ",
+			provider = "",
 			hl = { bg = utils.colors.pillBg, fg = utils.colors.accent },
 		},
-	}, "", "", utils.colors.pillBg, utils.colors.accent)
+	}, "", "", utils.colors.pillBg, utils.colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
 
-	local LspInfo = utils.slanted(utils.colors.pillBg, {
+	local LspInfo = utils.slanted(utils.colors.accent, {
 		{
-			provider = function()
-				local s = utils.lsp_status()
-				local text = utils.lsp_icon(s.primary) .. " " .. s.primary
-				if s.extra > 0 then
-					text = text .. string.format(" (and %d more)", s.extra)
-				end
-				return " " .. text .. " "
-			end,
+			provider = utils.lsp_provider,
 		},
-	}, 0, 1)
+		{
+			provider = "",
+			hl = { bg = utils.colors.accent, fg = utils.colors.pillBg },
+		},
+	}, 0, 1, false, true)
 
-	LspInfo.condition = function()
-		return utils.lsp_status() ~= nil
-	end
 	LspInfo.update = { "LspAttach", "LspDetach" }
+
 	local FilePosition = utils.surround({
 		provider = function()
 			local encoding = vim.bo.fileencoding
@@ -172,6 +169,7 @@ return function()
 			)
 		end,
 	}, "", "", utils.colors.accent)
+
 	return {
 		hl = { bg = utils.colors.statusBg },
 
@@ -182,8 +180,8 @@ return function()
 
 		{ provider = "%=" },
 
-		FileInfo,
 		LspInfo,
+		FileInfo,
 		FilePosition,
 	}
 end

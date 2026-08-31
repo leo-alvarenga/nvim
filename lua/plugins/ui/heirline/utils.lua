@@ -108,6 +108,21 @@ function M.file_name_provider()
 	return string.format("%s%s", vim.fn.expand("%:t"), status)
 end
 
+function M.lsp_provider()
+	local s = M.lsp_status()
+
+	if not s then
+		return " " .. M.lsp_icon("NO_LSP") .. " "
+	end
+
+	local text = M.lsp_icon(s.primary) .. " " .. s.primary
+	if s.extra > 0 then
+		text = text .. string.format(" (+%d)", s.extra)
+	end
+
+	return " " .. text .. " "
+end
+
 --- @param component table The component to wrap in the pill
 --- @param left_sep string? The left separator for the pill (default: "")
 --- @param right_sep string? The right separator for the pill (default: "
@@ -140,12 +155,17 @@ end
 --- @param component table The component to wrap in the pill
 --- @param pl integer? Optional padding length (default: 0)
 --- @param pr integer? Optional padding length (default: 0)
+--- @param disable_l boolean? Optional flag to disable the left separator (default: false)
+--- @param disable_r boolean? Optional flag to disable the right separator (default: false)
 --- @return table The pill component
-function M.pill(color, component, pl, pr)
+function M.pill(color, component, pl, pr, disable_l, disable_r)
 	pl = pl or 0
 	pr = pr or 0
 
-	return utils.surround({ string.rep(" ", pl) .. "", "" .. string.rep(" ", pr) }, color, {
+	local left_sep = disable_l and "" or ""
+	local right_sep = disable_r and "" or ""
+
+	return utils.surround({ string.rep(" ", pl) .. left_sep, right_sep .. string.rep(" ", pr) }, color, {
 		hl = function(self)
 			return {
 				bold = true,
@@ -203,7 +223,6 @@ function M.slanted(color, component, pl, pr, disable_l, disable_r)
 		},
 	}
 end
-
 
 --- @param bufnr integer
 --- @return string The icon for the file type
@@ -291,6 +310,7 @@ local lsp_icons = {
 	jsonls = "",
 	yamlls = "",
 	marksman = "",
+	["NO_LSP"] = "󱧖",
 }
 
 --- @return table|nil { primary = string, extra = integer }
@@ -301,9 +321,11 @@ function M.lsp_status()
 			table.insert(names, client.name)
 		end
 	end
+
 	if #names == 0 then
 		return nil
 	end
+
 	table.sort(names)
 
 	local primary, preferred = names[1], ft_servers[vim.bo.filetype]
