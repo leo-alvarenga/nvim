@@ -1,18 +1,18 @@
 return function()
-	local utils = require("plugins.ui.heirline.utils")
+	local utils = require("plugins.ui.heirline.shared.providers")
+	local style = require("plugins.ui.heirline.shared.style")
+	local colors = require("plugins.ui.heirline.shared.constants").colors
 
-	local ViMode = utils.surround(
+	local ViMode = style.surround(
 		{
 			provider = function()
-				local mode = utils.vi_mode_provider()
-				return string.format(" %s ", mode)
+				return string.format(" %s ", utils.vi_mode_provider())
 			end,
 
 			hl = function()
-				local mode = vim.fn.mode():sub(1, 1)
 				return {
-					bg = utils.mode_colors[mode] or utils.colors.info,
-					fg = utils.colors.pillText,
+					bg = utils.mode_color(),
+					fg = colors.pillText,
 					bold = true,
 				}
 			end,
@@ -21,17 +21,14 @@ return function()
 		},
 		"",
 		"",
-		function()
-			local mode = vim.fn.mode():sub(1, 1)
-			return utils.mode_colors[mode] or utils.colors.info
-		end
+		utils.mode_color
 	)
-	local Git = utils.surround({
+
+	local Git = style.surround({
 		{
 			provider = " ",
 			hl = function()
-				local mode = vim.fn.mode():sub(1, 1)
-				return { bg = utils.colors.pillBg, fg = utils.mode_colors[mode] or utils.colors.info }
+				return { bg = colors.pillBg, fg = utils.mode_color() }
 			end,
 		},
 		{
@@ -42,40 +39,10 @@ return function()
 				return string.format("%s ", git)
 			end,
 		},
-	}, "", "", utils.colors.pillBg, utils.colors.error, 0, 1)
+	}, "", "", colors.pillBg, colors.error, 0, 1)
 
-	local DiagError = {
-		condition = function()
-			return utils.get_diag_count("Error") > 0
-		end,
-		provider = function()
-			return " " .. utils.get_diag_count("Error")
-		end,
-		hl = { fg = utils.colors.error },
-	}
-
-	local DiagWarn = {
-		condition = function()
-			return utils.get_diag_count("Warn") > 0
-		end,
-		provider = function()
-			return " " .. utils.get_diag_count("Warn")
-		end,
-		hl = { fg = utils.colors.warn },
-	}
-
-	local DiagInfo = {
-		condition = function()
-			return utils.get_diag_count("Info") > 0
-		end,
-		provider = function()
-			return " " .. utils.get_diag_count("Info")
-		end,
-		hl = { fg = utils.colors.info },
-	}
-
-	local Diagnostics = utils.slanted(utils.colors.pillBg, {
-		DiagInfo,
+	local Diagnostics = style.slanted(colors.pillBg, {
+		utils.diag_component("Info"),
 
 		{
 			provider = " ",
@@ -85,7 +52,7 @@ return function()
 			end,
 		},
 
-		DiagWarn,
+		utils.diag_component("Warn"),
 
 		{
 			provider = " ",
@@ -94,84 +61,54 @@ return function()
 			end,
 		},
 
-		DiagError,
+		utils.diag_component("Error"),
 	}, 0, 1)
 
-	Diagnostics.condition = function()
-		return utils.get_diag_count("Error") > 0 or utils.get_diag_count("Warn") > 0 or utils.get_diag_count("Info") > 0
-	end
+	Diagnostics.condition = utils.diagnostics_condition
 	Diagnostics.update = { "DiagnosticChanged", "BufEnter" }
 
 	local FileName = {
-		hl = { fg = utils.colors.text },
+		hl = { fg = colors.text },
 		provider = utils.file_name_provider,
 	}
 
-	local FileInfo = utils.surround({
+	local FileInfo = style.surround({
 		{
 			provider = function()
-				local filetype = vim.bo.filetype
+				local ai_icons = utils.ai_icons()
+				local reg = utils.recording_label("  ")
 
-				local ai = utils.ai_assist_state()
-
-				if not filetype or filetype == "" then
-					filetype = "no ft"
-				end
-
-				local ai_icons = (ai.copilot and " " or "") .. (ai.supermaven and " " or "")
-				if ai_icons == "" then
-					ai_icons = ""
-				end
-
-				local reg = vim.fn.reg_recording() or ""
-
-				if reg ~= "" then
-					reg = string.format("  %s  ", reg)
-				end
-
-				return string.format(" %s%s %s  %s", reg, utils.filetype_icon(0), filetype, ai_icons)
+				return string.format(" %s%s %s  %s", reg, utils.filetype_icon(0), utils.filetype_label(), ai_icons)
 			end,
 		},
 		{
 			provider = "",
-			hl = { bg = utils.colors.pillBg, fg = utils.colors.accent },
+			hl = { bg = colors.pillBg, fg = colors.accent },
 		},
-	}, "", "", utils.colors.pillBg, utils.colors.accent)
+	}, "", "", colors.pillBg, colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
 
-	local LspInfo = utils.slanted(utils.colors.accent, {
+	local LspInfo = style.slanted(colors.accent, {
 		{
 			provider = utils.lsp_provider,
 		},
 		{
 			provider = "",
-			hl = { bg = utils.colors.accent, fg = utils.colors.pillBg },
+			hl = { bg = colors.accent, fg = colors.pillBg },
 		},
 	}, 0, 1, false, true)
 
 	LspInfo.update = { "LspAttach", "LspDetach" }
 
-	local FilePosition = utils.surround({
+	local FilePosition = style.surround({
 		provider = function()
-			local encoding = vim.bo.fileencoding
-
-			if not encoding or encoding == "" then
-				encoding = "utf-8"
-			end
-
-			return string.format(
-				" %s %s  %s:%s ",
-				utils.file_formats[vim.bo.fileformat] or "",
-				encoding,
-				vim.fn.line("."),
-				vim.fn.col(".")
-			)
+			return utils.file_position_provider("  ")
 		end,
-	}, "", "", utils.colors.accent)
+	}, "", "", colors.accent)
 
 	return {
-		hl = { bg = utils.colors.statusBg },
+		hl = { bg = colors.statusBg },
 
 		ViMode,
 		Git,

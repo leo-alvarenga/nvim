@@ -1,10 +1,11 @@
 return function()
-	local utils = require("plugins.ui.heirline.utils")
-	local colors = utils.colors
+	local utils = require("plugins.ui.heirline.shared.providers")
+	local style = require("plugins.ui.heirline.shared.style")
+	local colors = require("plugins.ui.heirline.shared.constants").colors
 
 	-- Mode Chip (tmux session chip): flush mode block, closing wedge.
 	-- Mirrors classic.conf status-left: "#S" on accent at the bar edge.
-	local ViMode = utils.surround(
+	local ViMode = style.surround(
 		{
 			provider = function()
 				return string.format(" %s ", utils.vi_mode_provider())
@@ -13,17 +14,14 @@ return function()
 		},
 		"",
 		"",
-		function()
-			local mode = vim.fn.mode():sub(1, 1)
-			return utils.mode_colors[mode] or colors.info
-		end
+		utils.mode_color
 	)
-	local Git = utils.surround({
+
+	local Git = style.surround({
 		{
 			provider = " ",
 			hl = function()
-				local mode = vim.fn.mode():sub(1, 1)
-				return { bg = colors.pillBg, fg = utils.mode_colors[mode] or colors.info }
+				return { bg = colors.pillBg, fg = utils.mode_color() }
 			end,
 		},
 		{
@@ -35,46 +33,15 @@ return function()
 		},
 	}, "", "", colors.pillBg, colors.error, 0, 1)
 
-	local DiagError = {
-		condition = function()
-			return utils.get_diag_count("Error") > 0
-		end,
-		provider = function()
-			return string.format("  %s %s ", "", utils.get_diag_count("Error"))
-		end,
-		hl = { fg = colors.error },
-	}
-
-	local DiagWarn = {
-		condition = function()
-			return utils.get_diag_count("Warn") > 0
-		end,
-		provider = function()
-			return string.format("  %s %s ", "", utils.get_diag_count("Warn"))
-		end,
-		hl = { fg = colors.warn },
-	}
-
-	local DiagInfo = {
-		condition = function()
-			return utils.get_diag_count("Info") > 0
-		end,
-		provider = function()
-			return string.format("  %s %s ", "", utils.get_diag_count("Info"))
-		end,
-		hl = { fg = colors.info },
-	}
-
 	local Diagnostics = {
-		DiagError,
-		DiagWarn,
-		DiagInfo,
+		utils.diag_component("Error", true),
+		utils.diag_component("Warn", true),
+		utils.diag_component("Info", true),
 	}
 
-	Diagnostics.condition = function()
-		return utils.get_diag_count("Error") > 0 or utils.get_diag_count("Warn") > 0 or utils.get_diag_count("Info") > 0
-	end
+	Diagnostics.condition = utils.diagnostics_condition
 	Diagnostics.update = { "DiagnosticChanged", "BufEnter" }
+
 	local FileName = {
 		provider = function()
 			return " " .. utils.file_name_provider() .. " "
@@ -82,7 +49,7 @@ return function()
 		hl = { fg = colors.text },
 	}
 
-	local LspInfo = utils.surround({
+	local LspInfo = style.surround({
 		{
 			provider = utils.lsp_provider,
 		},
@@ -97,29 +64,19 @@ return function()
 	-- FileInfo Component (filetype/copilot pill): pillBg shell with accent
 	-- text, closing wedge into the accent position block (same colors as
 	-- the other layouts).
-	local FileInfo = utils.surround({
+	local FileInfo = style.surround({
 		{
 			provider = function()
-				local filetype = vim.bo.filetype
-
 				local ai = utils.ai_assist_state()
+				local reg = utils.recording_label("  ")
 
-				if not filetype or filetype == "" then
-					filetype = "no ft"
-				end
-
-				local reg = vim.fn.reg_recording() or ""
-
+				local filetype = utils.filetype_label()
 				local ai_assist = ""
 				if ai.copilot then
 					ai_assist = "  "
 				end
 				if ai.supermaven then
 					ai_assist = ai_assist .. "  "
-				end
-
-				if reg ~= "" then
-					reg = string.format("  %s  ", reg)
 				end
 
 				return string.format(" %s%s %s%s", reg, utils.filetype_icon(0), filetype, ai_assist)
@@ -135,21 +92,9 @@ return function()
 
 	-- File Position Component (position pill): accent block with dark text,
 	-- flush after FileInfo's closing wedge (accent, same as the other layouts).
-	local FilePosition = utils.surround({
+	local FilePosition = style.surround({
 		provider = function()
-			local encoding = vim.bo.fileencoding
-
-			if not encoding or encoding == "" then
-				encoding = "utf-8"
-			end
-
-			return string.format(
-				" %s %s  %s:%s ",
-				utils.file_formats[vim.bo.fileformat] or "",
-				encoding,
-				vim.fn.line("."),
-				vim.fn.col(".")
-			)
+			return utils.file_position_provider("  ")
 		end,
 	}, "", "", colors.accent)
 

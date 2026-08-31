@@ -1,7 +1,9 @@
 return function()
-	local utils = require("plugins.ui.heirline.utils")
+	local utils = require("plugins.ui.heirline.shared.providers")
+	local style = require("plugins.ui.heirline.shared.style")
+	local colors = require("plugins.ui.heirline.shared.constants").colors
 
-	local TablineTabActive = utils.pill(utils.colors.accent, {
+	local TablineTabActive = style.pill(colors.accent, {
 		provider = function(self)
 			return tostring(self.tabnr)
 		end,
@@ -21,28 +23,24 @@ return function()
 				return string.format(" %s ", self.tabnr)
 			end,
 			hl = {
-				fg = utils.colors.muted,
+				fg = colors.muted,
 			},
 		},
 
 		TablineTabActive,
 	}
 
-	local TablineFile = utils.pill(function(self)
+	local TablineFile = style.pill(function(self)
 		if self.is_active or self.is_visible then
-			return utils.colors.accent
+			return colors.accent
 		end
 
-		return utils.colors.inactiveBg
+		return colors.inactiveBg
 	end, {
 		provider = function(self)
-			local icon = utils.filetype_icon(self.bufnr)
+			local icon, filename = utils.buffer_label(self.bufnr)
 
-			local filename = vim.api.nvim_buf_get_name(self.bufnr)
-			filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
-
-			local modified = vim.fn.getbufinfo(self.bufnr)[1].changed == 1
-			local modified_icon = modified and " ●" or ""
+			local modified_icon = utils.buffer_modified(self.bufnr) and " ●" or ""
 
 			return string.format("%s %s%s", icon, filename, modified_icon)
 		end,
@@ -51,19 +49,11 @@ return function()
 		end,
 	})
 
-	--- @param provider function|string
-	local get_trunc = function(provider)
-		return {
-			provider = provider,
-			hl = { fg = utils.colors.accent },
-		}
-	end
-
 	local Divider = { provider = " " }
 
 	--- @diagnostic disable-next-line
-	local TabList = utils.pill(function(self)
-		return utils.colors.inactiveBg
+	local TabList = style.pill(function(self)
+		return colors.inactiveBg
 	end, {
 		--- @diagnostic disable-next-line
 		require("heirline.utils").make_tablist({ TablineTab }),
@@ -77,7 +67,7 @@ return function()
 	local BufferList = require("heirline.utils").make_buflist({
 		TablineFile,
 		Divider,
-	}, get_trunc(" "), get_trunc(" "))
+	}, style.trunc(" "), style.trunc(" "))
 
 	return {
 		BufferList,

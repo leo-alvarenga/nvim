@@ -4,7 +4,7 @@ M.theme = "kanagawa"
 M.border = "rounded"
 
 -- Statusline/Tabline style: "classic" (chevrons) | "powerline" (slanted) | "bubble" (rounded pills)
-M.bar_style = "bubble"
+M.bar_style = "classic"
 
 M.logo = {
 	"│ ╲ ││",

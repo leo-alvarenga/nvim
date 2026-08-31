@@ -1,33 +1,24 @@
 return function()
-	local utils = require("plugins.ui.heirline.utils")
-
-	--- @param provider function|string
-	local get_trunc = function(provider)
-		return {
-			provider = provider,
-			hl = { fg = utils.colors.accent },
-		}
-	end
+	local utils = require("plugins.ui.heirline.shared.providers")
+	local style = require("plugins.ui.heirline.shared.style")
+	local colors = require("plugins.ui.heirline.shared.constants").colors
 
 	local Divider = { provider = " " }
 
 	-- LeftDecorator (tmux session chip): flush accent block, closing wedge.
-	local LeftDecorator = utils.surround({ provider = "  " }, "", "", utils.colors.accent)
+	local LeftDecorator = style.surround({ provider = "  " }, "", "", colors.accent)
 
 	-- Buffer/File entry: accent block when active, muted block otherwise.
 	-- Mirrors classic.conf window-status-current-format / window-status-format:
 	-- dark notch, " icon  (U+E0B1)  name " content, closing wedge.
 	-- The modified dot  is the analog of the tmux zoomed flag: active only.
-	local TablineFile = utils.surround(
+	local TablineFile = style.surround(
 		{
 			provider = function(self)
-				local icon = utils.filetype_icon(self.bufnr)
-
-				local filename = vim.api.nvim_buf_get_name(self.bufnr)
-				filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
+				local icon, filename = utils.buffer_label(self.bufnr)
 
 				local modified = ""
-				if self.is_active and vim.fn.getbufinfo(self.bufnr)[1].changed == 1 then
+				if self.is_active and utils.buffer_modified(self.bufnr) then
 					modified = " ●"
 				end
 
@@ -41,13 +32,14 @@ return function()
 		"",
 		function(self)
 			if self.is_active or self.is_visible then
-				return utils.colors.accent
+				return colors.accent
 			end
 
-			return utils.colors.inactiveBg
+			return colors.inactiveBg
 		end
 	)
-	local TablineTab = utils.surround(
+
+	local TablineTab = style.surround(
 		{
 			provider = function(self)
 				return string.format(" %s ", self.tabnr)
@@ -58,10 +50,10 @@ return function()
 		"",
 		function(self)
 			if self.is_active or self.is_visible then
-				return utils.colors.accent
+				return colors.accent
 			end
 
-			return utils.colors.inactiveBg
+			return colors.inactiveBg
 		end
 	)
 
@@ -76,10 +68,10 @@ return function()
 	local BufferList = require("heirline.utils").make_buflist({
 		TablineFile,
 		Divider,
-	}, get_trunc(" "), get_trunc(" "))
+	}, style.trunc(" "), style.trunc(" "))
 
 	return {
-		hl = { bg = utils.colors.tablineBg },
+		hl = { bg = colors.tablineBg },
 
 		LeftDecorator,
 		BufferList,
