@@ -55,12 +55,10 @@ return {
 					local groups = {
 						-- The actual menu (using the lighter 'Wave' background)
 						BlinkCmpMenu = { fg = colors.text, bg = colors.menuBg },
-						BlinkCmpMenuBorder = { fg = colors.info, bg = colors.menuBg }, -- Seamless border
+						BlinkCmpMenuBorder = { fg = colors.info, bg = colors.menuBg },
 
-						-- The selection (what you're currently highlighting)
 						BlinkCmpMenuSelection = { fg = colors.menuBg, bg = colors.selection, bold = true },
 
-						-- Documentation window
 						BlinkCmpDoc = { fg = colors.text, bg = colors.menuBg },
 						BlinkCmpDocBorder = { fg = colors.menuBg, bg = colors.menuBg },
 

@@ -75,7 +75,6 @@ return {
 			local map = _keymap.map
 			local with_prefix = _keymap.with_prefix
 
-			-- Close current Buffer
 			map(
 				"",
 				with_prefix("q", "buffers"),

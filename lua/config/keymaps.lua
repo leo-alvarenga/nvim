@@ -6,15 +6,10 @@ local with_prefix = _keymap.with_prefix
 local to_cmd = _keymap.to_cmd
 
 local M = {}
--------------------------------------------------
 
----------------------
--- Buffer management
 function M.buffer_management()
-	-- Open new Buffer
 	map("", with_prefix("n", "buffers"), to_cmd("enew"), _shared.descriptions.buffers.new)
 end
----------------------
 
 function M.tab_management()
 	map("", with_prefix("", "tabs"), "", _shared.descriptions.tabs)
@@ -26,20 +21,15 @@ function M.tab_management()
 	map("", with_prefix("o", "tabs"), to_cmd("tabonly"), _shared.descriptions.tab.only)
 end
 
--- Basic and Helix related keymappings
 function M.setup_basics()
 	map("", with_prefix("", "general"), "", _shared.descriptions.general)
 
-	---------------------
-	--  Undo/Redo
 	map("", "u", to_cmd("undo"), "Undo")
 	map("", "U", to_cmd("redo"), "Redo")
-	---------------------
 
 	M.buffer_management()
 	M.tab_management()
 
-	---------------------
 	-- Motions inspired by Helix :D
 	-- Ensuring selection is kept after indentation
 	map("x", "<", "<gv")
@@ -53,9 +43,7 @@ function M.setup_basics()
 
 	-- Going to end of the file with 'ge'
 	map("", "ge", "G")
-	---------------------
 
-	---------------------
 	-- Helix-like selection
 	-- Whole line selection (downwards) with 'x'
 	map("n", "x", "0v$j")
@@ -64,7 +52,6 @@ function M.setup_basics()
 	-- Whole line selection (upwards) with 'x'
 	map("n", "X", "0v$k")
 	map("x", "X", "0$k")
-	---------------------
 
 	map("n", "K", vim.lsp.buf.hover, _shared.descriptions.lsp.hover)
 	map({ "n", "x" }, "<C-k>", vim.lsp.buf.hover, _shared.descriptions.lsp.hover)
@@ -72,10 +59,7 @@ function M.setup_basics()
 	map("n", "J", vim.lsp.buf.signature_help, _shared.descriptions.lsp.signature_help)
 	map({ "n", "x" }, "<C-j>", vim.lsp.buf.signature_help, _shared.descriptions.lsp.signature_help)
 end
--------------------------------------------------
 
--------------------------------------------------
--- Main setup
 function M.setup_keymaps()
 	M.setup_basics()
 
@@ -83,6 +67,5 @@ function M.setup_keymaps()
 	map("", with_prefix("r", "actions"), to_cmd("restart"), _shared.descriptions.restart)
 	map("", with_prefix("q", "actions"), to_cmd("q"), _shared.descriptions.restart)
 end
--------------------------------------------------
 
 return M

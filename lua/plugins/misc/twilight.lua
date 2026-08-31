@@ -18,7 +18,6 @@ end
 
 --- @type PluginSpec
 return {
-	-- Toggleable block highlights for enhanced readability
 	src = "gh:folke/twilight.nvim",
 	data = {
 		config = function()

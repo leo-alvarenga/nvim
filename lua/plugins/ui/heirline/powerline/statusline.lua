@@ -1,12 +1,6 @@
 return function()
 	local utils = require("plugins.ui.heirline.utils")
 
-	----------------------------------------------------------------
-	-- COMPONENTS
-	----------------------------------------------------------------
-
-	-----------------------------------
-	-- Mode Component
 	local ViMode = utils.surround(
 		{
 			provider = function()
@@ -32,10 +26,6 @@ return function()
 			return utils.mode_colors[mode] or utils.colors.info
 		end
 	)
-	-----------------------------------
-
-	-----------------------------------
-	-- Git Branch Component
 	local Git = utils.surround({
 		{
 			provider = " ",
@@ -54,11 +44,6 @@ return function()
 		},
 	}, "", "", utils.colors.pillBg, utils.colors.error, 0, 1)
 
-	-----------------------------------
-
-	-----------------------------------
-	-- Diagnostics Component
-	-- Individual Diagnostic Levels
 	local DiagError = {
 		condition = function()
 			return utils.get_diag_count("Error") > 0
@@ -116,18 +101,10 @@ return function()
 		return utils.get_diag_count("Error") > 0 or utils.get_diag_count("Warn") > 0 or utils.get_diag_count("Info") > 0
 	end
 	Diagnostics.update = { "DiagnosticChanged", "BufEnter" }
-	-----------------------------------
-
-	-----------------------------------
-	-- File name Component
 	local FileName = {
 		hl = { fg = utils.colors.text },
 		provider = utils.file_name_provider,
 	}
-	-----------------------------------
-
-	-----------------------------------
-	-- FileInfo Component
 	local FileInfo = utils.surround({
 		{
 			provider = function()
@@ -156,10 +133,6 @@ return function()
 	}, "", "", utils.colors.pillBg, utils.colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
-	-----------------------------------
-
-	-----------------------------------
-	-- File Position Component
 	local FilePosition = utils.surround({
 		provider = function()
 			local encoding = vim.bo.fileencoding
@@ -177,8 +150,6 @@ return function()
 			)
 		end,
 	}, "", "", utils.colors.accent)
-	-----------------------------------
-
 	return {
 		hl = { bg = utils.colors.statusBg },
 

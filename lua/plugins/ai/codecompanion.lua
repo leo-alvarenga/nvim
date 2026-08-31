@@ -27,7 +27,6 @@ return {
 							},
 						},
 						opts = {
-							-- Enable background interactions generally
 							enabled = true,
 						},
 					},
@@ -50,7 +49,6 @@ return {
 
 			local to_cmd = _keymap.to_cmd
 
-			-- Code Companion
 			map("", with_prefix("", "ai"), "", _shared.descriptions.ai)
 
 			map(

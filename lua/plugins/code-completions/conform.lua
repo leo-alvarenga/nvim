@@ -3,7 +3,6 @@ local _shared = require("values.constants.shared")
 
 M.format_on_save = require("values.workflow").format_on_save
 
---- Formats the current buffer using Conform
 --- @param args table: Arguments to pass to Conform's format function
 --- @param silent boolean: Whether to suppress notifications (default: false)
 function M.format_current(args, silent)
@@ -14,7 +13,6 @@ function M.format_current(args, silent)
 	require("conform").format(args or { bufnr = vim.api.nvim_get_current_buf() })
 end
 
---- Toggles the format on save feature and notifies the user of the new status
 function M.toggle_format_on_save()
 	M.format_on_save = not M.format_on_save
 
@@ -27,7 +25,6 @@ function M.toggle_format_on_save()
 	vim.notify(_shared.notifications.format[status], vim.log.levels.INFO)
 end
 
---- Checks if format on save is enabled and formats the current buffer if it is
 --- @param args table: Arguments to pass to Conform's format function
 function M.format_if_enabled(args)
 	if not M.format_on_save then
@@ -37,7 +34,6 @@ function M.format_if_enabled(args)
 	M.format_current(args, true)
 end
 
---- Sets up an autocmd to format the buffer before saving if format on save is enabled
 function M.setup_autocmd()
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
