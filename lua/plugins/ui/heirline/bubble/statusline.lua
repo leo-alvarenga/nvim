@@ -128,6 +128,24 @@ return function()
 	}, nil, "", utils.colors.pillBg, utils.colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
+
+	local LspInfo = utils.pill(utils.colors.pillBg, {
+		{
+			provider = function()
+				local s = utils.lsp_status()
+				local text = utils.lsp_icon(s.primary) .. " " .. s.primary
+				if s.extra > 0 then
+					text = text .. string.format(" (and %d more)", s.extra)
+				end
+				return " " .. text .. " "
+			end,
+		},
+	}, 0, 1)
+
+	LspInfo.condition = function()
+		return utils.lsp_status() ~= nil
+	end
+	LspInfo.update = { "LspAttach", "LspDetach" }
 	local FilePosition = utils.surround({
 		provider = function()
 			local encoding = vim.bo.fileencoding
@@ -156,6 +174,7 @@ return function()
 		{ provider = "%=" },
 
 		FileInfo,
+		LspInfo,
 		FilePosition,
 	}
 end

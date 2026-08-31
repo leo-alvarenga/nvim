@@ -119,6 +119,28 @@ return function()
 	}, "", "", colors.pillBg, colors.accent)
 
 	FileInfo.update = { "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave" }
+
+	local LspInfo = utils.surround({
+		{
+			provider = function()
+				local s = utils.lsp_status()
+				local text = utils.lsp_icon(s.primary) .. " " .. s.primary
+				if s.extra > 0 then
+					text = text .. string.format(" (and %d more)", s.extra)
+				end
+				return " " .. text .. " "
+			end,
+		},
+		{
+			provider = " ",
+			hl = { bg = colors.pillBg, fg = colors.accent },
+		},
+	}, "", "", colors.pillBg, colors.accent)
+
+	LspInfo.condition = function()
+		return utils.lsp_status() ~= nil
+	end
+	LspInfo.update = { "LspAttach", "LspDetach" }
 	-- File Position Component (position pill): accent block with dark text,
 	-- flush after FileInfo's closing wedge (accent, same as the other layouts).
 	local FilePosition = utils.surround({
@@ -149,6 +171,7 @@ return function()
 		{ provider = "%=" },
 
 		FileInfo,
+		LspInfo,
 		FilePosition,
 	}
 end

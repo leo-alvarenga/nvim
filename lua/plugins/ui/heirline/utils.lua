@@ -264,4 +264,61 @@ function M.ai_assist_state()
 	return { copilot = copilot_enabled() or lsp_copilot, supermaven = supermaven_active() }
 end
 
+local ft_servers = {
+	lua = "lua_ls",
+	python = "pyright",
+	["typescript"] = "tsserver",
+	["javascript"] = "tsserver",
+	rust = "rust-analyzer",
+	go = "gopls",
+	c = "clangd",
+	cpp = "clangd",
+	sh = "bashls",
+	json = "jsonls",
+	yaml = "yamlls",
+	markdown = "marksman",
+}
+
+local lsp_icons = {
+	lua_ls = "",
+	tsserver = "",
+	vtsls = "",
+	pyright = "",
+	["rust-analyzer"] = "",
+	gopls = "",
+	clangd = "",
+	bashls = "",
+	jsonls = "",
+	yamlls = "",
+	marksman = "",
+}
+
+--- @return table|nil { primary = string, extra = integer }
+function M.lsp_status()
+	local names = {}
+	for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
+		if client.name and client.name:lower() ~= "copilot" then
+			table.insert(names, client.name)
+		end
+	end
+	if #names == 0 then
+		return nil
+	end
+	table.sort(names)
+
+	local primary, preferred = names[1], ft_servers[vim.bo.filetype]
+	for _, name in ipairs(names) do
+		if name == preferred then
+			primary = name
+			break
+		end
+	end
+
+	return { primary = primary, extra = #names - 1 }
+end
+
+function M.lsp_icon(name)
+	return lsp_icons[name] or ""
+end
+
 return M
