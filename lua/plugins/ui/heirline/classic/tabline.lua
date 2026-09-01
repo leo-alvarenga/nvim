@@ -1,12 +1,14 @@
 return function()
 	local utils = require("plugins.ui.heirline.shared.providers")
 	local style = require("plugins.ui.heirline.shared.style")
-	local colors = require("plugins.ui.heirline.shared.constants").colors
+	local consts = require("plugins.ui.heirline.shared.constants")
+
+	local colors = consts.colors
 
 	local Divider = { provider = " " }
 
 	-- LeftDecorator (tmux session chip): flush accent block, closing wedge.
-	local LeftDecorator = style.surround({ provider = "  " }, "", "", colors.accent)
+	local LeftDecorator = style.surround({ provider = "  " }, "", "", consts.mode_colors.n)
 
 	-- Buffer/File entry: accent block when active, muted block otherwise.
 	-- Mirrors classic.conf window-status-current-format / window-status-format:

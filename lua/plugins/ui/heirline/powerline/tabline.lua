@@ -1,7 +1,9 @@
 return function()
 	local utils = require("plugins.ui.heirline.shared.providers")
 	local style = require("plugins.ui.heirline.shared.style")
-	local colors = require("plugins.ui.heirline.shared.constants").colors
+	local consts = require("plugins.ui.heirline.shared.constants")
+
+	local colors = consts.colors
 
 	local TablineTabActive = style.slanted(colors.accent, {
 		provider = function(self)
@@ -69,7 +71,7 @@ return function()
 		Divider,
 	}, style.trunc(" "), style.trunc(" "))
 
-	local LeftDecorator = style.slanted(colors.accent, {
+	local LeftDecorator = style.slanted(consts.mode_colors.n, {
 		provider = "  ",
 	}, 0, 0, true)
 

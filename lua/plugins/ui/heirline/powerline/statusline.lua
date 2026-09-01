@@ -3,26 +3,21 @@ return function()
 	local style = require("plugins.ui.heirline.shared.style")
 	local colors = require("plugins.ui.heirline.shared.constants").colors
 
-	local ViMode = style.surround(
-		{
-			provider = function()
-				return string.format(" %s ", utils.vi_mode_provider())
-			end,
+	local ViMode = style.surround({
+		provider = function()
+			return string.format(" %s ", utils.vi_mode_provider())
+		end,
 
-			hl = function()
-				return {
-					bg = utils.mode_color(),
-					fg = colors.pillText,
-					bold = true,
-				}
-			end,
+		hl = function()
+			return {
+				bg = utils.mode_color(),
+				fg = colors.pillText,
+				bold = true,
+			}
+		end,
 
-			update = { "ModeChanged" },
-		},
-		"",
-		"",
-		utils.mode_color
-	)
+		update = { "ModeChanged" },
+	}, "", "", utils.mode_color)
 
 	local Git = style.surround({
 		{
