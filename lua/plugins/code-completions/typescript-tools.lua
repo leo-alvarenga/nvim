@@ -4,7 +4,7 @@ return {
 	src = "gh:pmizio/typescript-tools.nvim",
 	data = {
 		config = function()
-			require("typescript-tools").setup({})
+			-- typescript-tools requires tsserver.js, removed in TypeScript 7
 		end,
 	},
 }

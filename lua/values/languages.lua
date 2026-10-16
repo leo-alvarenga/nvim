@@ -61,6 +61,7 @@ M.lsps = {
 	"html",
 	"svelte",
 	"eslint",
+	"ts_ls",
 	"tailwindcss",
 	"nil_ls",
 }

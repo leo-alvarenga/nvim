@@ -40,8 +40,7 @@ return {
 						telemetry = { enable = false },
 					},
 				},
-				tsserver = ts_specific_settings,
-				tsgo = ts_specific_settings,
+			ts_ls = ts_specific_settings,
 			}
 
 			local function on_attach(_, bufnr)
